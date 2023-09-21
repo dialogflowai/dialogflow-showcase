@@ -1,3 +1,11 @@
+<script setup>
+const download = () => {
+    location.href = 'https://github.com/dialogflowchatbot/dialogflow/releases'
+}
+const tutorial = () => {
+    location.href = 'https://dialogflowchatbot.github.io/#/tutorial'
+}
+</script>
 <style scoped>
 #header {
     background-image: url(../assets/flow.png), url(../assets/header_bg.jpg);
@@ -15,8 +23,18 @@
     font-size: 70px;
 }
 
-#header button {
+#header .download {
     background-color: gold;
+    border-radius: 10px;
+    border: 3px #000 solid;
+    font-size: 30px;
+    padding: 12px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#header .tutorial {
+    background-color: aliceblue;
     border-radius: 10px;
     border: 3px #000 solid;
     font-size: 30px;
@@ -39,10 +57,11 @@
             Dialog Flow Visual Editor and Responsing System
         </p>
         <p>
-            Low code dialog flow responsing system
+            Just in ONE file
         </p>
         <p>
-            <button>Download, It's totally free.</button>
+            <button class="download" @click="download">Download, It's totally free.</button>
+            <button class="tutorial" @click="tutorial">Tutorial</button>
         </p>
     </div>
     <p class="title">Screenshots</p>
