@@ -49,6 +49,14 @@ const tutorial = () => {
     margin-top: 30px;
     margin-bottom: 10px;
 }
+
+.sub-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: gray;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 </style>
 <template>
     <div id="header">
@@ -64,18 +72,35 @@ const tutorial = () => {
             <button class="tutorial" @click="tutorial">Tutorial</button>
         </p>
     </div>
-    <p class="title">Screenshots</p>
+    <p class="title">&gt;&gt;&gt;&gt;&gt;Screenshots&lt;&lt;&lt;&lt;&lt;</p>
     <div style="text-align: center;">
+        <p class="sub-title">Working space</p>
         <p>
-            <img src="../assets/demo.png" width="90%" /><br />
-            Visual flow editor
+            <img src="../assets/work-space.png" width="90%" />
         </p>
         <p>
-            <img src="../assets/testing.png" /><br />
-            Test dialog flow
+            <hr />
+        </p>
+        <p class="sub-title">Main flow list page</p>
+        <p>
+            <img src="../assets/main-flow.png" width="90%" />
+        </p>
+        <p>
+            <hr />
+        </p>
+        <p class="sub-title">Visual flow editor</p>
+        <p>
+            <img src="../assets/canvas.png" width="90%" />
+        </p>
+        <p>
+            <hr />
+        </p>
+        <p class="sub-title">Testing dialog flow tool</p>
+        <p>
+            <img src="../assets/testing.png" />
         </p>
     </div>
-    <div>
+    <!-- <div>
         <table style="width: 100%;" align="center">
             <tr>
                 <td style="33.33%">Screenshots</td>
@@ -83,5 +108,5 @@ const tutorial = () => {
                 <td style="33.33%">Introduction</td>
             </tr>
         </table>
-    </div>
+    </div> -->
 </template>
