@@ -175,7 +175,7 @@ const checkUpdate = async () => {
                 </el-icon> Docs
             </button>
         </div>
-        <div style="font-size: 16px;">{{ currentVersion }}</div>
+        <div style="font-size: 16px;">The latest version: {{ currentVersion }}</div>
     </div>
     <NodesIntro />
     <HowToUse />
