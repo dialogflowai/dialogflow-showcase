@@ -6,7 +6,7 @@ export function httpReq(method, uri, query, form, body) {
             'Content-Type': 'application/json'
         },
     };
-    let url = import.meta.env.VITE_REQ_BACKEND_PREFIX + uri;//window.location.host
+    let url = uri;//window.location.host
     if (query) {
         const searchParams = new URLSearchParams(query);
         url += '?' + searchParams.toString();
