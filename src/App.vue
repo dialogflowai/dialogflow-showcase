@@ -1,8 +1,11 @@
 <script setup>
-import Home from './components/Home.vue'
+// import { isOnGithub } from './assets/tools.js'
+import Trace from './components/Trace.vue'
 </script>
 
 <template>
-    <Home />
+  <router-view></router-view>
+  <!-- <template v-if="isOnGithub()"> -->
+    <Trace />
+  <!-- </template> -->
 </template>
-
