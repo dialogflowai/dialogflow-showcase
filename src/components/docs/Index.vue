@@ -61,11 +61,11 @@ const handleSelect = (key, keyPath) => {
             <span class="text-large font-600 mr-3"> Dialog flow chat bot tool usage documents </span>
         </template>
     </el-page-header>
-    <p></p>
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="1">Processing Center</el-menu-item>
+    <br />
+    <el-menu default-active="1" mode="horizontal" @select="handleSelect">
+        <el-menu-item index="1">Integrate guide</el-menu-item>
         <el-sub-menu index="2">
-            <template #title>Workspace</template>
+            <template #title>Canvas</template>
             <el-menu-item index="2-1">item one</el-menu-item>
             <el-menu-item index="2-2">item two</el-menu-item>
             <el-menu-item index="2-3">item three</el-menu-item>
@@ -76,8 +76,8 @@ const handleSelect = (key, keyPath) => {
                 <el-menu-item index="2-4-3">item three</el-menu-item>
             </el-sub-menu>
         </el-sub-menu>
+        <el-menu-item index="4">Variable</el-menu-item>
         <el-menu-item index="3" disabled>Info</el-menu-item>
-        <el-menu-item index="4">Orders</el-menu-item>
     </el-menu>
     <keep-alive>
         <component :is="docs[currentDoc]"></component>
