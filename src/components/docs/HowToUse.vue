@@ -27,18 +27,25 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'</script>
   <el-timeline>
     <el-timeline-item timestamp="#1" placement="top">
       <el-card>
-        <div class="title">Click the "Get started" button on the homepage</div>
+        <div class="title">Download prebuild files</div>
         <p>
-          <img src="../../assets/step1.png" />
+          Release page: <a href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>
         </p>
         <div class="description">
-          To enter the "Guide" page
+          Alternatively, you can download source code and build by yourself
+          <ul>
+            <li>Frontend: <a href="https://github.com/dialogflowchatbot/dialogflow-frontend">https://github.com/dialogflowchatbot/dialogflow-frontend</a></li>
+            <li>Backend: <a href="https://github.com/dialogflowchatbot/dialogflow-backend">https://github.com/dialogflowchatbot/dialogflow-backend</a></li>
+          </ul>
         </div>
       </el-card>
     </el-timeline-item>
     <el-timeline-item timestamp="#2" placement="top">
       <el-card>
-        <div class="title">On the "Guide" page, click on the button in the image below to go to the main flows management page.</div>
+        <div class="title">
+          Run the program and use a browser to open the access address output by the program<br />
+          On the "Guide" page, click on the button in the image below to go to the main flows management page.
+        </div>
         <p>
           <img src="../../assets/step2.png" />
         </p>
