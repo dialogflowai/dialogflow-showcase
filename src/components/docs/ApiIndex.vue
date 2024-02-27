@@ -1,10 +1,12 @@
 <script setup>
 import { ref } from 'vue'
+import ApiOverall from './ApiOverall.vue';
 import ApiJavaScript from './ApiJavaScript.vue';
 import ApiPython from './ApiPython.vue';
 import ApiJava from './ApiJava.vue';
 const currentDoc = ref('ApiJavaScript')
 const docs = {
+    ApiOverall,
     ApiJavaScript,
     ApiPython,
     ApiJava,
