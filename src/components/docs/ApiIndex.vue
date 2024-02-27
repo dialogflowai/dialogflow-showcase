@@ -11,17 +11,23 @@ const docs = {
     ApiPython,
     ApiJava,
 }
-
 </script>
+<style scoped>
+.item {
+    cursor: pointer;
+    padding: 6px;
+    margin-bottom: 5px;
+}
+</style>
 <template>
     <el-row>
-        <el-col :span="5">
+        <el-col :span="3">
             <div class="item" @click="currentDoc = 'ApiOverall'">Overall</div>
             <div class="item" @click="currentDoc = 'ApiJavaScript'">JavaScript</div>
             <div class="item" @click="currentDoc = 'ApiPython'">Python</div>
             <div class="item" @click="currentDoc = 'ApiJava'">Java</div>
         </el-col>
-        <el-col :span="19" style="padding-left: 6px;">
+        <el-col :span="21" style="padding-left: 6px;">
             <keep-alive>
                 <component :is="docs[currentDoc]"></component>
             </keep-alive>
