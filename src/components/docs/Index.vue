@@ -65,19 +65,21 @@ const handleSelect = (key, keyPath) => {
     <el-menu default-active="1" mode="horizontal" @select="handleSelect">
         <el-menu-item index="1">Integrate guide</el-menu-item>
         <el-sub-menu index="2">
-            <template #title>Canvas</template>
-            <el-menu-item index="2-1">item one</el-menu-item>
-            <el-menu-item index="2-2">item two</el-menu-item>
-            <el-menu-item index="2-3">item three</el-menu-item>
-            <el-sub-menu index="2-4">
+            <template #title>Dialog flow</template>
+            <el-menu-item index="2-1">Main flow</el-menu-item>
+            <el-menu-item index="2-2">Sub flow</el-menu-item>
+            <el-menu-item index="2-3">Nodes</el-menu-item>
+            <!-- <el-sub-menu index="2-4">
                 <template #title>item four</template>
                 <el-menu-item index="2-4-1">item one</el-menu-item>
                 <el-menu-item index="2-4-2">item two</el-menu-item>
                 <el-menu-item index="2-4-3">item three</el-menu-item>
-            </el-sub-menu>
+            </el-sub-menu> -->
         </el-sub-menu>
+        <el-menu-item index="3">Intent</el-menu-item>
         <el-menu-item index="4">Variable</el-menu-item>
-        <el-menu-item index="3" disabled>Info</el-menu-item>
+        <el-menu-item index="5">External HTTP API</el-menu-item>
+        <el-menu-item index="6">Settings</el-menu-item>
     </el-menu>
     <keep-alive>
         <component :is="docs[currentDoc]"></component>

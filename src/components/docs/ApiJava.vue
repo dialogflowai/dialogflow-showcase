@@ -20,12 +20,8 @@ public class HttpClientExample {
         String userInputResult = "Successful || Timeout";
         String userInput = "hello";
         ImportVariable[] importVariables = {
-                new ImportVariable("varName", "var1"),
-                new ImportVariable("varType", "String"),
-                new ImportVariable("varValue", "abc"),
-                new ImportVariable("varName", "var2"),
-                new ImportVariable("varType", "Number"),
-                new ImportVariable("varValue", "123")
+                new ImportVariable("var1", "String", "abc"),
+                new ImportVariable("var2", "Number", "123")
         };
         String userInputIntent = "IntentName";
 
@@ -87,12 +83,14 @@ public class HttpClientExample {
 }
 
 class ImportVariable {
-    private String name;
-    private String value;
+    private String varName;
+    private String varType;
+    private String varValue;
 
-    public ImportVariable(String name, String value) {
-        this.name = name;
-        this.value = value;
+    public ImportVariable(String name, String type, String value) {
+        this.varName = name;
+        this.varType = type;
+        this.varValue = value;
     }
 
     // Getters and setters (optional)

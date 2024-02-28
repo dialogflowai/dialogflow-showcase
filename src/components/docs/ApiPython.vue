@@ -14,7 +14,7 @@ user_input_result = "Successful || Timeout"
 user_input = "hello"
 import_variables = [
     {"varName": "var1", "varType": "String", "varValue": "abc"},
-    {"varName": "var2", "varType": "Number", "varValue": 123}
+    {"varName": "var2", "varType": "Number", "varValue": "123"}
 ]
 user_intent = "IntentName"
 
