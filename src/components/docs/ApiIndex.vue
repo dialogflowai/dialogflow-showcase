@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from 'vue'
-import ApiOverall from './ApiOverall.vue';
+import ApiOverview from './ApiOverview.vue';
 import ApiJavaScript from './ApiJavaScript.vue';
 import ApiPython from './ApiPython.vue';
 import ApiJava from './ApiJava.vue';
-const currentDoc = ref('ApiOverall')
+const currentDoc = ref('ApiOverview')
 const docs = {
-    ApiOverall,
+    ApiOverview,
     ApiJavaScript,
     ApiPython,
     ApiJava,
@@ -42,7 +42,7 @@ const docs = {
             <div class="item" @click="currentDoc = 'ApiJava'">Java</div> -->
             <div class="item" v-for="(button, index) in Object.keys(docs)" :key="index" @click="currentDoc = button"
                 :class="{ activeBtn: currentDoc === button, inactiveBtn: currentDoc !== button }">
-                {{ button }}
+                {{ button.substring(3) }}
             </div>
         </el-col>
         <el-col :span="21" style="padding-left: 6px;">
