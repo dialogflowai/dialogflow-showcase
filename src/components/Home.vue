@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import NodesIntro from './docs/NodesIntro.vue'
 import HowToUse from './docs/HowToUse.vue'
+import IntroDoc from './docs/IntroDoc.vue'
 import { httpReq } from '../assets/tools.js'
 import BiDownload from '~icons/bi/download'
 import BiGithub from '~icons/bi/github'
@@ -66,6 +67,7 @@ const checkUpdate = async () => {
 }
 */
 </script>
+
 <style scoped>
 #header {
     background-image: url(../assets/flow.png), url(../assets/header_bg.jpg);
@@ -142,13 +144,22 @@ const checkUpdate = async () => {
     font-size: 30px;
     padding: 12px;
 }
+
+.bg1 {
+    background-image: url("../assets/canvasEditor.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 350px;
+    margin-top: 20px;
+}
 </style>
+
 <template>
     <div id="header">
         <span class="name">Dialog flow chat bot</span>
         <p>
             It's fast. Built on Rust and Vue3.<br />
-            It's easy to use. Build powerful chatbots in minutes with our intuitive node-based editor.<br />
+            It's easy to use. Drag &amp; drop various function nodes to build your chatbot's logic.<br />
             It's safe. Open source and all data is saved locally.
             <!-- Create your own conversational bot in under 1 minute. -->
         </p>
@@ -177,8 +188,13 @@ const checkUpdate = async () => {
         </div>
         <div style="font-size: 16px;">The latest version: {{ currentVersion }}</div>
     </div>
+    <p class="title">
+    Build powerful chatbots in minutes with our intuitive node-based editor
+    </p>
+    <div class="bg1"></div>
     <NodesIntro />
     <HowToUse />
+    <IntroDoc />
     <p>
         <hr />
     </p>
@@ -188,9 +204,6 @@ const checkUpdate = async () => {
         If you have any questions or suggestions, please email to:
         dialogflow@yeah.net
         or create a <a href="https://github.com/dialogflowchatbot/dialogflow/discussions">Discussions</a>
-    </div>
-    <div class="text-center">
-        Built on Vue3 and Element UI
     </div>
     <div class="text-center">
         Images were from

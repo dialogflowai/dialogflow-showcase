@@ -1,5 +1,6 @@
 <script setup>
 import SolarDocumentTextLinear from '~icons/solar/document-text-linear'</script>
+
 <style scoped>
 .mid {
   justify-content: center;
@@ -12,6 +13,7 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'</script>
   background-color: black;
 }
 </style>
+
 <template>
   <el-row class="mid" id="howToUse">
     <el-col :span="8">
@@ -25,17 +27,22 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'</script>
     </el-col>
   </el-row>
   <el-timeline>
-    <el-timeline-item timestamp="#1" placement="top">
+    <el-timeline-item timestamp="#1 Prepare" placement="top">
       <el-card>
         <div class="title">Download prebuild files</div>
         <p>
-          Release page: <a href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>
+          Release page: <a
+            href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>
         </p>
         <div class="description">
           Alternatively, you can download source code and build by yourself
           <ul>
-            <li>Frontend: <a href="https://github.com/dialogflowchatbot/dialogflow-frontend">https://github.com/dialogflowchatbot/dialogflow-frontend</a></li>
-            <li>Backend: <a href="https://github.com/dialogflowchatbot/dialogflow-backend">https://github.com/dialogflowchatbot/dialogflow-backend</a></li>
+            <li>Frontend: <a
+                href="https://github.com/dialogflowchatbot/dialogflow-frontend">https://github.com/dialogflowchatbot/dialogflow-frontend</a>
+            </li>
+            <li>Backend: <a
+                href="https://github.com/dialogflowchatbot/dialogflow-backend">https://github.com/dialogflowchatbot/dialogflow-backend</a>
+            </li>
           </ul>
         </div>
       </el-card>
@@ -89,8 +96,13 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'</script>
           <img src="../../assets/step8.png" /><br />
           <img src="../../assets/step9.png" />
         </p>
-        <div class="description">1. Save current sub-flow 2. Release main flow (All sub-flows only need one click) 3. Test
-          it</div>
+        <div class="description">
+        <ol>
+          <li>Save current sub-flow</li>
+          <li>Release main flow (All sub-flows only need one click)</li>
+          <li>Test it</li>
+        </ol>
+        </div>
       </el-card>
     </el-timeline-item>
     <el-timeline-item timestamp="#7" placement="top">
