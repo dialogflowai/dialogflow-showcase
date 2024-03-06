@@ -126,7 +126,8 @@ class PostData {
     }
 }`)
 </script>
+
 <template>
     <h1>Java (11 or higher) Code (using Apache HttpClient):</h1>
-    <code-mirror basic :lang="langJava" v-model="javaCode" />
+        <code-mirror basic :lang="langJava" v-model="javaCode" />
 </template>

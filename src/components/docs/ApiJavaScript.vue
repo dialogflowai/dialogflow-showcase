@@ -42,9 +42,10 @@ const js = ref(`fetch('http://localhost:5173/flow/answer', {
   console.error("Error:", error);
 });`)
 </script>
+
 <template>
-    <h1>Generate request body</h1>
-    <code-mirror basic :lang="langJs" v-model="requestBody" />
-    <h1>JavaScript request code</h1>
-    <code-mirror basic :lang="langJs" v-model="js" />
+  <h1>Generate request body</h1>
+  <code-mirror basic :lang="langJs" v-model="requestBody" />
+  <h1>JavaScript request code</h1>
+  <code-mirror basic :lang="langJs" v-model="js" />
 </template>

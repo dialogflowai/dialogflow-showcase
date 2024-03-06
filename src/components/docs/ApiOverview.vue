@@ -72,13 +72,14 @@ const res = ref(`{
 	"err": null
 }`)
 </script>
+
 <template>
     <h1>Program interface integration guide</h1>
     <p>This tool provides an API based on the HTTP protocol</p>
     <h3>Request url</h3>
     <pre class="bg-#eee">
-        POST http://&lt;IP&gt;:&lt;port&gt;/flow/answer
-    </pre>
+            POST http://&lt;IP&gt;:&lt;port&gt;/flow/answer
+        </pre>
     <h3>Request body</h3>
     <code-mirror basic :lang="langJson" :linter="linter" v-model="requestBody" />
     <h3>Field detail</h3>

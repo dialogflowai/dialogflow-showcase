@@ -12,6 +12,7 @@ const docs = {
     ApiJava,
 }
 </script>
+
 <style scoped>
 .item {
     cursor: pointer;
@@ -20,12 +21,14 @@ const docs = {
     padding-left: 15px;
     margin-bottom: 5px;
 }
+
 .activeBtn {
     background-color: #000;
     color: white;
     font-weight: bold;
     padding-left: 30px;
 }
+
 .inactiveBtn {
     background-color: #fff;
     color: black;
@@ -33,6 +36,7 @@ const docs = {
     padding-left: 15px;
 }
 </style>
+
 <template>
     <el-row>
         <el-col :span="3">

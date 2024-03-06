@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import NodesIntro from './docs/NodesIntro.vue'
 import HowToUse from './docs/HowToUse.vue'
-import IntroDoc from './docs/IntroDoc.vue'
+import Intro from './Intro.vue'
 import { httpReq } from '../assets/tools.js'
 import BiDownload from '~icons/bi/download'
 import BiGithub from '~icons/bi/github'
@@ -194,7 +194,7 @@ const checkUpdate = async () => {
     <div class="bg1"></div>
     <NodesIntro />
     <HowToUse />
-    <IntroDoc />
+    <Intro />
     <p>
         <hr />
     </p>
@@ -207,7 +207,7 @@ const checkUpdate = async () => {
     </div>
     <div class="text-center">
         Images were from
-        <a href="https://unsplash.com">Unsplash</a> & <a href="https://picsum.photos">Picsum</a>
+        <a href="https://unsplash.com">Unsplash</a> &amp; <a href="https://picsum.photos">Picsum</a>
         , Icons created by
         <a href="https://www.flaticon.com/free-icons/seo-and-web" title="seo and web icons">Seo and web icons created by
             Freepik - Flaticon</a>

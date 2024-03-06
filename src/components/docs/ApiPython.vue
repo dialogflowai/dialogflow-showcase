@@ -45,6 +45,7 @@ if response.status_code == 200:
 else:
     print("Error:", response.status_code)`)
 </script>
+
 <template>
     <h1>Python Code:</h1>
     <code-mirror basic :lang="langPython" v-model="pythonCode" />

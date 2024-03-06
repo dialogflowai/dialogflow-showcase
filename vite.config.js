@@ -28,6 +28,7 @@ function manualChunks(id) {
 
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
+  const env = loadEnv(mode, __dirname)
   return defineConfig({
     // resolve: {
     //   alias: {
@@ -123,5 +124,12 @@ export default ({ command, mode }) => {
     esbuild: {
       drop: ['console', 'debugger'],
     },
+    server: {
+      port: env.VITE_PORT,
+      open: false,
+    },
+    ssr: {
+      noExternal: ['element-plus']
+    }
   })
 }

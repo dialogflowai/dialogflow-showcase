@@ -31,3 +31,4 @@ stats.html
 package-lock.json
 src/auto-imports.d.ts
 src/components.d.ts
+.vite-ssg-temp

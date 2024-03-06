@@ -1,9 +1,10 @@
 <script setup>
-import { useRouter } from 'vue-router';
-import { useI18n } from 'vue-i18n'
+// import { useRouter } from 'vue-router';
+// import { useI18n } from 'vue-i18n'
 // import VueScrollTo from 'vue-scrollto';
 import { winScrollTo } from '../assets/tools.js'
 import IntroDoc from './docs/IntroDoc.vue'
+/*
 import HowToUse from './docs/HowToUse.vue'
 useI18n();
 const router = useRouter();
@@ -23,10 +24,12 @@ function demo() {
 function doc() {
     router.push('/docs');
 }
+*/
 </script>
+
 <style scoped>
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/hero_bg.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/hero_bg2.jpg");
     height: 500px;
     background-position: center;
     background-repeat: no-repeat;
@@ -53,37 +56,27 @@ function doc() {
     text-align: center;
 }
 </style>
+
 <template>
     <div class="hero-image">
         <div class="hero-text">
-            <h1 style="font-size: 50px;">{{ $t('lang.home.title') }}</h1>
-            <p>{{ $t('lang.home.subTitle') }}</p>
-            <p>
-                <el-button size="large" @click="guide">
-                    {{ $t('lang.home.btn1') }}
-                </el-button>
-            </p>
-            <el-button @click="doc">
-                {{ $t('lang.home.btn2') }}
-            </el-button>
-            <el-button @click="howToUse" type="primary" plain>
-                Check out step by step tutorial
-            </el-button>
-            <el-button @click="demo" type="warning" plain>
-                {{ $t('lang.home.btn3') }}
-            </el-button>
+            <h1 style="font-size: 60px;">Create powerful chatbots without code.</h1>
+            <p style="font-size: 30px;">try Dialogflow Chatbot now!</p>
         </div>
     </div>
     <div class="download">
-        <h1>{{ $t('lang.home.dlTitle') }}</h1>
-        <p>{{ $t('lang.home.dl1') }}: <a
+        <h1>Download</h1>
+        <p>You can download the latest releases on Github: <a
                 href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>
         </p>
-        <p v-html="$t('lang.home.dl2')"></p>
+        <p>
+            If you have any issues or feedback, please email to: dialogflow(AT)yeah.net or create an <a
+                href="https://github.com/dialogflowchatbot/dialogflow/issues">issue</a>
+        </p>
     </div>
     <IntroDoc />
-    <HowToUse />
+    <!-- <HowToUse />
     <p>
         <hr />
-    </p>
+    </p> -->
 </template>
