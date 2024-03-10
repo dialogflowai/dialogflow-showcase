@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 // import VueScrollTo from 'vue-scrollto';
 import { winScrollTo } from '../../assets/tools.js'
-// import Demos from '../Demos.vue'
+import Demos from '../Demos.vue'
 useI18n();
 // navigator.language; //"en-US"
 // navigator.languages; //["en-US", "zh-CN", "ja-JP"]
@@ -197,6 +197,7 @@ function demo() {
                     <h1 class="title1">{{ $t('lang.home.adv1Title') }}</h1>
                     <div v-html="$t('lang.home.adv1')"></div>
                     <p id="demosList">
+                        <Demos :parentPage="home" />
                         <!-- <Demos :parentPage="fromPage" /> -->
                         <!-- {{ $t('lang.home.demo') }}:
                     <ol>

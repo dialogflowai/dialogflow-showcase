@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import TryWithDocker from './docs/TryWithDocker.vue'
 import NodesIntro from './docs/NodesIntro.vue'
 import HowToUse from './docs/HowToUse.vue'
 import Intro from './Intro.vue'
@@ -192,6 +193,7 @@ const checkUpdate = async () => {
     Build powerful chatbots in minutes with our intuitive node-based editor
     </p>
     <div class="bg1"></div>
+    <TryWithDocker />
     <NodesIntro />
     <HowToUse />
     <Intro />

@@ -1,5 +1,7 @@
 <script setup>
-import SolarDocumentTextLinear from '~icons/solar/document-text-linear'</script>
+import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
+import Demos from '../Demos.vue'
+</script>
 
 <style scoped>
 .mid {

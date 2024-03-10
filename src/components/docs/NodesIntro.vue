@@ -26,7 +26,7 @@
 }
 </style>
 <template>
-  <el-row class="mid" id="howToUse">
+  <el-row class="mid" id="functionNodes">
     <el-col :span="7">
       <div class="black-line"></div>
     </el-col>
