@@ -1,6 +1,5 @@
 <script setup>
 import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
-import Demos from '../Demos.vue'
 </script>
 
 <style scoped>
@@ -13,6 +12,11 @@ import Demos from '../Demos.vue'
 .black-line {
   height: 6px;
   background-color: black;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
 }
 </style>
 
@@ -29,12 +33,18 @@ import Demos from '../Demos.vue'
     </el-col>
   </el-row>
   <el-timeline>
-    <el-timeline-item timestamp="#1 Prepare" placement="top">
+    <el-timeline-item timestamp="#1 Prerequisite" placement="top">
       <el-card>
         <div class="title">Download prebuild files</div>
         <p>
-          Release page: <a
-            href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>
+        <ul>
+          <li>Docker: <a
+              href="https://github.com/dialogflowchatbot/dialogflow-frontend">https://github.com/dialogflowchatbot/dialogflow-frontend</a>
+          </li>
+          <li> Release page: <a
+              href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>
+          </li>
+        </ul>
         </p>
         <div class="description">
           Alternatively, you can download source code and build by yourself
@@ -49,7 +59,7 @@ import Demos from '../Demos.vue'
         </div>
       </el-card>
     </el-timeline-item>
-    <el-timeline-item timestamp="#2" placement="top">
+    <el-timeline-item timestamp="#2 Guiding page" placement="top">
       <el-card>
         <div class="title">
           Run the program and use a browser to open the access address output by the program<br />
@@ -61,7 +71,7 @@ import Demos from '../Demos.vue'
         <div class="description">One dialog flow contains many main flows which contains many sub flows.</div>
       </el-card>
     </el-timeline-item>
-    <el-timeline-item timestamp="#3" placement="top">
+    <el-timeline-item timestamp="#3 Main flow" placement="top">
       <el-card>
         <div class="title">Create a main flow if there's none.</div>
         <p>
@@ -70,7 +80,7 @@ import Demos from '../Demos.vue'
         <div class="description">Here give a name to main flow, you can change the name anytime.</div>
       </el-card>
     </el-timeline-item>
-    <el-timeline-item timestamp="#4" placement="top">
+    <el-timeline-item timestamp="#4 Dialog flow" placement="top">
       <el-card>
         <div class="title">Create dialog flow</div>
         <p>
@@ -80,7 +90,7 @@ import Demos from '../Demos.vue'
         <div class="description">On the left, you can add sub-flow.</div>
       </el-card>
     </el-timeline-item>
-    <el-timeline-item timestamp="#5" placement="top">
+    <el-timeline-item timestamp="#5 Editing" placement="top">
       <el-card>
         <div class="title">Edit dialog flow</div>
         <p>
@@ -91,23 +101,23 @@ import Demos from '../Demos.vue'
         </div>
       </el-card>
     </el-timeline-item>
-    <el-timeline-item timestamp="#6" placement="top">
+    <el-timeline-item timestamp="#6 Testing" placement="top">
       <el-card>
         <div class="title">Test dialog flow</div>
+        <div class="description">
+          <ol>
+            <li>Click '<b>Publish all sub-flows</b>' button (Will save current sub-flow automatically)</li>
+            <li>Click '<b>Test dialog test</b>' button, testing window will popup on the right side</li>
+            <li>Test it</li>
+          </ol>
+        </div>
         <p>
           <img src="../../assets/step8.png" /><br />
           <img src="../../assets/step9.png" />
         </p>
-        <div class="description">
-        <ol>
-          <li>Save current sub-flow</li>
-          <li>Release main flow (All sub-flows only need one click)</li>
-          <li>Test it</li>
-        </ol>
-        </div>
       </el-card>
     </el-timeline-item>
-    <el-timeline-item timestamp="#7" placement="top">
+    <el-timeline-item timestamp="#7 Integrating" placement="top">
       <el-card>
         <div class="title">Integrate to your application</div>
         <p>
