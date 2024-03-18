@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import TryWithDocker from './docs/TryWithDocker.vue'
+import WhatCanBeDoneWithIt from './docs/WhatCanBeDoneWithIt.vue'
 import NodesIntro from './docs/NodesIntro.vue'
 import HowToUse from './docs/HowToUse.vue'
 import Intro from './Intro.vue'
@@ -194,6 +195,7 @@ const checkUpdate = async () => {
     </p>
     <div class="bg1"></div>
     <TryWithDocker />
+    <!-- <WhatCanBeDoneWithIt /> -->
     <NodesIntro />
     <HowToUse />
     <Intro />

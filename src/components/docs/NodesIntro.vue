@@ -108,12 +108,24 @@
   </el-row>
   <el-row>
     <el-col :span="6" :offset="3">
+      <img src="../../assets/sendEmailNode.png" class="b" />
+    </el-col>
+    <el-col :span="10" :offset="1">
+      <span>Send email node</span>
+      <div class="desc">
+        This node can send preset email content or dynamic email content to multiple recipients.<br />
+        It can send emails synchronously or asynchronously.
+      </div>
+    </el-col>
+  </el-row>
+  <el-row>
+    <el-col :span="6" :offset="3">
     </el-col>
     <el-col :span="10" :offset="1">
       <span>Create your own node</span>
       <div class="desc">
         Use your imagination and create your own node<br />
-        For example, a node that sends emails,<br />
+        For example, a node that assigns a value to a variable,<br />
         or a node that uses ChatGPT, exits when the user enters specific characters.<br />
         <br />
         If you have any good ideas or needs, you can also submit them to <a href="https://github.com/dialogflowchatbot/dialogflow/discussions">Discussions</a> on Github
