@@ -150,8 +150,8 @@ const checkUpdate = async () => {
 .bg1 {
     background-image: url("../assets/canvasEditor.png");
     background-repeat: no-repeat;
-    background-position: center;
-    height: 350px;
+    background-position: left;
+    height: 416px;
     margin-top: 20px;
 }
 </style>
