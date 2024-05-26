@@ -1,4 +1,5 @@
 <template>
+    <h2>Why?</h2>
     Smart Tool Description
 
 This intelligent tool offers several key advantages:

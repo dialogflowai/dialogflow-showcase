@@ -148,9 +148,9 @@ const checkUpdate = async () => {
 }
 
 .bg1 {
-    background-image: url("../assets/canvasEditor.png");
+    background-image: url("../assets/demo1.gif");
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: center;
     height: 416px;
     margin-top: 20px;
 }
@@ -194,6 +194,7 @@ const checkUpdate = async () => {
     Build powerful chatbots in minutes with our intuitive node-based editor
     </p>
     <div class="bg1"></div>
+    <!-- <div><img src="../assets/demo1.gif" /></div> -->
     <TryWithDocker />
     <!-- <WhatCanBeDoneWithIt /> -->
     <NodesIntro />

@@ -86,8 +86,8 @@
       <span>Goto node</span>
       <div class="desc">
         Using this node,<br />
-        you can control the direction of the process.<br />
-        You can end the conversation, jump to another conversation, or link externally.
+        you can control the direction of the dialog.<br />
+        You can jump to another conversation, or goto external link.
       </div>
     </el-col>
   </el-row>
@@ -115,6 +115,17 @@
       <div class="desc">
         This node can send preset email content or dynamic email content to multiple recipients.<br />
         It can send emails synchronously or asynchronously.
+      </div>
+    </el-col>
+  </el-row>
+  <el-row>
+    <el-col :span="6" :offset="3">
+      <img src="../../assets/endNode.png" class="b" />
+    </el-col>
+    <el-col :span="10" :offset="1">
+      <span>The end node</span>
+      <div class="desc">
+        This is an endpoint, indicating that a conversation flow has ended or terminated.
       </div>
     </el-col>
   </el-row>
