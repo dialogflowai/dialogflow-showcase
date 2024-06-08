@@ -151,8 +151,9 @@ const checkUpdate = async () => {
 .bg1 {
     background-image: url("../assets/demo1.gif");
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-position: center;
-    height: 416px;
+    height: 630px;
     margin-top: 20px;
 }
 </style>
@@ -192,7 +193,7 @@ const checkUpdate = async () => {
         <div style="font-size: 16px;">The latest version: {{ currentVersion }}</div>
     </div>
     <p class="title">
-    Build powerful chatbots in minutes with our intuitive node-based editor
+        Build powerful chatbots in minutes with our intuitive node-based editor
     </p>
     <div class="bg1"></div>
     <!-- <div><img src="../assets/demo1.gif" /></div> -->
