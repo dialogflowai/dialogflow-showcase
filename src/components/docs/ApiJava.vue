@@ -9,15 +9,17 @@ import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 public class HttpClientExample {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
         // Data preparation (replace with your actual values)
+        String robotId = "";
         String mainFlowId = "";
-        String sessionId = "";
-        String userInputResult = "Successful || Timeout";
+        String sessionId = ""; // Can leave it empty.
+        String userInputResult = "Successful || Timeout"; // Only for outbound/incoming call bot, text chat bot can always fill 'Successful'
         String userInput = "hello";
         ImportVariable[] importVariables = {
                 new ImportVariable("var1", "String", "abc"),
@@ -26,7 +28,7 @@ public class HttpClientExample {
         String userInputIntent = "IntentName";
 
         // Create PostData object
-        PostData postData = new PostData(mainFlowId, sessionId, userInputResult, userInput, importVariables, userInputIntent);
+        PostData postData = new PostData(robotId, mainFlowId, sessionId, userInputResult, userInput, importVariables, userInputIntent);
 
         // Serialize PostData to JSON using Jackson
         ObjectMapper mapper = new ObjectMapper();
@@ -45,13 +47,20 @@ public class HttpClientExample {
 
         // Define response structure classes
         class ResponseData {
-            public Answers answers;
-            public String[] collectData;
+            public String sessionId;
+            public List<Answer> answers;
+            public List<CollectData> collectData;
             public String nextAction;
             public ExtraData extraData;
 
-            public static class Answers {
-                public String[] answerList;
+            public static class Answer {
+                public String text;
+                public String answerType;
+            }
+
+            public static class CollectData {
+                public String varName;
+                public String value;
             }
 
             public static class ExtraData {
@@ -97,6 +106,7 @@ class ImportVariable {
 }
 
 class PostData {
+    private String robotId;
     private String mainFlowId;
     private String sessionId;
     private String userInputResult;
@@ -104,7 +114,8 @@ class PostData {
     private ImportVariable[] importVariables;
     private String userInputIntent;
 
-    public PostData(String mainFlowId, String sessionId, String userInputResult, String userInput, ImportVariable[] importVariables, String userInputIntent) {
+    public PostData(String robotId, String mainFlowId, String sessionId, String userInputResult, String userInput, ImportVariable[] importVariables, String userInputIntent) {
+        this.robotId = robotId;
         this.mainFlowId = mainFlowId;
         this.sessionId = sessionId;
         this.userInputResult = userInputResult;
@@ -116,7 +127,8 @@ class PostData {
     @Override
     public String toString() {
         return "PostData{" +
-                "mainFlowId='" + mainFlowId + '\'' +
+                "robotId='" + robotId + '\'' +
+                ", mainFlowId='" + mainFlowId + '\'' +
                 ", sessionId='" + sessionId + '\'' +
                 ", userInputResult='" + userInputResult + '\'' +
                 ", userInput='" + userInput + '\'' +

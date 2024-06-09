@@ -5,6 +5,7 @@ import { javascript } from '@codemirror/lang-javascript';
 const langJs = javascript();
 const host = window.location.host;
 const requestBody = ref(`const postData = {
+  robotId: "",
   mainFlowId: "",
   sessionId: "",
   userInputResult: "Successful || Timeout",

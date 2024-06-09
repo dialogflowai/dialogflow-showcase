@@ -8,7 +8,9 @@ const pythonCode = ref(`import requests
 import json
 
 # Data preparation
+robot_id = ""
 main_flow_id = ""
+# Can leave session_id with empty string
 session_id = ""
 user_input_result = "Successful || Timeout"
 user_input = "hello"
@@ -20,6 +22,7 @@ user_intent = "IntentName"
 
 # Build JSON data
 data = {
+    "robotId": robot_id,
     "mainFlowId": main_flow_id,
     "sessionId": session_id,
     "userInputResult": user_input_result,

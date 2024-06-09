@@ -6,6 +6,7 @@ const langJson = json();
 const linter = jsonParseLinter();
 const host = window.location.host;
 const requestBody = ref(`{
+    "robotId": "",
     "mainFlowId": "",
     "sessionId": "",
     "userInputResult": "Successful || Timeout",
@@ -25,13 +26,17 @@ const requestBody = ref(`{
     "userInputIntent": "IntentName"
 }`)
 const tableData = [{
+    field: 'robotId',
+    required: true,
+    comment: 'Specify the robot id',
+}, {
     field: 'mainFlowId',
     required: true,
     comment: 'Specify the main flow id that needs to be entered. You can find them on main flow list page',
 }, {
     field: 'sessionId',
     required: true,
-    comment: 'Represent an unique conversation.',
+    comment: 'Represent an unique conversation or leave empty, backend will generate a new one.',
 },
 {
     field: 'userInputResult',
