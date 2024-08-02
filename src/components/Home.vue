@@ -165,6 +165,7 @@ const checkUpdate = async () => {
             It's fast. Built on Rust and Vue3.<br />
             It's easy to use. Drag &amp; drop various function nodes to build your chatbot's logic.<br />
             It's safe. Open source and all data is saved locally.
+            It's AI powered. Integrated OpenAPI, Ollama and HuggingFace, empowered your business.
             <!-- Create your own conversational bot in under 1 minute. -->
         </p>
         <!-- <p>
