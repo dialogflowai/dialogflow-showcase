@@ -76,7 +76,7 @@ const checkUpdate = async () => {
     background-image: url(../assets/flow.png), url(../assets/header_bg.jpg);
     background-position: right center, left top;
     background-repeat: no-repeat, repeat;
-    height: 450px;
+    height: 500px;
     color: white;
     padding-top: 50px;
     padding-left: 70px;
@@ -162,10 +162,11 @@ const checkUpdate = async () => {
     <div id="header">
         <span class="name">Dialog flow chat bot</span>
         <p>
+            It's light. Only ONE executable file, it can run smoothly on laptops without GPUs.<br />
+            It's AI powered. Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.<br />
+            It's easy to use. Use the mouse to drag and drop with our intuitive node-based editor.<br />
             It's fast. Built on Rust and Vue3.<br />
-            It's easy to use. Drag &amp; drop various function nodes to build your chatbot's logic.<br />
             It's safe. Open source and all data is saved locally.
-            It's AI powered. Integrated OpenAPI, Ollama and HuggingFace, empowered your business.
             <!-- Create your own conversational bot in under 1 minute. -->
         </p>
         <!-- <p>
