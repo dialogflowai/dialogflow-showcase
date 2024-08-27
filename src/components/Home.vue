@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router';
 import TryWithDocker from './docs/TryWithDocker.vue'
 import Why from './docs/Why.vue'
 import WhatCanBeDoneWithIt from './docs/WhatCanBeDoneWithIt.vue'
-import NodesIntro from './docs/NodesIntro.vue'
+import NodesIntro from './docs/node/NodesIntro.vue'
 import HowToUse from './docs/HowToUse.vue'
 import Intro from './Intro.vue'
 import { httpReq } from '../assets/tools.js'
@@ -76,7 +76,7 @@ const checkUpdate = async () => {
     background-image: url(../assets/flow.png), url(../assets/header_bg.jpg);
     background-position: right center, left top;
     background-repeat: no-repeat, repeat;
-    height: 500px;
+    height: 450px;
     color: white;
     padding-top: 50px;
     padding-left: 70px;
@@ -161,12 +161,13 @@ const checkUpdate = async () => {
 <template>
     <div id="header">
         <span class="name">Dialog flow chat bot</span>
+        <p>Create your own conversational agent in under 1 minute.</p>
         <p>
-            It's light. Only ONE executable file, it can run smoothly on laptops without GPUs.<br />
-            It's AI powered. Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.<br />
+            It's Light. AI powered. Easy to use. Fast and Safe.<br />
+            <!-- It's AI powered. Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.<br />
             It's easy to use. Use the mouse to drag and drop with our intuitive node-based editor.<br />
             It's fast. Built on Rust and Vue3.<br />
-            It's safe. Open source and all data is saved locally.
+            It's safe. Open source and all data is saved locally. -->
             <!-- Create your own conversational bot in under 1 minute. -->
         </p>
         <!-- <p>

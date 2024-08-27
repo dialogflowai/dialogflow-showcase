@@ -22,7 +22,7 @@
 }
 
 .b {
-    border: #eee 1px solid;
+  border: #eee 1px solid;
 }
 </style>
 <template>
@@ -39,7 +39,7 @@
   </el-row>
   <el-row>
     <el-col :span="6" :offset="3">
-      <img src="../../assets/dialogNode.png" class="b" />
+      <img src="../../../assets/dialogNode.png" class="b" />
     </el-col>
     <el-col :span="10" :offset="1">
       <span>Dialog node</span>
@@ -52,7 +52,22 @@
   </el-row>
   <el-row>
     <el-col :span="6" :offset="3">
-      <img src="../../assets/conditionNode.png" class="b" />
+      <img src="../../../assets/llmChatNode.png" class="b" />
+    </el-col>
+    <el-col :span="10" :offset="1">
+      <span>Large language model chat node</span>
+      <div class="desc">
+        Use a large language model to communicate with users, supporting OpenAI, Ollama, and HuggingFace local
+        models.<br />
+        If the model returns a timeout, you can also set another reply to return to the user.<br />
+        <!-- <router-link to="/node/llmChatNode">Check detail</router-link> -->
+        <router-link :to="{ name: 'docDetail', params: { docCatelog: 'NodeIndex', docDetail: 'LlmChatNode' } }">Detail</router-link>
+      </div>
+    </el-col>
+  </el-row>
+  <el-row>
+    <el-col :span="6" :offset="3">
+      <img src="../../../assets/conditionNode.png" class="b" />
     </el-col>
     <el-col :span="10" :offset="1">
       <span>Conditions node</span>
@@ -66,7 +81,7 @@
   </el-row>
   <el-row>
     <el-col :span="6" :offset="3">
-      <img src="../../assets/collectNode.png" class="b" />
+      <img src="../../../assets/collectNode.png" class="b" />
     </el-col>
     <el-col :span="10" :offset="1">
       <span>Collect node</span>
@@ -80,7 +95,7 @@
   </el-row>
   <el-row>
     <el-col :span="6" :offset="3">
-      <img src="../../assets/gotoNode.png" class="b" />
+      <img src="../../../assets/gotoNode.png" class="b" />
     </el-col>
     <el-col :span="10" :offset="1">
       <span>Goto node</span>
@@ -93,7 +108,7 @@
   </el-row>
   <el-row>
     <el-col :span="6" :offset="3">
-      <img src="../../assets/externalApiNode.png" class="b" />
+      <img src="../../../assets/externalApiNode.png" class="b" />
     </el-col>
     <el-col :span="10" :offset="1">
       <span>External HTTP node</span>
@@ -108,7 +123,7 @@
   </el-row>
   <el-row>
     <el-col :span="6" :offset="3">
-      <img src="../../assets/sendEmailNode.png" class="b" />
+      <img src="../../../assets/sendEmailNode.png" class="b" />
     </el-col>
     <el-col :span="10" :offset="1">
       <span>Send email node</span>
@@ -120,7 +135,7 @@
   </el-row>
   <el-row>
     <el-col :span="6" :offset="3">
-      <img src="../../assets/endNode.png" class="b" />
+      <img src="../../../assets/endNode.png" class="b" />
     </el-col>
     <el-col :span="10" :offset="1">
       <span>The end node</span>
@@ -139,7 +154,8 @@
         For example, a Slack/Discord bot node,<br />
         or a node that uses ChatGPT, exits when the user enters specific characters.<br />
         <br />
-        If you have any good ideas or needs, you can also submit them to <a href="https://github.com/dialogflowchatbot/dialogflow/discussions">Discussions</a> on Github
+        If you have any good ideas or needs, you can also submit them to <a
+          href="https://github.com/dialogflowchatbot/dialogflow/discussions">Discussions</a> on Github
       </div>
     </el-col>
   </el-row>

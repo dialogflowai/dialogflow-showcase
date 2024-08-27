@@ -24,23 +24,29 @@
   <div style="margin-left: 120px;margin-right: 120px;">
     <h1>Why?</h1>
     <h2>This intelligent tool offers several key advantages</h2>
-    <el-carousel height="200px" direction="vertical">
-      <el-carousel-item class="common bg1">
-        <h2 class="small justify-center" text="2xl">Focused Expertise</h2>
-        Unlike general-purpose LLM (Large Language Model) robots.<br />
-        This tool is specifically designed to concentrate on areas of interest to businesses.<br />
-        It swiftly and directly addresses real-world problems that users encounter when using related products.
-      </el-carousel-item>
-      <el-carousel-item class="common bg2">
-        <h2 class="small justify-center" text="2xl">Simplicity</h2>
-        Creating your own bot is effortless.<br />
-        Users only need to drag and drop functional nodes with a mouse, making the process intuitive and user-friendly.
-      </el-carousel-item>
-      <el-carousel-item class="common bg3">
-        <h2 class="small justify-center" text="2xl">Speed</h2>
-        The tool delivers millisecond-level responses without the need for powerful GPUs or CPUs.<br />
-        This ensures that it operates efficiently and quickly, providing immediate answers to user queries.
-      </el-carousel-item>
-    </el-carousel>
+    <el-row :gutter="50">
+      <el-col :span="7">
+        <h3>🎈 Light</h3>
+        Only ONE executable file. It can run smoothly on laptops without GPUs.
+      </el-col>
+      <el-col :span="7">
+        <h3>✨ AI powered</h3>
+        Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.
+      </el-col>
+      <el-col :span="7">
+        <h3>🛠️ Easy to use</h3>
+        Use the mouse to drag and drop with our intuitive node-based editor.
+      </el-col>
+    </el-row>
+    <el-row :gutter="20">
+      <el-col :span="7">
+        <h3>🐱‍🏍 Fast</h3>
+        Built on Rust and Vue3.
+      </el-col>
+      <el-col :span="7">
+        <h3>🔑 Safe</h3>
+        100% open source and all runtime data is saved locally.
+      </el-col>
+    </el-row>
   </div>
 </template>

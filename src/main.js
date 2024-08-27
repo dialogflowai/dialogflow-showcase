@@ -11,6 +11,7 @@ import Home from './components/Home.vue'
 // import Intro from './components/Intro.vue'
 import Doc from './components/docs/Index.vue'
 // import Tutorial from './components/docs/Tutorial.vue'
+import LlmChatNode from './components/docs/node/LlmChatNode.vue'
 
 // import 'element-plus/dist/index.css'
 // import 'element-tiptap-vue3-fixed/lib/style.css';
@@ -28,7 +29,9 @@ const routes = [
 export const routes = [
   { path: '/', component: Home },
   { path: '/docs', component: Doc },
+  { path: '/docs/:docCatelog/:docDetail', name: 'docDetail', component: Doc },
   // { path: '/tutorial', component: Tutorial },
+  { path: '/node/llmChatNode', component: LlmChatNode },
 ];
 
 // const router = createRouter({
