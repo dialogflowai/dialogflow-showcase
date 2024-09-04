@@ -163,7 +163,7 @@ const checkUpdate = async () => {
         <span class="name">Dialog flow chat bot</span>
         <p>Create your own conversational agent in under 1 minute.</p>
         <p>
-            It's Light. AI powered. Easy to use. Fast and Safe.<br />
+            It's Free. Light. AI powered. Easy to use. Fast and Safe.<br />
             <!-- It's AI powered. Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.<br />
             It's easy to use. Use the mouse to drag and drop with our intuitive node-based editor.<br />
             It's fast. Built on Rust and Vue3.<br />

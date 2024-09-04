@@ -26,26 +26,30 @@
     <h2>This intelligent tool offers several key advantages</h2>
     <el-row :gutter="50">
       <el-col :span="7">
+        <h3>💡 Free to use</h3>
+        There are no registration steps and no personal, machine information is collected.
+      </el-col>
+      <el-col :span="7">
         <h3>🎈 Light</h3>
-        Only ONE executable file. It can run smoothly on laptops without GPUs.
+        Only ONE executable file. It can run smoothly on laptop without GPUs.
       </el-col>
       <el-col :span="7">
         <h3>✨ AI powered</h3>
         Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.
       </el-col>
+    </el-row>
+    <el-row :gutter="50">
       <el-col :span="7">
         <h3>🛠️ Easy to use</h3>
         Use the mouse to drag and drop with our intuitive node-based editor.
       </el-col>
-    </el-row>
-    <el-row :gutter="20">
       <el-col :span="7">
         <h3>🐱‍🏍 Fast</h3>
-        Built on Rust and Vue3.
+        Built on Rust and Vue3. It requires very few resources to run very quickly.
       </el-col>
       <el-col :span="7">
         <h3>🔑 Safe</h3>
-        100% open source and all runtime data is saved locally.
+        100% open source. It can be used completely offline and all runtime data is saved locally.
       </el-col>
     </el-row>
   </div>
