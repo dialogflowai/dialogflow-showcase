@@ -36,7 +36,6 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
     <el-timeline-item timestamp="#1 Prerequisite" placement="top">
       <el-card>
         <div class="title">Download prebuild files</div>
-        <p>
         <ul>
           <li>Docker: <a
               href="https://hub.docker.com/repository/docker/dialogflowchatbot/demo">https://hub.docker.com/repository/docker/dialogflowchatbot/demo</a>
@@ -45,7 +44,6 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
               href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>
           </li>
         </ul>
-        </p>
         <div class="description">
           Alternatively, you can download source code and build by yourself
           <ul>
@@ -124,7 +122,7 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
           <el-icon>
             <SolarDocumentTextLinear />
           </el-icon>
-          Checkout <router-link to="/docs">requet API doc</router-link>
+          Checkout <router-link to="/doc">requet API doc</router-link>
         </p>
         <div class="description"></div>
       </el-card>

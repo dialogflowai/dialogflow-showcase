@@ -22,7 +22,7 @@ function demo() {
     winScrollTo(document.getElementById('demosList'))
 }
 function doc() {
-    router.push('/docs');
+    router.push('/doc');
 }
 */
 </script>

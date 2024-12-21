@@ -9,8 +9,14 @@ import i18n from './assets/lang/i18n'
 import App from './App.vue'
 import Home from './components/Home.vue'
 // import Intro from './components/Intro.vue'
+import DocFrame from './components/docs/DocFrame.vue'
 import Doc from './components/docs/Index.vue'
 // import Tutorial from './components/docs/Tutorial.vue'
+import ApiOverview from './components/docs/api/ApiOverview.vue'
+import ApiJavaScript from './components/docs/api/ApiJavaScript.vue'
+import ApiPython from './components/docs/api/ApiPython.vue'
+import ApiJava from './components/docs/api/ApiJava.vue'
+import NodesIntro from './components/docs/node/NodesIntro.vue'
 import LlmChatNode from './components/docs/node/LlmChatNode.vue'
 
 // import 'element-plus/dist/index.css'
@@ -28,10 +34,20 @@ const routes = [
 
 export const routes = [
   { path: '/', component: Home },
-  { path: '/docs', component: Doc },
-  { path: '/docs/:docCatelog/:docDetail', name: 'docDetail', component: Doc },
+  {
+    path: '/doc', component: DocFrame, children: [
+      { path: '', component: ApiOverview },
+      { path: '/doc/api/integration/overview', component: ApiOverview },
+      { path: '/doc/api/integration/javascript', component: ApiJavaScript },
+      { path: '/doc/api/integration/python', component: ApiPython },
+      { path: '/doc/api/integration/java', component: ApiJava },
+      { path: '/doc/node', component: NodesIntro },
+      { path: '/doc/node/llmChatNode', component: LlmChatNode },
+    ]
+  },
+  { path: '/doc/:docCatelog/:docDetail', name: 'docDetail', component: Doc },
   // { path: '/tutorial', component: Tutorial },
-  { path: '/node/llmChatNode', component: LlmChatNode },
+  // { path: '/node/llmChatNode', component: LlmChatNode },
 ];
 
 // const router = createRouter({

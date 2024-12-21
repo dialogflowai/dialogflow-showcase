@@ -32,7 +32,7 @@ function repository() {
     window.location.href = 'https://github.com/dialogflowchatbot/dialogflow';
 }
 function docs() {
-    router.push('/docs');
+    router.push('/doc');
 }
 // function introduction() {
 //     router.push('/introduction');
@@ -206,10 +206,7 @@ const checkUpdate = async () => {
     <NodesIntro />
     <HowToUse />
     <Intro />
-    <p>
-        <hr />
-    </p>
-    <p>
+    <hr />
     <div class="text-center">
         Version: {{ currentVersion }}<br />
         If you have any questions or suggestions, please email to:
@@ -223,5 +220,4 @@ const checkUpdate = async () => {
         <a href="https://www.flaticon.com/free-icons/seo-and-web" title="seo and web icons">Seo and web icons created by
             Freepik - Flaticon</a>
     </div>
-    </p>
 </template>

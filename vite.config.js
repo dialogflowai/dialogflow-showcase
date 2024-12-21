@@ -13,7 +13,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { visualizer } from "rollup-plugin-visualizer";
 import viteImagemin from 'vite-plugin-imagemin'
-import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
+// import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 
 const pathSrc = path.resolve(__dirname, 'src')
 

@@ -280,7 +280,7 @@ function demo() {
                     <h1 class="title5">{{ $t('lang.home.adv5Title') }}</h1>
                     <div v-html="$t('lang.home.adv5')"></div>
                     <br />
-                    <router-link to="/docs">{{ $t('lang.home.adv5Doc') }}</router-link>
+                    <router-link to="/doc">{{ $t('lang.home.adv5Doc') }}</router-link>
                 </div>
             </el-col>
             <el-col :span="15">

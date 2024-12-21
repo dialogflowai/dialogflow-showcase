@@ -31,7 +31,7 @@
       <div class="black-line"></div>
     </el-col>
     <el-col :span="6">
-      <h1 style="text-align: center;">Function nodes</h1>
+      <h1 style="text-align: center;">流程功能节点</h1>
     </el-col>
     <el-col :span="7">
       <div class="black-line"></div>
@@ -42,11 +42,10 @@
       <img src="../../../assets/dialogNode.png" class="b" />
     </el-col>
     <el-col :span="10" :offset="1">
-      <span>Dialog node</span>
+      <span>对话节点</span>
       <div class="desc">
-        You can set the text returned to the user,<br />
-        and you can choose whether to wait for user input after the node returns the text,<br />
-        or directly run the next node.
+        你可以设置返回给用户的话术,<br />
+        并且可以配置, 在返回了话术之后, 是等待用户回复还是直接调转到下一个节点.
       </div>
     </el-col>
   </el-row>
@@ -60,8 +59,8 @@
         Use a large language model to communicate with users, supporting OpenAI, Ollama, and HuggingFace local
         models.<br />
         If the model returns a timeout, you can also set another reply to return to the user.<br />
-        <router-link to="/doc/node/llmChatNode">Check detail</router-link>
-        <!-- <router-link :to="{ name: 'docDetail', params: { docCatelog: 'NodeIndex', docDetail: 'LlmChatNode' } }">Detail</router-link> -->
+        <!-- <router-link to="/node/llmChatNode">Check detail</router-link> -->
+        <router-link :to="{ name: 'docDetail', params: { docCatelog: 'NodeIndex', docDetail: 'LlmChatNode' } }">Detail</router-link>
       </div>
     </el-col>
   </el-row>
@@ -72,9 +71,11 @@
     <el-col :span="10" :offset="1">
       <span>Knowledge base answer node</span>
       <div class="desc">
-        This node can return Q&A knowledge, and can also find answers from uploaded documents.<br />
-        If you don't find a suitable answer, you can also set up an alternate answer
-        <!-- <router-link :to="{ name: 'docDetail', params: { docCatelog: 'NodeIndex', docDetail: 'LlmChatNode' } }">Detail</router-link> -->
+        Use a large language model to communicate with users, supporting OpenAI, Ollama, and HuggingFace local
+        models.<br />
+        If the model returns a timeout, you can also set another reply to return to the user.<br />
+        <!-- <router-link to="/node/llmChatNode">Check detail</router-link> -->
+        <router-link :to="{ name: 'docDetail', params: { docCatelog: 'NodeIndex', docDetail: 'LlmChatNode' } }">Detail</router-link>
       </div>
     </el-col>
   </el-row>
