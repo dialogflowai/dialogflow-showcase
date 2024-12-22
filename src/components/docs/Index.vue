@@ -2,11 +2,10 @@
 import { computed, ref } from "vue";
 import { useRoute, useRouter } from 'vue-router';
 import ApiIndex from './api/ApiIndex.vue';
-import FlowEditDoc from './FlowEdit.vue';
+import FlowEditDoc from './flow/FlowEdit.vue';
 import HowToUseDoc from './HowToUse.vue';
-import KnowledgeDoc from './KmsDoc.vue';
-import VariableDoc from './VarDoc.vue';
-import VariableHttpDoc from './VarHttpDoc.vue';
+import VariableDoc from './var/VarDoc.vue';
+import VariableHttpDoc from './var/VarHttpDoc.vue';
 import NodeIndex from './node/NodeIndex.vue';
 import { useI18n } from 'vue-i18n'
 import BiChatSquareDots from '~icons/bi/chat-square-dots'
@@ -23,7 +22,6 @@ const docs = {
     ApiIndex,
     FlowEditDoc,
     HowToUseDoc,
-    KnowledgeDoc,
     VariableDoc,
     VariableHttpDoc,
     NodeIndex,

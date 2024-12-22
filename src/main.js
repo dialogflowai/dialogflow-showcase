@@ -17,7 +17,15 @@ import ApiJavaScript from './components/docs/api/ApiJavaScript.vue'
 import ApiPython from './components/docs/api/ApiPython.vue'
 import ApiJava from './components/docs/api/ApiJava.vue'
 import NodesIntro from './components/docs/node/NodesIntro.vue'
+import DialogNode from './components/docs/node/DialogNode.vue'
 import LlmChatNode from './components/docs/node/LlmChatNode.vue'
+import KnowledgeBaseAnswerNode from './components/docs/node/KnowledgeBaseAnswerNode.vue'
+import ConditionNode from './components/docs/node/ConditionNode.vue'
+import GotoNode from './components/docs/node/GotoNode.vue'
+import CollectNode from './components/docs/node/CollectNode.vue'
+import ExternalHttpNode from './components/docs/node/ExternalHttpNode.vue'
+import SendEmailNode from './components/docs/node/SendEmailNode.vue'
+import TheEndNode from './components/docs/node/TheEndNode.vue'
 
 // import 'element-plus/dist/index.css'
 // import 'element-tiptap-vue3-fixed/lib/style.css';
@@ -42,7 +50,15 @@ export const routes = [
       { path: '/doc/api/integration/python', component: ApiPython },
       { path: '/doc/api/integration/java', component: ApiJava },
       { path: '/doc/node', component: NodesIntro },
+      { path: '/doc/node/dialogNode', component: DialogNode },
       { path: '/doc/node/llmChatNode', component: LlmChatNode },
+      { path: '/doc/node/knowledgeBaseAnswerNode', component: KnowledgeBaseAnswerNode },
+      { path: '/doc/node/conditionNode', component: ConditionNode },
+      { path: '/doc/node/gotoNode', component: GotoNode },
+      { path: '/doc/node/collectNode', component: CollectNode },
+      { path: '/doc/node/externalHttpNode', component: ExternalHttpNode },
+      { path: '/doc/node/sendEmailNode', component: SendEmailNode },
+      { path: '/doc/node/theEndNode', component: TheEndNode },
     ]
   },
   { path: '/doc/:docCatelog/:docDetail', name: 'docDetail', component: Doc },

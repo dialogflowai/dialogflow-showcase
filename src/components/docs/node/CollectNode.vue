@@ -28,7 +28,7 @@ const tableData = [
 </script>
 <template>
     <h1>Screenshot of the settings page</h1>
-    <img src="@/assets/llmChatNodeSettings.png" />
+    <img src="@/assets/collectNodeSettings.png" />
     <h1>Fields explanation</h1>
     <el-table :data="tableData" style="width: 100%">
         <el-table-column prop="name" label="Field name" width="180" />
