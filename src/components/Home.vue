@@ -7,6 +7,7 @@ import WhatCanBeDoneWithIt from './docs/WhatCanBeDoneWithIt.vue'
 import NodesIntro from './docs/node/NodesIntro.vue'
 import HowToUse from './docs/HowToUse.vue'
 import Intro from './Intro.vue'
+import Enterprise from './docs/Enterprise.vue';
 import { httpReq } from '../assets/tools.js'
 import BiDownload from '~icons/bi/download'
 import BiGithub from '~icons/bi/github'
@@ -206,6 +207,7 @@ const checkUpdate = async () => {
     <NodesIntro />
     <HowToUse />
     <Intro />
+    <Enterprise />
     <hr />
     <div class="text-center">
         Version: {{ currentVersion }}<br />
