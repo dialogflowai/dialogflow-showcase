@@ -219,7 +219,6 @@ const checkUpdate = async () => {
         Images were from
         <a href="https://unsplash.com">Unsplash</a> &amp; <a href="https://picsum.photos">Picsum</a>
         , Icons created by
-        <a href="https://www.flaticon.com/free-icons/seo-and-web" title="seo and web icons">Seo and web icons created by
-            Freepik - Flaticon</a>
+        <a href="https://www.flaticon.com/">Flaticon</a>
     </div>
 </template>
