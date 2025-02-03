@@ -50,7 +50,7 @@ const tableData = ref([
   { feature: 'SQLite', community: 'Partially supported', enterprise: 'Yes' },
   { feature: 'PostgreSQL', community: 'No', enterprise: 'Yes' },
   { feature: 'MySQL', community: 'No', enterprise: 'Yes' },
-  { feature: 'Licence', community: 'Apache license 2.0', enterprise: '-' },
+  { feature: 'Licence', community: 'Apache license 2.0', enterprise: 'Apache license 2.0' },
   { feature: 'Technical Support', community: 'Github issues', enterprise: 'Email' }
 ]);
 
