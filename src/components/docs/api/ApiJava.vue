@@ -68,7 +68,7 @@ public class Main {
 
 <template>
     <h1>Java SDK (Using HttpClient which introduced in JDK11)</h1>
-    <p>We provided a SDK: <a href='https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/java'>https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/java</a></p>
+    <p>We provided an SDK: <a href='https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/java'>https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/java</a></p>
     <p>You can integrated into your project, and following code is an example to demonstrate how to use SDK.</p>
     <code-mirror basic :lang="langJava" v-model="javaCode" />
 </template>
