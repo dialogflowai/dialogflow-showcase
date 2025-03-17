@@ -4,52 +4,58 @@ import CodeMirror from 'vue-codemirror6';
 import { python } from '@codemirror/lang-python';
 const langPython = python();
 const host = window.location.host;
-const pythonCode = ref(`import requests
-import json
+const pythonCode = ref(`if __name__ == "__main__":
+    try:
+        sdk = DialogFlowChatBotSDK("http://192.168.0.108:12715/flow/answer")
+        request_data = RequestData(
+            robotId="r03d3slzkhr7y368qwqfkxfdtp",
+            mainFlowId="103d3slzkp1pdrzu1fnnve2wwm"
+        )
 
-# Data preparation
-robot_id = ""
-main_flow_id = ""
-# Can leave session_id with empty string
-session_id = ""
-user_input_result = "Successful || Timeout"
-user_input = "hello"
-import_variables = [
-    {"varName": "var1", "varType": "String", "varValue": "abc"},
-    {"varName": "var2", "varType": "Number", "varValue": "123"}
-]
-user_intent = "IntentName"
+        while True:
+            try:
+                response = sdk.send_post_request(request_data)
 
-# Build JSON data
-data = {
-    "robotId": robot_id,
-    "mainFlowId": main_flow_id,
-    "sessionId": session_id,
-    "userInputResult": user_input_result,
-    "userInput": user_input,
-    "importVariables": import_variables,
-    "userInputIntent": user_intent
-}
+                if response is None:
+                    print("Response is None")
+                    break
 
-# Send HTTP POST request
-url = "http://localhost:5173/flow/answer"
-headers = {"Content-Type": "application/json"}
-response = requests.post(url, json=data, headers=headers)
+                if response.status != 200:
+                    print(f"Response failed with status code: {response.status}")
+                    if response.err:
+                        print(f"Error: {response.err}")
+                    break
 
-# Check for successful response
-if response.status_code == 200:
-    # Deserialize JSON response
-    response_data = response.json()
-    
-    # Print answers
-    print("Answers:")
-    for answer in response_data["data"]["answers"]:
-        print(answer)
-else:
-    print("Error:", response.status_code)`)
+                if response.data is None:
+                    print("Response data is None")
+                    break
+
+                for answer in response.data.answers:
+                    print(f"Answer: {answer.content} (Type: {answer.contentType})")
+
+                if response.data.nextAction == NextAction.TERMINATE:
+                    print("Terminating the conversation.")
+                    break
+
+                if request_data.userInputIntent is not None and len(request_data.userInputIntent) == 0:
+                    request_data.userInputIntent = None
+
+                if request_data.sessionId is None or len(request_data.sessionId) == 0:
+                    request_data.sessionId = response.data.sessionId
+
+                user_input = input("Input your question: ")
+                request_data.set_user_input(user_input)
+
+            except Exception as e:
+                print(f"An error occurred: {e}")
+
+    except ValueError as ve:
+        print(f"Invalid endpoint: {ve}")`)
 </script>
 
 <template>
-    <h1>Python Code:</h1>
+    <h1>Python SDK</h1>
+    <p>We provides a Python SDK: <a href="https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/python">https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/python</a></p>
+    <h1>Sample code</h1>
     <code-mirror basic :lang="langPython" v-model="pythonCode" />
 </template>

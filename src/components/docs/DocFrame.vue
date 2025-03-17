@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
+import MaterialSymbolsLightKitesurfingOutlineRounded from '~icons/material-symbols-light/kitesurfing-outline-rounded'
 import MaterialSymbolsHouseOutline from '~icons/material-symbols/house-outline'
 import PhPlugsConnectedBold from '~icons/ph/plugs-connected-bold'
 import PhSelectionBackgroundDuotone from '~icons/ph/selection-background-duotone'
@@ -33,7 +34,13 @@ const isCollapse = ref(false)
                     </el-icon>
                     <template #title>Home</template>
                 </el-menu-item>
-                <el-sub-menu index="/doc">
+                <el-menu-item index="/doc">
+                    <el-icon>
+                        <MaterialSymbolsLightKitesurfingOutlineRounded />
+                    </el-icon>
+                    <template #title>Introductions</template>
+                </el-menu-item>
+                <el-sub-menu index="/doc/api">
                     <template #title>
                         <el-icon>
                             <PhPlugsConnectedBold />

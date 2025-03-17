@@ -12,6 +12,7 @@ import Home from './components/Home.vue'
 import DocFrame from './components/docs/DocFrame.vue'
 import Doc from './components/docs/Index.vue'
 // import Tutorial from './components/docs/Tutorial.vue'
+import DocIntro from './components/docs/DocIntro.vue'
 import ApiOverview from './components/docs/api/ApiOverview.vue'
 import ApiJavaScript from './components/docs/api/ApiJavaScript.vue'
 import ApiPython from './components/docs/api/ApiPython.vue'
@@ -44,7 +45,7 @@ export const routes = [
   { path: '/', component: Home },
   {
     path: '/doc', component: DocFrame, children: [
-      { path: '', component: ApiOverview },
+      { path: '', component: DocIntro },
       { path: '/doc/api/integration/overview', component: ApiOverview },
       { path: '/doc/api/integration/javascript', component: ApiJavaScript },
       { path: '/doc/api/integration/python', component: ApiPython },

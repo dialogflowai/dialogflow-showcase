@@ -95,5 +95,6 @@ const res = ref(`{
     </el-table>
     <h3>Response</h3>
     <code-mirror basic :lang="langJson" :linter="linter" v-model="res" />
+    <h3>Request by curl</h3>
     <p></p>
 </template>
