@@ -4,9 +4,9 @@ import CodeMirror from 'vue-codemirror6';
 import { java } from '@codemirror/lang-java';
 const langJava = java();
 const host = window.location.host;
-const javaCode = ref(`package io.github.dialogflowchatbot;
+const javaCode = ref(`package io.github.dialogflowai;
 
-import io.github.dialogflowchatbot.sdk.*;
+import io.github.dialogflowai.sdk.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -68,7 +68,7 @@ public class Main {
 
 <template>
     <h1>Java SDK (Using HttpClient which introduced in JDK11)</h1>
-    <p>We provided an SDK: <a href='https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/java'>https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/java</a></p>
+    <p>We provided an SDK: <a href='https://github.com/dialogflowai/dialogflow/tree/main/sdk/java'>https://github.com/dialogflowai/dialogflow/tree/main/sdk/java</a></p>
     <h1>Sample code</h1>
     <p>You can integrated into your project, and following code is an example to demonstrate how to use SDK.</p>
     <code-mirror basic :lang="langJava" v-model="javaCode" />

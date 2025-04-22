@@ -41,17 +41,17 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
               href="https://hub.docker.com/r/dialogflowai/dialogflow">https://hub.docker.com/r/dialogflowai/dialogflow</a>
           </li>
           <li> Release page: <a
-              href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>
+              href="https://github.com/dialogflowai/dialogflow/releases">https://github.com/dialogflowai/dialogflow/releases</a>
           </li>
         </ul>
         <div class="description">
           Alternatively, you can download source code and build by yourself
           <ul>
             <li>Frontend: <a
-                href="https://github.com/dialogflowchatbot/dialogflow-frontend">https://github.com/dialogflowchatbot/dialogflow-frontend</a>
+                href="https://github.com/dialogflowai/dialogflow-frontend">https://github.com/dialogflowai/dialogflow-frontend</a>
             </li>
             <li>Backend: <a
-                href="https://github.com/dialogflowchatbot/dialogflow-backend">https://github.com/dialogflowchatbot/dialogflow-backend</a>
+                href="https://github.com/dialogflowai/dialogflow-backend">https://github.com/dialogflowai/dialogflow-backend</a>
             </li>
           </ul>
         </div>

@@ -6,7 +6,7 @@ const langPython = python();
 const host = window.location.host;
 const pythonCode = ref(`if __name__ == "__main__":
     try:
-        sdk = DialogFlowChatBotSDK("http://192.168.0.108:12715/flow/answer")
+        sdk = DialogFlowAiSDK("http://192.168.0.108:12715/flow/answer")
         request_data = RequestData(
             robotId="r03d3slzkhr7y368qwqfkxfdtp",
             mainFlowId="103d3slzkp1pdrzu1fnnve2wwm"
@@ -55,7 +55,7 @@ const pythonCode = ref(`if __name__ == "__main__":
 
 <template>
     <h1>Python SDK</h1>
-    <p>We provides a Python SDK: <a href="https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/python">https://github.com/dialogflowchatbot/dialogflow/tree/main/sdk/python</a></p>
+    <p>We provides a Python SDK: <a href="https://github.com/dialogflowai/dialogflow/tree/main/sdk/python">https://github.com/dialogflowai/dialogflow/tree/main/sdk/python</a></p>
     <h1>Sample code</h1>
     <code-mirror basic :lang="langPython" v-model="pythonCode" />
 </template>

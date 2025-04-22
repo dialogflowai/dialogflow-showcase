@@ -213,7 +213,7 @@ const checkUpdate = async () => {
         Version: {{ currentVersion }}<br />
         If you have any questions or suggestions, please email to:
         dialogflow@yeah.net
-        or create a <a href="https://github.com/dialogflowchatbot/dialogflow/discussions">Discussions</a>
+        or create a <a href="https://github.com/dialogflowai/dialogflow/discussions">Discussions</a>
     </div>
     <div class="text-center">
         Images were from

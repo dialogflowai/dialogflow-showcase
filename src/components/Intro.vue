@@ -67,11 +67,11 @@ function doc() {
     <div class="download">
         <h1>Download</h1>
         <p>You can download the latest releases on Github: <a
-                href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>
+                href="https://github.com/dialogflowai/dialogflow/releases">https://github.com/dialogflowai/dialogflow/releases</a>
         </p>
         <p>
             If you have any issues or feedback, please email to: dialogflow(AT)yeah.net or create an <a
-                href="https://github.com/dialogflowchatbot/dialogflow/issues">issue</a>
+                href="https://github.com/dialogflowai/dialogflow/issues">issue</a>
         </p>
     </div>
     <IntroDoc />

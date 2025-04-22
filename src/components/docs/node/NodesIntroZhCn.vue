@@ -169,7 +169,7 @@
         or a node that uses ChatGPT, exits when the user enters specific characters.<br />
         <br />
         If you have any good ideas or needs, you can also submit them to <a
-          href="https://github.com/dialogflowchatbot/dialogflow/discussions">Discussions</a> on Github
+          href="https://github.com/dialogflowai/dialogflow/discussions">Discussions</a> on Github
       </div>
     </el-col>
   </el-row>

@@ -48,7 +48,7 @@
 <template>
     <div class="header">
         <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Logo" class="logo">
-        <h1>Thank you for using DialogFlowChatBot!</h1>
+        <h1>Thank you for using DialogFlowAI!</h1>
     </div>
     <div class="nav">
         <div class="nav-item">
@@ -73,7 +73,7 @@
         <!-- 下载了模型以后，就解锁了 xxx 功能 -->
     </div>
     <!-- <div class="content">
-        <h2>How to integrate DialogFlowChatBot into your project?</h2>
+        <h2>How to integrate DialogFlowAI into your project?</h2>
         <p>首先，您需要安装所需的依赖包。</p>
         <pre><code>npm install some-tool</code></pre>
         <p>然后，在您的代码中引入并使用这个工具：</p>

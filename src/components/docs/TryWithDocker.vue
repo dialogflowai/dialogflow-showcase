@@ -41,7 +41,7 @@ const htu = () => {
                 There are two ways:
             </h3>
             <ol>
-                <li>Download the compiled file directly from the <a href="https://github.com/dialogflowchatbot/dialogflow/releases">release page</a> on GitHub</li>
+                <li>Download the compiled file directly from the <a href="https://github.com/dialogflowai/dialogflow/releases">release page</a> on GitHub</li>
                 <li>
                     Try demos with Docker<br />
                     We provided an image on Docker Hub at <a href="https://hub.docker.com/r/dialogflowai/dialogflow">dialogflowai/dialogflow</a><br />
