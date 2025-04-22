@@ -38,7 +38,7 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
         <div class="title">Download prebuild files</div>
         <ul>
           <li>Docker: <a
-              href="https://hub.docker.com/repository/docker/dialogflowchatbot/demo">https://hub.docker.com/repository/docker/dialogflowchatbot/demo</a>
+              href="https://hub.docker.com/r/dialogflowai/dialogflow">https://hub.docker.com/r/dialogflowai/dialogflow</a>
           </li>
           <li> Release page: <a
               href="https://github.com/dialogflowchatbot/dialogflow/releases">https://github.com/dialogflowchatbot/dialogflow/releases</a>

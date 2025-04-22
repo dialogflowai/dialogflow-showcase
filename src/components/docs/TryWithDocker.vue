@@ -44,14 +44,14 @@ const htu = () => {
                 <li>Download the compiled file directly from the <a href="https://github.com/dialogflowchatbot/dialogflow/releases">release page</a> on GitHub</li>
                 <li>
                     Try demos with Docker<br />
-                    We provided an image on Docker Hub at <a href="https://hub.docker.com/repository/docker/dialogflowchatbot/demo">dialogflowchatbot/demo</a><br />
+                    We provided an image on Docker Hub at <a href="https://hub.docker.com/r/dialogflowai/dialogflow">dialogflowai/dialogflow</a><br />
                     <span class="note">If you are using a windows operating system, please install <a
                             href="https://hub.docker.com/editions/community/docker-ce-desktop-windows">Docker
                             Desktop</a>
                         first</span>
                     <ol>
-                        <li>docker pull dialogflowchatbot/demo</li>
-                        <li>docker run -dp 127.0.0.1:12715:12715 --name dialogflowdemo dialogflowchatbot/demo</li>
+                        <li>docker pull dialogflowai/dialogflow</li>
+                        <li>docker run -dp 127.0.0.1:12715:12715 --name dialogflowdemo dialogflowai/dialogflow</li>
                         <li>Open your browser and visit: http://127.0.0.1:12715/</li>
                     </ol>
                 </li>

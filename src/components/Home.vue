@@ -27,10 +27,10 @@ const currentVersion = ref('')
 // navigator.language; //"en-US"
 // navigator.languages; //["en-US", "zh-CN", "ja-JP"]
 function download() {
-    window.location.href = 'https://github.com/easyflow-ai/easyflow/releases';
+    window.location.href = 'https://github.com/dialogflowai/dialogflow/releases';
 }
 function repository() {
-    window.location.href = 'https://github.com/easyflow-ai/easyflow';
+    window.location.href = 'https://github.com/dialogflowai/dialogflow';
 }
 function docs() {
     router.push('/doc');
