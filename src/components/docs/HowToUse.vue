@@ -48,10 +48,10 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
           Alternatively, you can download source code and build by yourself
           <ul>
             <li>Frontend: <a
-                href="https://github.com/dialogflowai/dialogflow-frontend">https://github.com/dialogflowai/dialogflow-frontend</a>
+                href="https://github.com/dialogflowai/dialogflow-frontend">https://github.com/dialogflowai/dialogflow/tree/main/frontend</a>
             </li>
             <li>Backend: <a
-                href="https://github.com/dialogflowai/dialogflow-backend">https://github.com/dialogflowai/dialogflow-backend</a>
+                href="https://github.com/dialogflowai/dialogflow-backend">https://github.com/dialogflowai/dialogflow</a>
             </li>
           </ul>
         </div>
