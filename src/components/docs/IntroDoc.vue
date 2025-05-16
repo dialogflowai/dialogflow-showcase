@@ -18,104 +18,122 @@ function demo() {
 <style scoped>
 .title1 {
     background-image: url("../../assets/easy.png");
-    background-repeat: no-repeat;
-    height: 100x;
-    padding-left: 60px;
 }
 
 .title2 {
     background-image: url("../../assets/rocket.png");
-    background-repeat: no-repeat;
-    height: 100x;
-    padding-left: 60px;
 }
 
 .title3 {
     background-image: url("../../assets/diversity.png");
-    background-repeat: no-repeat;
-    height: 100x;
-    padding-left: 60px;
 }
 
 .title4 {
     background-image: url("../../assets/compatible.png");
-    background-repeat: no-repeat;
-    height: 100x;
     padding-left: 70px;
 }
 
 .title5 {
     background-image: url("../../assets/link.png");
-    background-repeat: no-repeat;
-    height: 100x;
-    padding-left: 60px;
+}
+
+.title1, .title2, .title3, .title4, .title5 {
+  background-repeat: no-repeat;
+  height: 100px;
+  padding-left: 60px;
+  background-size: 40px;
+  background-position: left center;
+}
+
+.title4 {
+  padding-left: 70px;
 }
 
 .progress-bg {
-    width: 500px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: rgb(235, 238, 245);
-    margin-bottom: 10px;
+  width: 100%;
+  max-width: 500px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: rgb(235, 238, 245);
+  margin-bottom: 10px;
 }
 
 .progress1 {
-    width: 150px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: rgb(103, 194, 58);
+  width: 150px;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgb(103, 194, 58);
 }
 
 .progress2 {
-    width: 500px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: rgb(64, 158, 255);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgb(64, 158, 255);
 }
 
 .progress3 {
-    width: 450px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: rgb(230, 162, 60);
+  width: 90%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgb(230, 162, 60);
 }
 
 .progress4 {
-    width: 270px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: rgb(245, 108, 108);
+  width: 60%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgb(245, 108, 108);
 }
 
-.intro .el-row {
-    margin-bottom: 30px;
+.intro .el-row, .features .el-row {
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
-.intro div {
-    font-size: large;
-}
-
-.features {
-    /* max-width: 76vw; */
-    /*text-align: center;*/
-    align-items: center;
-    justify-content: center;
-}
-
-.features .el-row {
-    margin-bottom: 60px;
+.intro div, .features div {
+  font-size: large;
 }
 
 .mid {
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .black-line {
-    height: 6px;
-    background-color: black;
+  height: 6px;
+  background-color: black;
+  margin: 0 auto;
 }
+
+/* 响应式部分 */
+@media screen and (max-width: 768px) {
+  .title1, .title2, .title3, .title4, .title5 {
+    padding-left: 40px;
+    background-size: 30px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .progress-bg {
+    width: 100%;
+  }
+
+  .intro .el-col, .features .el-col {
+    width: 100% !important;
+    max-width: 100%;
+    flex: none !important;
+  }
+
+  .black-line {
+    display: none;
+  }
+}
+
 </style>
 <template>
     <el-row class="mid">

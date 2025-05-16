@@ -74,90 +74,128 @@ const checkUpdate = async () => {
 
 <style scoped>
 #header {
-    background-image: url(../assets/flow.png), url(../assets/header_bg.jpg);
-    background-position: right center, left top;
-    background-repeat: no-repeat, repeat;
-    height: 450px;
-    color: white;
-    padding-top: 50px;
-    padding-left: 70px;
-    font-size: 30px;
-}
-
-#header button {
-    cursor: pointer;
+  background-image: url(../assets/flow.png), url(../assets/header_bg.jpg);
+  background-position: right center, left top;
+  background-repeat: no-repeat, repeat;
+  background-size: contain, cover;
+  height: 450px;
+  color: white;
+  padding-top: 50px;
+  padding-left: 70px;
+  font-size: 2vw;
 }
 
 #header .name {
-    font-weight: bold;
-    font-size: 70px;
+  font-weight: bold;
+  font-size: 5vw;
+  display: block;
+  margin-bottom: 10px;
 }
 
 #header .download {
-    background-color: gold;
-    border-radius: 10px;
-    border: 3px #000 solid;
-    font-size: 30px;
-    padding: 12px;
-    margin-right: 20px;
+  background-color: gold;
+  border-radius: 10px;
+  border: 3px #000 solid;
+  font-size: 20px;
+  padding: 12px;
+  margin-right: 10px;
 }
 
 #header .tutorial {
-    background-color: aliceblue;
-    border-radius: 10px;
-    border: 3px #000 solid;
-    font-size: 30px;
-    padding: 12px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  border: 3px #000 solid;
+  font-size: 20px;
+  padding: 12px;
 }
 
 #header .v {
-    /* margin-left: 20px;
-    margin-right: 10px; */
-    font-size: 16px;
-    line-height: 23px;
-    /* padding-top: 7px; */
-    vertical-align: middle;
-    margin-left: 16px;
-}
-
-.title {
-    text-align: center;
-    font-size: 200%;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-.sub-title {
-    font-weight: bold;
-    font-size: 18px;
-    color: gray;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  font-size: 14px;
+  margin-left: 12px;
 }
 
 .btns {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .btns button {
-    background-color: white;
-    border-radius: 30px;
-    border: 3px #000 solid;
-    font-size: 30px;
-    padding: 12px;
+  background-color: white;
+  border-radius: 30px;
+  border: 3px #000 solid;
+  font-size: 30px;
+  padding: 12px 16px;
+  flex: 1 1 auto;
+  max-width: 220px;
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+  font-size: 180%;
+  font-weight: bold;
+  margin: 30px 10px 10px;
+}
+
+.sub-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: gray;
+  margin: 20px 0;
 }
 
 .bg1 {
-    background-image: url("../assets/demo1.gif");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    height: 630px;
-    margin-top: 20px;
+  background-image: url("../assets/demo1.gif");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  margin-top: 20px;
+}
+
+.text-center {
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  #header {
+    padding-left: 20px;
+    padding-top: 30px;
+    height: auto;
+    font-size: 4vw;
+  }
+
+  #header .name {
+    font-size: 7vw;
+  }
+
+  .btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btns button {
+    font-size: 18px;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .title {
+    font-size: 150%;
+  }
+
+  .bg1 {
+    height: 250px;
+  }
 }
 </style>
+
 
 <template>
     <div id="header">
@@ -183,12 +221,12 @@ const checkUpdate = async () => {
                     <BiDownload />
                 </el-icon> Download
             </button>
-            <button style="margin-left: 20px;" @click="repository">
+            <button @click="repository">
                 <el-icon :size="27">
                     <BiGithub />
                 </el-icon> Github
             </button>
-            <button style="margin-left: 20px;" @click="docs()">
+            <button @click="docs()">
                 <el-icon :size="27">
                     <BiFiletypeDoc />
                 </el-icon> Docs
