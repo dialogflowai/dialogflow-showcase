@@ -195,5 +195,27 @@ export default {
             nav5: '查看文档',
             desc5: '了解如何通过画布，快速的构建出流程。了解如何通过代码，对接应答接口',
         },
+        tutorial: {
+            SimplestNotificationRobot: {
+                title: '创建一个最简单的机器人: 通知机器人',
+                desc: '只需简单的5步!',
+                steps: [{
+                    text: '1. 选择默认创建好的机器人。',
+                    img: '/images/tutorial/1.png'
+                },{
+                    text: '2. 选择默认创建好的流程。',
+                    img: '/images/tutorial/1.png'
+                },{
+                    text: '3. 鼠标拖动The end节点到画布上。',
+                    img: '/images/tutorial/1.png'
+                },{
+                    text: '4. 双击节点，并在弹出窗填写需要输出的内容。',
+                    img: '/images/tutorial/1.png'
+                },{
+                    text: '5. 保存并发布。',
+                    img: '/images/tutorial/1.png'
+                }],
+            }
+        }
     }
 }

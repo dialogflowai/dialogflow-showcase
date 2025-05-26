@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router';
 import MaterialSymbolsLightKitesurfingOutlineRounded from '~icons/material-symbols-light/kitesurfing-outline-rounded'
 import MaterialSymbolsHouseOutline from '~icons/material-symbols/house-outline'
 import PhPlugsConnectedBold from '~icons/ph/plugs-connected-bold'
+import MaterialSymbolsLightHandGestureOutlineRounded from '~icons/material-symbols-light/hand-gesture-outline-rounded'
 import PhSelectionBackgroundDuotone from '~icons/ph/selection-background-duotone'
 const route = useRoute()
 const isCollapse = ref(false)
@@ -21,7 +22,7 @@ const isCollapse = ref(false)
 </style>
 <template>
     <el-container style="min-height: 100vh">
-        <el-aside :width="isCollapse ? '65px' : '200px'" style="background-color: #545c64">
+        <el-aside :width="isCollapse ? '65px' : '220px'" style="background-color: #545c64">
             <div class="toggle-button" @click="isCollapse = !isCollapse">
                 {{ isCollapse ? '&gt;&gt;&gt;' :
                     '&lt;&lt;&lt;' }}
@@ -51,6 +52,15 @@ const isCollapse = ref(false)
                     <el-menu-item index="/doc/api/integration/javascript">JavaScript</el-menu-item>
                     <el-menu-item index="/doc/api/integration/python">Python</el-menu-item>
                     <el-menu-item index="/doc/api/integration/java">Java</el-menu-item>
+                </el-sub-menu>
+                <el-sub-menu index="/doc/tutorial">
+                    <template #title>
+                        <el-icon>
+                            <MaterialSymbolsLightHandGestureOutlineRounded />
+                        </el-icon>
+                        <span>Tutorials</span>
+                    </template>
+                    <el-menu-item index="/doc/tutorial/simplest-notification-robot">Simple notification robot</el-menu-item>
                 </el-sub-menu>
                 <el-sub-menu index="/doc/node">
                     <template #title>

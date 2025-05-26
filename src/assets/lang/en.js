@@ -194,5 +194,27 @@ export default {
             nav5: 'View document',
             desc5: 'Understand how to quickly build a dialog flow through the canvas. Learn how to connect to the answering interface through code',
         },
+        tutorial: {
+            SimplestNotificationRobot: {
+                title: 'Creating a simplest bot: Notification bot',
+                desc: 'Just 5 simple steps!',
+                steps: [{
+                    text: '1. Select the robot created by default.',
+                    img: '/images/tutorial/1.png'
+                },{
+                    text: '2. Select the default created dialog flow.',
+                    img: '/images/tutorial/1.png'
+                },{
+                    text: '3. Drag the end node onto the canvas.',
+                    img: '/images/tutorial/1.png'
+                },{
+                    text: '4. Double-click the node and fill in the content to be output in the pop-up window.',
+                    img: '/images/tutorial/1.png'
+                },{
+                    text: '5. Save and publish.',
+                    img: '/images/tutorial/1.png'
+                }],
+            }
+        }
     }
 }
