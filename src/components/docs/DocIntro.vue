@@ -53,10 +53,10 @@
     <div class="nav">
         <div class="nav-item">
             <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 1">
-            <h3><a href="">How to build a simple chat bot in 1 minute.</a></h3>
-            <p>WIP</p>
+            <h3><a href="/doc/tutorial/simplest-notification-robot">Just 5 steps to create a notification bot.</a></h3>
+            <p></p>
         </div>
-        <div class="nav-item">
+        <!-- <div class="nav-item">
             <h3>How to setup condition branches?</h3>
             <p>WIP</p>
         </div>
@@ -69,7 +69,7 @@
             <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 3">
             <h3>How to use LLM answer node?</h3>
             <p>WIP</p>
-        </div>
+        </div> -->
         <!-- 下载了模型以后，就解锁了 xxx 功能 -->
     </div>
     <!-- <div class="content">

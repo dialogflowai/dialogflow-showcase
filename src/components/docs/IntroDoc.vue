@@ -141,7 +141,7 @@ function demo() {
             <div class="black-line"></div>
         </el-col>
         <el-col :span="4">
-            <h1 style="text-align: center;">{{ $t('lang.home.introTitle') }}</h1>
+            <h1 style="text-align: center;">{{ $t('home.introTitle') }}</h1>
         </el-col>
         <el-col :span="8">
             <div class="black-line"></div>
@@ -153,7 +153,7 @@ function demo() {
                 <div><img src="../../assets/talk.png" /></div>
             </el-col>
             <el-col :span="10">
-                <div>{{ $t('lang.home.intro1') }}</div>
+                <div>{{ $t('home.intro1') }}</div>
             </el-col>
         </el-row>
         <el-row class="mid">
@@ -161,7 +161,7 @@ function demo() {
                 <div><img src="../../assets/canvas.png" /></div>
             </el-col>
             <el-col :span="10">
-                <div>{{ $t('lang.home.intro2') }}</div>
+                <div>{{ $t('home.intro2') }}</div>
             </el-col>
         </el-row>
         <el-row class="mid">
@@ -169,7 +169,7 @@ function demo() {
                 <div><img src="../../assets/nodes.png" /></div>
             </el-col>
             <el-col :span="10">
-                <div>{{ $t('lang.home.intro3') }}, <el-button color="#b3e19d" @click="demo">See demos</el-button>.</div>
+                <div>{{ $t('home.intro3') }}, <el-button color="#b3e19d" @click="demo">See demos</el-button>.</div>
             </el-col>
         </el-row>
         <el-row class="mid">
@@ -177,7 +177,7 @@ function demo() {
                 <div><img src="../../assets/exe.png" /></div>
             </el-col>
             <el-col :span="10">
-                <div>{{ $t('lang.home.intro4') }}</div>
+                <div>{{ $t('home.intro4') }}</div>
             </el-col>
         </el-row>
         <el-row class="mid">
@@ -185,7 +185,7 @@ function demo() {
                 <div><img src="../../assets/scenarios.png" /></div>
             </el-col>
             <el-col :span="10">
-                <div>{{ $t('lang.home.intro5') }}</div>
+                <div>{{ $t('home.intro5') }}</div>
             </el-col>
         </el-row>
         <el-row class="mid">
@@ -193,7 +193,7 @@ function demo() {
                 <div><img src="../../assets/storage.png" /></div>
             </el-col>
             <el-col :span="10">
-                <div>{{ $t('lang.home.intro6') }}</div>
+                <div>{{ $t('home.intro6') }}</div>
             </el-col>
         </el-row>
         <el-row class="mid">
@@ -201,7 +201,7 @@ function demo() {
                 <div class="black-line"></div>
             </el-col>
             <el-col :span="4">
-                <h1 style="text-align: center;">{{ $t('lang.home.midTitle') }}</h1>
+                <h1 style="text-align: center;">{{ $t('home.midTitle') }}</h1>
             </el-col>
             <el-col :span="8">
                 <div class="black-line"></div>
@@ -212,26 +212,26 @@ function demo() {
         <el-row>
             <el-col :span="5" :offset="3">
                 <div class="grid-content">
-                    <h1 class="title1">{{ $t('lang.home.adv1Title') }}</h1>
-                    <div v-html="$t('lang.home.adv1')"></div>
+                    <h1 class="title1">{{ $t('home.adv1Title') }}</h1>
+                    <div v-html="$t('home.adv1')"></div>
                     <p id="demosList">
                         <Demos :parentPage="home" />
                         <!-- <Demos :parentPage="fromPage" /> -->
-                        <!-- {{ $t('lang.home.demo') }}:
+                        <!-- {{ $t('home.demo') }}:
                     <ol>
                         <li>
                             <el-link type="success" @click="gotoDemo('demo-repay', 'UmVwYXkgRGVtbw==')">{{
-                                $t('lang.home.demo1') }}</el-link>
+                                $t('home.demo1') }}</el-link>
                         </li>
                         <li>
                             <el-link type="success"
                                 @click="gotoDemo('demo-collect', 'SW5mb3JtYXRpb24gQ29sbGVjdGlvbiBEZW1v')">{{
-                                    $t('lang.home.demo2') }}</el-link>
+                                    $t('home.demo2') }}</el-link>
                         </li>
                         <li>
                             <el-link type="success"
                                 @click="gotoDemo('demo-notify', 'T25lIFNlbnRlbmNlIE5vdGlmaWNhdGlvbiBEZW1v')">{{
-                                    $t('lang.home.demo3') }}</el-link>
+                                    $t('home.demo3') }}</el-link>
                         </li>
                     </ol> -->
                     </p>
@@ -260,16 +260,16 @@ function demo() {
             </el-col>
             <el-col :span="10" :offset="2">
                 <div class="grid-content">
-                    <h1 class="title2">{{ $t('lang.home.adv2Title') }}</h1>
-                    <div v-html="$t('lang.home.adv2')"></div>
+                    <h1 class="title2">{{ $t('home.adv2Title') }}</h1>
+                    <div v-html="$t('home.adv2')"></div>
                 </div>
             </el-col>
         </el-row>
         <el-row>
             <el-col :span="title3Span" :offset="title3Offset">
                 <div class="grid-content">
-                    <h1 class="title3">{{ $t('lang.home.adv3Title') }}</h1>
-                    <div v-html="$t('lang.home.adv3')"></div>
+                    <h1 class="title3">{{ $t('home.adv3Title') }}</h1>
+                    <div v-html="$t('home.adv3')"></div>
                 </div>
             </el-col>
             <el-col :span="14">
@@ -287,18 +287,18 @@ function demo() {
             </el-col>
             <el-col :span="11" :offset="1">
                 <div class="grid-content">
-                    <h1 class="title4">{{ $t('lang.home.adv4Title') }}</h1>
-                    <div v-html="$t('lang.home.adv4')"></div>
+                    <h1 class="title4">{{ $t('home.adv4Title') }}</h1>
+                    <div v-html="$t('home.adv4')"></div>
                 </div>
             </el-col>
         </el-row>
         <el-row>
             <el-col :span="6" :offset="3">
                 <div class="grid-content">
-                    <h1 class="title5">{{ $t('lang.home.adv5Title') }}</h1>
-                    <div v-html="$t('lang.home.adv5')"></div>
+                    <h1 class="title5">{{ $t('home.adv5Title') }}</h1>
+                    <div v-html="$t('home.adv5')"></div>
                     <br />
-                    <router-link to="/doc">{{ $t('lang.home.adv5Doc') }}</router-link>
+                    <router-link to="/doc">{{ $t('home.adv5Doc') }}</router-link>
                 </div>
             </el-col>
             <el-col :span="15">

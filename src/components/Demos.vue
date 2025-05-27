@@ -13,7 +13,7 @@ const { t, locale } = useI18n();
 // const router = useRouter();
 function gotoDemo(id, name) {
     // if (isOnGithub()) {
-        ElMessageBox.alert(t('lang.home.demoUnvailableContent'), t('lang.home.demoUnvailableTitle'), {
+        ElMessageBox.alert(t('home.demoUnvailableContent'), t('home.demoUnvailableTitle'), {
             dangerouslyUseHTMLString: true,
             // if you want to disable its autofocus
             // autofocus: false,
@@ -33,32 +33,32 @@ function gotoDemo(id, name) {
 </script>
 <template>
     <div>
-        {{ $t('lang.home.demo') }}:
+        {{ $t('home.demo') }}:
         <template v-if="props.parentPage == 'home'">
             <ol>
                 <li>
                     <el-link type="success" @click="gotoDemo('demo-repay', 'UmVwYXkgRGVtbw==')">{{
-                        $t('lang.home.demo1') }}</el-link>
+                        $t('home.demo1') }}</el-link>
                 </li>
                 <li>
                     <el-link type="success" @click="gotoDemo('demo-collect', 'SW5mb3JtYXRpb24gQ29sbGVjdGlvbiBEZW1v')">{{
-                        $t('lang.home.demo2') }}</el-link>
+                        $t('home.demo2') }}</el-link>
                 </li>
                 <li>
                     <el-link type="success" @click="gotoDemo('demo-notify', 'T25lIFNlbnRlbmNlIE5vdGlmaWNhdGlvbiBEZW1v')">{{
-                        $t('lang.home.demo3') }}</el-link>
+                        $t('home.demo3') }}</el-link>
                 </li>
             </ol>
         </template>
         <template v-else>
             <el-link type="success" @click="gotoDemo('demo-repay', 'UmVwYXkgRGVtbw==')">{{
-                $t('lang.home.demo1') }}</el-link>
+                $t('home.demo1') }}</el-link>
             |
             <el-link type="success" @click="gotoDemo('demo-collect', 'SW5mb3JtYXRpb24gQ29sbGVjdGlvbiBEZW1v')">{{
-                $t('lang.home.demo2') }}</el-link>
+                $t('home.demo2') }}</el-link>
             |
             <el-link type="success" @click="gotoDemo('demo-notify', 'T25lIFNlbnRlbmNlIE5vdGlmaWNhdGlvbiBEZW1v')">{{
-                $t('lang.home.demo3') }}</el-link>
+                $t('home.demo3') }}</el-link>
         </template>
     </div>
 </template>

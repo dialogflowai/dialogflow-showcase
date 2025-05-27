@@ -60,7 +60,7 @@ const handleSelect = (key, keyPath) => {
 }
 </style>
 <template>
-    <el-page-header :title="t('lang.common.back')" @back="goBack">
+    <el-page-header :title="t('common.back')" @back="goBack">
         <template #content>
             <span class="text-large font-600 mr-3"> Dialog flow chat bot tool usage documents </span>
         </template>

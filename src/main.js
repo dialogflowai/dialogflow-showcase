@@ -81,7 +81,6 @@ import './assets/main.css'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import 'virtual:uno.css'
 
-/*
 // createApp(App).mount('#app')
 const app = createApp(App)
 
@@ -95,17 +94,18 @@ app.use(router)
 app.use(i18n)
 // app.use(VueScrollTo)
 app.mount('#app')
-*/
 
+/*
 export const createApp = ViteSSG(
   // the root component
   App,
   // vue-router options
   { routes },
   // function to have custom setups
-  ({ app, router, routes, isClient, initialState }) => {
+  ({ app, router, routes, initialState }) => {
     // install plugins etc.
     app.use(router)
     app.use(i18n)
   },
 )
+*/
