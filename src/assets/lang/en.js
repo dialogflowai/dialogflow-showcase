@@ -196,22 +196,33 @@ export default {
     tutorial: {
         SimplestNotificationRobot: {
             title: 'Creating a simplest bot: Notification bot',
-            desc: 'Just 5 simple steps!',
+            desc: 'Just 6 simple steps in less 2 mintes!',
             steps: [{
-                text: '1. Select the robot created by default.',
-                img: '/images/tutorial/1.png'
+                text: '#1. Select the robot created by default.',
+                img: 'SimpleNotifyRobot1.png'
             }, {
-                text: '2. Select the default created dialog flow.',
-                img: '/images/tutorial/1.png'
+                text: '#2. Click the link to go to the dialog flow list',
+                img: 'SimpleNotifyRobot2.png'
             }, {
-                text: '3. Drag the end node onto the canvas.',
-                img: '/images/tutorial/1.png'
+                text: '#3. Select the default created dialog flow.',
+                img: 'SimpleNotifyRobot3.png'
             }, {
-                text: '4. Double-click the node and fill in the content to be output in the pop-up window.',
-                img: '/images/tutorial/1.png'
+                text: '#4. Drag the end node onto the canvas.',
+                img: 'SimpleNotifyRobot4.png'
             }, {
-                text: '5. Save and publish.',
-                img: '/images/tutorial/1.png'
+                text: '#5. Double-click the node and fill in the content to be output in the pop-up window.',
+                img: 'SimpleNotifyRobot5.png'
+            }, {
+                text: '#6. Save and publish.',
+                img: 'SimpleNotifyRobot6.png'
+            }, {
+                text: '----------'
+            }, {
+                text: 'Let\'s test',
+                img: 'SimpleNotifyRobot7.png'
+            }, {
+                text: 'It works!',
+                img: 'SimpleNotifyRobot8.png'
             }],
         }
     }

@@ -41,6 +41,15 @@ const isCollapse = ref(false)
                     </el-icon>
                     <template #title>Introductions</template>
                 </el-menu-item>
+                <el-sub-menu index="/doc/tutorial">
+                    <template #title>
+                        <el-icon>
+                            <MaterialSymbolsLightHandGestureOutlineRounded />
+                        </el-icon>
+                        <span>Tutorials</span>
+                    </template>
+                    <el-menu-item index="/doc/tutorial/simplest-notification-robot">Simple notification robot</el-menu-item>
+                </el-sub-menu>
                 <el-sub-menu index="/doc/api">
                     <template #title>
                         <el-icon>
@@ -52,15 +61,6 @@ const isCollapse = ref(false)
                     <el-menu-item index="/doc/api/integration/javascript">JavaScript</el-menu-item>
                     <el-menu-item index="/doc/api/integration/python">Python</el-menu-item>
                     <el-menu-item index="/doc/api/integration/java">Java</el-menu-item>
-                </el-sub-menu>
-                <el-sub-menu index="/doc/tutorial">
-                    <template #title>
-                        <el-icon>
-                            <MaterialSymbolsLightHandGestureOutlineRounded />
-                        </el-icon>
-                        <span>Tutorials</span>
-                    </template>
-                    <el-menu-item index="/doc/tutorial/simplest-notification-robot">Simple notification robot</el-menu-item>
                 </el-sub-menu>
                 <el-sub-menu index="/doc/node">
                     <template #title>

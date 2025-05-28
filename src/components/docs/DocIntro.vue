@@ -53,7 +53,7 @@
     <div class="nav">
         <div class="nav-item">
             <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 1">
-            <h3><a href="/doc/tutorial/simplest-notification-robot">Just 5 steps to create a notification bot.</a></h3>
+            <h3><a href="/#/doc/tutorial/simplest-notification-robot">Just 5 steps to create a notification bot.</a></h3>
             <p></p>
         </div>
         <!-- <div class="nav-item">

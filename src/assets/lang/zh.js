@@ -197,22 +197,33 @@ export default {
     tutorial: {
         SimplestNotificationRobot: {
             title: '创建一个最简单的机器人: 通知机器人',
-            desc: '只需简单的5步!',
+            desc: '只需简单的6步!',
             steps: [{
-                text: '1. 选择默认创建好的机器人。',
-                img: '/images/tutorial/1.png'
+                text: '#1. 选择默认创建好的机器人。',
+                img: 'SimpleNotifyRobot1.png'
             }, {
-                text: '2. 选择默认创建好的流程。',
-                img: '/images/tutorial/1.png'
+                text: '#2. 点击前往流程列表的链接。',
+                img: 'SimpleNotifyRobot2.png'
             }, {
-                text: '3. 鼠标拖动The end节点到画布上。',
-                img: '/images/tutorial/1.png'
+                text: '#3. 选择默认创建好的流程。',
+                img: 'SimpleNotifyRobot3.png'
             }, {
-                text: '4. 双击节点，并在弹出窗填写需要输出的内容。',
-                img: '/images/tutorial/1.png'
+                text: '#4. 鼠标拖动The end节点到画布上。',
+                img: 'SimpleNotifyRobot4.png'
             }, {
-                text: '5. 保存并发布。',
-                img: '/images/tutorial/1.png'
+                text: '#5. 双击节点，并在弹出窗填写需要输出的内容。',
+                img: 'SimpleNotifyRobot5.png'
+            }, {
+                text: '#6. 保存并发布。',
+                img: 'SimpleNotifyRobot6.png'
+            }, {
+                text: '----------'
+            }, {
+                text: '我们来测试一下吧!',
+                img: 'SimpleNotifyRobot7.png'
+            }, {
+                text: '最终效果',
+                img: 'SimpleNotifyRobot8.png'
             }],
         }
     }

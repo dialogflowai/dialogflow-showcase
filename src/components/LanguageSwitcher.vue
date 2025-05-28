@@ -2,7 +2,7 @@
     <div class="lang-switch">
         <button v-for="lang in ['zh', 'en']" :key="lang" :class="{ active: lang === $i18n.locale }"
             @click="switchLang(lang)">
-            {{ lang.toUpperCase() }}
+            {{ lang === 'zh' ? '中' : 'En' }}
         </button>
     </div>
 </template>

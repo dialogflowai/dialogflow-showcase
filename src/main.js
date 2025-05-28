@@ -1,6 +1,6 @@
-// import { createApp } from 'vue'
-import { ViteSSG } from 'vite-ssg'
-// import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createApp } from 'vue'
+// import { ViteSSG } from 'vite-ssg'
+import { createRouter, createWebHashHistory } from 'vue-router'
 // import ElementPlus from 'element-plus'
 // import ElementTiptapPlugin from 'element-tiptap-vue3-fixed';
 // import * as ElementPlusIconsVue from '@element-plus/icons-vue'
@@ -69,13 +69,13 @@ export const routes = [
   // { path: '/node/llmChatNode', component: LlmChatNode },
 ];
 
-// const router = createRouter({
-//   history: createWebHashHistory(),
-//   routes,
-//   scrollBehavior(to, from, savedPosition) {
-//     return { top: 0 }
-//   }
-// })
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  }
+})
 
 import './assets/main.css'
 // import 'bootstrap/dist/css/bootstrap.min.css'

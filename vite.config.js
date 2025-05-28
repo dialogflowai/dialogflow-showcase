@@ -101,9 +101,37 @@ export default ({ command, mode }) => {
     define: {
       // 'process.env': env,
     },
-    bulid: {
+    build: {
       rollupOptions: {
         output: {
+          manualChunks(id) {
+            /*
+            if (id.includes('vue') || id.includes('element-plus')) {
+              return 'vue';
+            }
+            else if (id.includes('lodash')) {
+              return 'lodash';
+            }
+            // else if (id.includes('element-plus')) {
+            //   return 'element-plus';
+            // }
+            else if (id.includes('codemirror')) {
+              return 'codemirror';
+            }
+            else if (id.includes('lezer')) {
+              return 'lezer';
+            }
+            // else if (id.includes('node_modules')) {
+            //   return id.toString().split('node_modules/')[1].split('/')[0].toString();
+            // }
+            else {
+              return 'index';
+            }
+            */
+            if (id.includes('node_modules')) {
+              return id.toString().split('node_modules/')[1].split('/')[0].toString();
+            }
+          }
           // dir: 'dist',
           // entryFileNames: 'index.js',
           // manualChunks,
