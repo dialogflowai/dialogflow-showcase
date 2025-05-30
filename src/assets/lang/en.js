@@ -194,36 +194,60 @@ export default {
         desc5: 'Understand how to quickly build a dialog flow through the canvas. Learn how to connect to the answering interface through code',
     },
     tutorial: {
+        GetStarted: {
+            title: 'Get started.',
+            desc: 'You can use it right after downloading. You don’t need to install any dependencies, don’t need a GPU, and don’t need to register any account.',
+            steps: [{
+                texts: ['#1. Let\'s download from [release page on Github](https://github.com/dialogflowai/dialogflow/releases).'],
+            }, {
+                texts: ['#2. Download the corresponding package according to different operating systems and architectures'],
+                img: 'GetStarted2.png'
+            }, {
+                texts: [
+                    '#3. Let\'s take **Linux** as an example.', 'Download dialogflowai-Linux-x86_64.zip',
+                    'After that, unzip it, add execution permissions: `chmod +x dialogflowai`, and start: `./dialogflowai`',
+                    'The startup information is as follows:',
+                    '```\n-->  The server is running, please open a browser and visit http://127.0.0.1:12715\nTip: You can use -ip and -port to customize the listening IP and port\n-------\nCurrent version: 1.19.0\nVisiting https://dialogflowai.github.io/ for the latest releases\n-->  Press Ctrl+C to terminate this application\n```',
+                    'Use a browser to visit http://127.0.0.1:12715 to see the product interface',
+                ],
+                img: 'GetStarted3.png'
+            }, {
+                texts: [
+                    'You can use `-ip` and `-port` to modify the default listening IP and port',
+                    'For example: ./dialogflowai -ip 0.0.0.0 -port 8888',
+                ],
+            }],
+        },
         SimplestNotificationRobot: {
             title: 'Creating a simplest bot: Notification bot',
             desc: 'Just 6 simple steps in less 2 mintes!',
             steps: [{
-                text: '#1. Select the robot created by default.',
+                texts: ['#1. Select the robot created by default.'],
                 img: 'SimpleNotifyRobot1.png'
             }, {
-                text: '#2. Click the link to go to the dialog flow list',
+                texts: ['#2. Click the link to go to the dialog flow list'],
                 img: 'SimpleNotifyRobot2.png'
             }, {
-                text: '#3. Select the default created dialog flow.',
+                texts: ['#3. Select the default created dialog flow.'],
                 img: 'SimpleNotifyRobot3.png'
             }, {
-                text: '#4. Drag the end node onto the canvas.',
+                texts: ['#4. Drag the end node onto the canvas.'],
                 img: 'SimpleNotifyRobot4.png'
             }, {
-                text: '#5. Double-click the node and fill in the content to be output in the pop-up window.',
+                texts: ['#5. Double-click the node and fill in the content to be output in the pop-up window.'],
                 img: 'SimpleNotifyRobot5.png'
             }, {
-                text: '#6. Save and publish.',
+                texts: ['#6. Save and publish.'],
                 img: 'SimpleNotifyRobot6.png'
             }, {
-                text: '----------'
+                texts: ['----------']
             }, {
-                text: 'Let\'s test',
+                texts: ['Let\'s test'],
                 img: 'SimpleNotifyRobot7.png'
             }, {
-                text: 'It works!',
+                texts: ['It works!'],
                 img: 'SimpleNotifyRobot8.png'
             }],
-        }
+        },
     }
 }

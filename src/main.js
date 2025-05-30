@@ -17,6 +17,7 @@ import ApiOverview from './components/docs/api/ApiOverview.vue'
 import ApiJavaScript from './components/docs/api/ApiJavaScript.vue'
 import ApiPython from './components/docs/api/ApiPython.vue'
 import ApiJava from './components/docs/api/ApiJava.vue'
+import GetStarted from './components/docs/tutorial/GetStarted.vue'
 import SimpleNotifyRobot from './components/docs/tutorial/SimpleNotifyRobot.vue'
 import NodesIntro from './components/docs/node/NodesIntro.vue'
 import DialogNode from './components/docs/node/DialogNode.vue'
@@ -51,6 +52,7 @@ export const routes = [
       { path: '/doc/api/integration/javascript', component: ApiJavaScript },
       { path: '/doc/api/integration/python', component: ApiPython },
       { path: '/doc/api/integration/java', component: ApiJava },
+      { path: '/doc/tutorial/get-started', component: GetStarted },
       { path: '/doc/tutorial/simplest-notification-robot', component: SimpleNotifyRobot },
       { path: '/doc/node', component: NodesIntro },
       { path: '/doc/node/dialogNode', component: DialogNode },

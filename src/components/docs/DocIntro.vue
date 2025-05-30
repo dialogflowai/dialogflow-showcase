@@ -1,3 +1,6 @@
+<script setup>
+import NodesIntro from './node/NodesIntro.vue';
+</script>
 <style scoped>
 .header {
     text-align: center;
@@ -50,10 +53,40 @@
         <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Logo" class="logo">
         <h1>Thank you for using DialogFlowAI!</h1>
     </div>
+    <h1>How to integrate this tool?</h1>
+    <div class="flex flex-wrap gap-4">
+        <el-card style="width: 270px" shadow="always">
+            <a href="/#/doc/api/integration/overview">
+                Overview
+            </a>
+        </el-card>
+        <el-card style="width: 270px" shadow="always">
+            <a href="/#/doc/api/integration/javascript">
+                JavaScript
+            </a>
+        </el-card>
+        <el-card style="width: 270px" shadow="always">
+            <a href="/#/doc/api/integration/python">
+                Python
+            </a>
+        </el-card>
+        <el-card style="width: 270px" shadow="always">
+            <a href="/#/doc/api/integration/java">
+                Java
+            </a>
+        </el-card>
+    </div>
+    <h1>Tutorials</h1>
     <div class="nav">
         <div class="nav-item">
             <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 1">
-            <h3><a href="/#/doc/tutorial/simplest-notification-robot">Just 5 steps to create a notification bot.</a></h3>
+            <h3><a href="/#/doc/tutorial/get-started">Get Started.</a></h3>
+            <p></p>
+        </div>
+        <div class="nav-item">
+            <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 1">
+            <h3><a href="/#/doc/tutorial/simplest-notification-robot">Just 5 steps to create a notification bot.</a>
+            </h3>
             <p></p>
         </div>
         <!-- <div class="nav-item">
@@ -72,6 +105,8 @@
         </div> -->
         <!-- 下载了模型以后，就解锁了 xxx 功能 -->
     </div>
+    <!-- <h1>Nodes</h1> -->
+    <NodesIntro />
     <!-- <div class="content">
         <h2>How to integrate DialogFlowAI into your project?</h2>
         <p>首先，您需要安装所需的依赖包。</p>
@@ -83,7 +118,7 @@ SomeTool.init({
   // 配置选项
 });</code></pre>
     </div> -->
-    <div class="footer">
+    <!-- <div class="footer">
         <p>&copy; 2025.</p>
-    </div>
+    </div> -->
 </template>

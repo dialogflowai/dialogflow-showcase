@@ -48,6 +48,7 @@ const isCollapse = ref(false)
                         </el-icon>
                         <span>Tutorials</span>
                     </template>
+                    <el-menu-item index="/doc/tutorial/get-started">Get started</el-menu-item>
                     <el-menu-item index="/doc/tutorial/simplest-notification-robot">Simple notification robot</el-menu-item>
                 </el-sub-menu>
                 <el-sub-menu index="/doc/api">

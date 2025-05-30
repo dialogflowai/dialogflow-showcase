@@ -42,25 +42,34 @@ img {
     margin-top: 8px;
 }
 
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .markdown :deep(p) {
-  /* margin: 0.5em 0; */
-  line-height: 1.6;
+    /* margin: 0.5em 0; */
+    line-height: 1.6;
 }
+
 .markdown :deep(ol) {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
+
 .markdown :deep(code) {
-  background: #f2f2f2;
-  padding: 2px 6px;
-  border-radius: 8px;
-  font-family: monospace;
+    background: #f2f2f2;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-family: monospace;
 }
+
 .markdown :deep(pre) {
-  background: #f8f8f8;
-  padding: 10px;
-  overflow-x: auto;
-  border-radius: 6px;
+    background: #f8f8f8;
+    padding: 10px;
+    overflow-x: auto;
+    border-radius: 6px;
 }
 </style>
 <template>
@@ -71,7 +80,10 @@ img {
         <div v-for="(step, index) in steps" :key="index" class="step">
             <h2 v-if="step.title">{{ step.title }}</h2>
             <!-- <p>{{ step.text }}</p> -->
-            <div class="markdown" v-html="md.render(step.text || '')" />
+            <div class="markdown" v-html="md.render(txt || '')" v-for="(txt, index) in step.texts" />
+            <div class="images" v-if="step.images && step.images.length">
+                <img v-for="(img, i) in step.images" :key="i" :src="resolvedImg(img)" loading="lazy" alt="Step image" />
+            </div>
             <img v-if="step.img" :src="resolvedImg(step.img)" loading="lazy" alt="Tutorial image" />
         </div>
     </div>

@@ -195,34 +195,58 @@ export default {
         desc5: '了解如何通过画布，快速的构建出流程。了解如何通过代码，对接应答接口',
     },
     tutorial: {
+        GetStarted: {
+            title: '开始使用.',
+            desc: '下载后即可使用, 不需要安装任何依赖, 不需要GPU, 也不需要注册任何账号。',
+            steps: [{
+                texts: ['#1. 我们从 [Github上的发布页](https://github.com/dialogflowai/dialogflow/releases) 下载.'],
+            }, {
+                texts: ['#2. 根据不同的系统选择不同的文件来下载'],
+                img: 'GetStarted2.png'
+            }, {
+                texts: [
+                    '#3. 我们以 **Linux** 为例.', '下载 dialogflowai-Linux-x86_64.zip',
+                    '下载后解压, 然后修改执行权限: `chmod +x dialogflowai`, 启动: `./dialogflowai`',
+                    '启动信息如下:',
+                    '```\n-->  服务已启动，请用浏览器访问 http://127.0.0.1:12715\nTip: 你可以使用 -ip 和 -port 来自定义监听的IP和端口\n-------\nCurrent version: 1.19.0\nVisiting https://dialogflowai.github.io/ for the latest releases\n-->  Press Ctrl+C to terminate this application\n```',
+                    '然后, 使用浏览器访问 http://127.0.0.1:12715 来查看产品界面'
+                ],
+                img: 'GetStarted3.png'
+            }, {
+                texts: [
+                    '你可以使用 `-ip` 和 `-port` 来修改默认监听的 IP 和端口',
+                    '例如: ./dialogflowai -ip 0.0.0.0 -port 8888',
+                ],
+            }],
+        },
         SimplestNotificationRobot: {
             title: '创建一个最简单的机器人: 通知机器人',
             desc: '只需简单的6步!',
             steps: [{
-                text: '#1. 选择默认创建好的机器人。',
+                texts: ['#1. 选择默认创建好的机器人。'],
                 img: 'SimpleNotifyRobot1.png'
             }, {
-                text: '#2. 点击前往流程列表的链接。',
+                texts: ['#2. 点击前往流程列表的链接。'],
                 img: 'SimpleNotifyRobot2.png'
             }, {
-                text: '#3. 选择默认创建好的流程。',
+                texts: ['#3. 选择默认创建好的流程。'],
                 img: 'SimpleNotifyRobot3.png'
             }, {
-                text: '#4. 鼠标拖动The end节点到画布上。',
+                texts: ['#4. 鼠标拖动The end节点到画布上。'],
                 img: 'SimpleNotifyRobot4.png'
             }, {
-                text: '#5. 双击节点，并在弹出窗填写需要输出的内容。',
+                texts: ['#5. 双击节点，并在弹出窗填写需要输出的内容。'],
                 img: 'SimpleNotifyRobot5.png'
             }, {
-                text: '#6. 保存并发布。',
+                texts: ['#6. 保存并发布。'],
                 img: 'SimpleNotifyRobot6.png'
             }, {
-                text: '----------'
+                texts: ['----------']
             }, {
-                text: '我们来测试一下吧!',
+                texts: ['我们来测试一下吧!'],
                 img: 'SimpleNotifyRobot7.png'
             }, {
-                text: '最终效果',
+                texts: ['最终效果'],
                 img: 'SimpleNotifyRobot8.png'
             }],
         }
