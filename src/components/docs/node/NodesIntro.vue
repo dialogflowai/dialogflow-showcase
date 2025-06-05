@@ -1,6 +1,13 @@
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import MarkdownIt from 'markdown-it'
 // import { Picture as IconPicture } from '@element-plus/icons-vue'
 import FunctionNodeCard from './FunctionNodeCard.vue'
+
+const { t, tm } = useI18n()
+const md = new MarkdownIt()
+const nodesIntro = computed(() => tm(`nodesIntro.nodes`) || [])
 </script>
 <style scoped>
 .mid {
@@ -40,9 +47,13 @@ import FunctionNodeCard from './FunctionNodeCard.vue'
   </el-row> -->
   <el-row justify="center" style="margin-top: 40px;">
     <el-col :span="16">
-      <h1 style="text-align:center; margin-bottom: 40px;">Function nodes</h1>
+      <h1 style="text-align:center; margin-bottom: 40px;">{{ t('nodesIntro.title') }}</h1>
 
-      <FunctionNodeCard
+      <FunctionNodeCard :img="node.img" :title="node.name" :link="node.link" v-for="node in nodesIntro">
+        <p v-html="md.render(node.desc)" />
+      </FunctionNodeCard>
+
+      <!-- <FunctionNodeCard
         img="dialogNode.png"
         title="Dialog node"
         link="/doc/node/dialogNode"
@@ -129,18 +140,16 @@ import FunctionNodeCard from './FunctionNodeCard.vue'
         link="/doc/node/theEndNode"
       >
         This is an endpoint, indicating that a conversation flow has ended or terminated.
-      </FunctionNodeCard>
+      </FunctionNodeCard> -->
 
-      <FunctionNodeCard
-        img=""
-        title="Create your own node"
-        link="https://github.com/dialogflowai/dialogflow/discussions"
-      >
+      <FunctionNodeCard img="" title="Create your own node"
+        link="https://github.com/dialogflowai/dialogflow/discussions">
         Use your imagination and create your own node<br />
         For example, a Slack/Discord bot node,<br />
         or a node that uses ChatGPT, exits when the user enters specific characters.<br />
         <br />
-        If you have any good ideas or needs, you can also submit them to <a href="https://github.com/dialogflowai/dialogflow/discussions">Discussions</a> on Github
+        If you have any good ideas or needs, you can also submit them to <a
+          href="https://github.com/dialogflowai/dialogflow/discussions">Discussions</a> on Github
       </FunctionNodeCard>
 
     </el-col>

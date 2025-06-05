@@ -1,3 +1,5 @@
+import { linkEmits } from "element-plus";
+
 export default {
     common: {
         add: 'Add',
@@ -193,12 +195,123 @@ export default {
         nav5: 'View document',
         desc5: 'Understand how to quickly build a dialog flow through the canvas. Learn how to connect to the answering interface through code',
     },
+    why: {
+        title: 'Why?',
+        desc: 'This intelligent tool offers several key advantages',
+        list1: [
+            { title: '💡 Free to use', content: 'There are no registration steps and no personal, machine information is collected.' },
+            { title: '🎈 Light', content: 'Only ONE executable file. It can run smoothly on laptop without GPUs.' },
+            { title: '✨ AI powered', content: 'Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.' }
+        ],
+        list2: [
+            { title: '🛠️ Easy to use', content: 'Use the mouse to drag and drop with our intuitive node-based editor.' },
+            { title: '🐱‍🏍 Fast', content: 'Built on Rust and Vue3. It requires very few resources to run very quickly.' },
+            { title: '🔑 Safe', content: '100% open source. It can be used completely offline and all runtime data is saved locally.' }
+        ]
+    },
+    nodesIntro: {
+        title: 'Function nodes introduction',
+        nodes: [
+            {
+                name: 'Dialog node',
+                desc: 'You can set the text returned to the user,  \nand you can choose whether to wait for user input after the node returns the text,  \nor directly run the next node.',
+                img: 'dialogNode.png',
+                link: '/doc/node/dialogNode'
+            },
+            {
+                name: 'Large language model chat node',
+                desc: 'Use a large language model to communicate with users, supporting OpenAI, Ollama, and HuggingFace local models.  \nIf the model returns a timeout, you can also set another reply to return to the user.',
+                img: 'llmChatNode.png',
+                link: '/doc/node/llmChatNode'
+            },
+            {
+                name: 'Knowledge base answer node',
+                desc: 'This node can return Q&A knowledge, and can also find answers from uploaded documents.  \nIf you don\'t find a suitable answer, you can also set up an alternate answer.',
+                img: 'knowledgeBaseAnswerNode.png',
+                link: '/doc/node/knowledgeBaseAnswerNode'
+            },
+            {
+                name: 'Conditions node',
+                desc: 'In this node,  \nyou can determine whether the user input is equal to or contains certain text.  \nYou can also determine the intention of the user\'s input,  \nor determine whether the value in the variable is what you expect.',
+                img: 'conditionNode.png',
+                link: '/doc/node/conditionNode'
+            },
+            {
+                name: 'Goto node',
+                desc: 'Using this node,  \nyou can control the direction of the dialog.  \nYou can jump to another conversation, or goto external link.',
+                img: 'gotoNode.png',
+                link: '/doc/node/gotoNode'
+            },
+            {
+                name: 'Collect node',
+                desc: 'Using this node,  \nyou can save all or part of the content input by the user into a variable. Later,  \nthe content can be displayed as user text, conditionally judged,  \nor submitted to a third-party system through HTTP.',
+                img: 'collectNode.png',
+                link: '/doc/node/collectNode'
+            },
+            {
+                name: 'External HTTP node',
+                desc: 'Using this node,  \nyou can request an external HTTP interface,  \nand you can use this node to send input to the outside.  \nIf you need to get data from external HTTP,  \nplease create a variable and choose the value of the variable to be an HTTP interface.',
+                img: 'externalApiNode.png',
+                link: '/doc/node/externalHttpNode'
+            },
+            {
+                name: 'Send email node',
+                desc: 'This node can send preset email content or dynamic email content to multiple recipients.  \nIt can send emails synchronously or asynchronously.',
+                img: 'sendEmailNode.png',
+                link: '/doc/node/sendEmailNode'
+            },
+            {
+                name: 'The end node',
+                desc: 'This is an endpoint, indicating that a conversation flow has ended or terminated.',
+                img: 'endNode.png',
+                link: '/doc/node/theEndNode'
+            },
+        ]
+    },
+    howToUse: [{
+        timestamp: '#1 Get started',
+        title: 'Let\'s start with how to launch the application, it\'s very easy.',
+        desc: '[View Tutorial](/#/doc/tutorial/get-started?lang=en)',
+    }, {
+        timestamp: '#2 Make the first dialog flow.',
+        title: 'Creating a simplest notification bot in ONE minute.',
+        desc: '[View Tutorial](/#/doc/tutorial/simplest-notification-robot?lang=en)',
+    }],
+    doc: {
+        menu: {
+            home: 'Home',
+            intro: 'Introductions',
+            tutorials: {
+                title: 'Tutorials',
+                getStarted: 'Get started',
+                simplestNotificationRobot: 'Creating a notification bot',
+                simplestUserInfoCollectRobot: 'Creating a simplest bot: User information collection bot',
+                simplestUserInputCollectRobot: 'Creating a simplest bot: User input collection bot',
+            },
+            integration: {
+                title: 'API integration',
+                overview: 'Overview',
+            },
+            nodes: {
+                title: 'Nodes',
+                dialogNode: 'Dialog node',
+                llmChatNOde: 'LLM chat node',
+                kbAnswerNode: 'KB answer node',
+                conditionNode: 'Condition node',
+                collectNode: 'Collection node',
+                gotoNode: 'Goto node',
+                externalHttpNode: 'External HTTP node',
+                sendEmailNode: 'Send email node',
+                theEndNode: 'The end node',
+            },
+        }
+    },
     tutorial: {
         GetStarted: {
             title: 'Get started.',
             desc: 'You can use it right after downloading. You don’t need to install any dependencies, don’t need a GPU, and don’t need to register any account.',
             steps: [{
-                texts: ['#1. Let\'s download from [release page on Github](https://github.com/dialogflowai/dialogflow/releases).'],
+                texts: ['**Use the compiled file**', '#1. Let\'s download from [release page on Github](https://github.com/dialogflowai/dialogflow/releases).'],
             }, {
                 texts: ['#2. Download the corresponding package according to different operating systems and architectures'],
                 img: 'GetStarted2.png'
@@ -215,6 +328,16 @@ export default {
                 texts: [
                     'You can use `-ip` and `-port` to modify the default listening IP and port',
                     'For example: ./dialogflowai -ip 0.0.0.0 -port 8888',
+                ],
+            }, {
+                texts: [
+                    '**We also provide a `Docker` image**, You can directly use Docker to start.',
+                    'Image address: [https://hub.docker.com/r/dialogflowai/dialogflow](https://hub.docker.com/r/dialogflowai/dialogflow)',
+                ],
+            }, {
+                texts: [
+                    'Alternatively, you can download source code and build by yourself.',
+                    '[Frontend source code](https://github.com/dialogflowai/dialogflow/tree/main/frontend), [Backend source code](https://github.com/dialogflowai/dialogflow)',
                 ],
             }],
         },

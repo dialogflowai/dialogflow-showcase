@@ -1,12 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n'
 import MaterialSymbolsLightKitesurfingOutlineRounded from '~icons/material-symbols-light/kitesurfing-outline-rounded'
 import MaterialSymbolsHouseOutline from '~icons/material-symbols/house-outline'
 import PhPlugsConnectedBold from '~icons/ph/plugs-connected-bold'
 import MaterialSymbolsLightHandGestureOutlineRounded from '~icons/material-symbols-light/hand-gesture-outline-rounded'
 import PhSelectionBackgroundDuotone from '~icons/ph/selection-background-duotone'
 const route = useRoute()
+const { t, tm } = useI18n()
 const isCollapse = ref(false)
 </script>
 <style scoped>
@@ -33,32 +35,32 @@ const isCollapse = ref(false)
                     <el-icon>
                         <MaterialSymbolsHouseOutline />
                     </el-icon>
-                    <template #title>Home</template>
+                    <template #title>{{ $t('doc.menu.home') }}</template>
                 </el-menu-item>
                 <el-menu-item index="/doc">
                     <el-icon>
                         <MaterialSymbolsLightKitesurfingOutlineRounded />
                     </el-icon>
-                    <template #title>Introductions</template>
+                    <template #title>{{ $t('doc.menu.intro') }}</template>
                 </el-menu-item>
                 <el-sub-menu index="/doc/tutorial">
                     <template #title>
                         <el-icon>
                             <MaterialSymbolsLightHandGestureOutlineRounded />
                         </el-icon>
-                        <span>Tutorials</span>
+                        <span>{{ $t('doc.menu.tutorials.title') }}</span>
                     </template>
-                    <el-menu-item index="/doc/tutorial/get-started">Get started</el-menu-item>
-                    <el-menu-item index="/doc/tutorial/simplest-notification-robot">Simple notification robot</el-menu-item>
+                    <el-menu-item index="/doc/tutorial/get-started">{{ $t('doc.menu.tutorials.getStarted') }}</el-menu-item>
+                    <el-menu-item index="/doc/tutorial/simplest-notification-robot">{{ $t('doc.menu.tutorials.simplestNotificationRobot') }}</el-menu-item>
                 </el-sub-menu>
                 <el-sub-menu index="/doc/api">
                     <template #title>
                         <el-icon>
                             <PhPlugsConnectedBold />
                         </el-icon>
-                        <span>API integration</span>
+                        <span>{{ $t('doc.menu.integration.title') }}</span>
                     </template>
-                    <el-menu-item index="/doc/api/integration/overview">Overview</el-menu-item>
+                    <el-menu-item index="/doc/api/integration/overview">{{ $t('doc.menu.integration.overview') }}</el-menu-item>
                     <el-menu-item index="/doc/api/integration/javascript">JavaScript</el-menu-item>
                     <el-menu-item index="/doc/api/integration/python">Python</el-menu-item>
                     <el-menu-item index="/doc/api/integration/java">Java</el-menu-item>
@@ -68,17 +70,17 @@ const isCollapse = ref(false)
                         <el-icon>
                             <PhSelectionBackgroundDuotone />
                         </el-icon>
-                        <span>Nodes</span>
+                        <span>{{ t('doc.menu.nodes.title') }}</span>
                     </template>
-                    <el-menu-item index="/doc/node/dialogNode">Dialog Node</el-menu-item>
-                    <el-menu-item index="/doc/node/llmChatNode">LLM chat node</el-menu-item>
-                    <el-menu-item index="/doc/node/knowledgeBaseAnswerNode">KB answer node</el-menu-item>
-                    <el-menu-item index="/doc/node/conditionNode">Condition node</el-menu-item>
-                    <el-menu-item index="/doc/node/gotoNode">Goto node</el-menu-item>
-                    <el-menu-item index="/doc/node/collectNode">Collect node</el-menu-item>
-                    <el-menu-item index="/doc/node/externalHttpNode">External HTTP node</el-menu-item>
-                    <el-menu-item index="/doc/node/sendEmailNode">Send email node</el-menu-item>
-                    <el-menu-item index="/doc/node/theEndNode">The end node</el-menu-item>
+                    <el-menu-item index="/doc/node/dialogNode">{{ t('doc.menu.nodes.dialogNode') }}</el-menu-item>
+                    <el-menu-item index="/doc/node/llmChatNode">{{ t('doc.menu.nodes.llmChatNOde') }}</el-menu-item>
+                    <el-menu-item index="/doc/node/knowledgeBaseAnswerNode">{{ t('doc.menu.nodes.kbAnswerNode') }}</el-menu-item>
+                    <el-menu-item index="/doc/node/conditionNode">{{ t('doc.menu.nodes.conditionNode') }}</el-menu-item>
+                    <el-menu-item index="/doc/node/gotoNode">{{ t('doc.menu.nodes.gotoNode') }}</el-menu-item>
+                    <el-menu-item index="/doc/node/collectNode">{{ t('doc.menu.nodes.collectNode') }}</el-menu-item>
+                    <el-menu-item index="/doc/node/externalHttpNode">{{ t('doc.menu.nodes.externalHttpNode') }}</el-menu-item>
+                    <el-menu-item index="/doc/node/sendEmailNode">{{ t('doc.menu.nodes.sendEmailNode') }}</el-menu-item>
+                    <el-menu-item index="/doc/node/theEndNode">{{ t('doc.menu.nodes.theEndNode') }}</el-menu-item>
                 </el-sub-menu>
             </el-menu>
         </el-aside>

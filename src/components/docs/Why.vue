@@ -1,25 +1,16 @@
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-const { t, locale } = useI18n();
-const list1 = [
-  { title: '💡 Free to use', content: 'There are no registration steps and no personal, machine information is collected.' },
-  { title: '🎈 Light', content: 'Only ONE executable file. It can run smoothly on laptop without GPUs.' },
-  { title: '✨ AI powered', content: 'Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.' }
-]
-
-const list2 = [
-  { title: '🛠️ Easy to use', content: 'Use the mouse to drag and drop with our intuitive node-based editor.' },
-  { title: '🐱‍🏍 Fast', content: 'Built on Rust and Vue3. It requires very few resources to run very quickly.' },
-  { title: '🔑 Safe', content: '100% open source. It can be used completely offline and all runtime data is saved locally.' }
-]
-
+const { t, tm, locale } = useI18n();
+const list1 = computed(() => tm(`why.list1`) || [])
+const list2 = computed(() => tm(`why.list2`) || [])
 </script>
 
 <template>
   <section class="why-container">
     <div class="title">
-      <h1>Why?</h1>
-      <h2>This intelligent tool offers several key advantages</h2>
+      <h1>{{ t('why.title') }}</h1>
+      <h2>{{ t('why.desc') }}</h2>
     </div>
     <el-row :gutter="30" class="why-row">
       <el-col :xs="24" :sm="12" :md="8" v-for="(item, idx) in list1" :key="'w1-' + idx">

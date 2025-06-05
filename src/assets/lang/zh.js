@@ -194,12 +194,124 @@ export default {
         nav5: '查看文档',
         desc5: '了解如何通过画布，快速的构建出流程。了解如何通过代码，对接应答接口',
     },
+    why: {
+        title: '为什么选择Dialog Flow AI?',
+        desc: 'Dialog Flow AI 是一个低代码的对话应答系统，它可以帮助你快速构建一个对话流程，并且可以通过代码，对接应答接口。',
+        list1: [
+            { title: '💡 完全免费', content: '不用任何注册信息, 不会收集个人或机器信息. 请放心使用.' },
+            { title: '🎈 非常轻量级', content: '只需一个文件就可以执行，无需安装任何依赖. 并且可以在没有GPU的机器上丝滑运行.' },
+            { title: '✨ AI 驱动', content: '集成了 OpenAI, Ollama 还有 HuggingFace 的本地模型, 用AI来驱动你的业务.' }
+        ],
+        list2: [
+            { title: '🛠️ 易于使用', content: '使用鼠标进行节点的拖拽，即可在很短时间内，创建一个对话机器人.' },
+            { title: '🐱‍🏍 快速', content: '后端使用 Rust，前端使用 Vue3 来构建. 只需要一点点资源就可以流畅得跑起来.' },
+            { title: '🔑 高度安全', content: '100% 开源. 它可以完全离线运行，并且所有的数据都保存在本地，无需上云.' }
+        ]
+    },
+    nodesIntro: {
+        title: '功能节点介绍',
+        nodes: [
+            {
+                name: '文本对话节点',
+                desc: '你可以设置返回给用户的文字，可以提前写下固定的话术，或者也可以选择大模型来动态回复,  \n然后你可以选择，当文本答案返回了以后，是等待用户输入,  \n还是直接跳转到下一个节点.',
+                img: 'dialogNode.png',
+                link: '/doc/node/dialogNode'
+            },
+            {
+                name: '大模型聊天节点',
+                desc: '使用大模型和用户交流, 支持 OpenAI, Ollama, 和 HuggingFace 本地大模型.  \n如果大模型返回超时, 你可以设置备用答案返回给用户，或者直接跳转到下一个节点.',
+                img: 'llmChatNode.png',
+                link: '/doc/node/llmChatNode'
+            },
+            {
+                name: '知识库答案节点',
+                desc: '该节点可以返回问答知识, 也可以返回文档里的知识.  \n如果没有找到合适的答案, 你还可以设置一个备选答案.',
+                img: 'knowledgeBaseAnswerNode.png',
+                link: '/doc/node/knowledgeBaseAnswerNode'
+            },
+            {
+                name: '条件节点',
+                desc: '使用这个节点,  \n你可以设置条件来判断用户输入的内容，是否等于或不等于某些固定字符.  \n你也可以判断用户输入内容属于哪些意图,  \n或者是判断变量的值，是否等于你期望的内容.',
+                img: 'conditionNode.png',
+                link: '/doc/node/conditionNode'
+            },
+            {
+                name: '跳转节点',
+                desc: '通过这个节点\n你可以控制流程跳转到另外一个子流程.  \n也可以控制其跳转到另外的主流程里, 或者跳转到某一个外部链接.',
+                img: 'gotoNode.png',
+                link: '/doc/node/gotoNode'
+            },
+            {
+                name: '采集节点',
+                desc: '这个节点,  \n你可以收集用户输入的内容并保存到一个变量里. 然后,  \n变量里的内容，可以展示在文本答案里，或者用于条件节点里,  \n也可以配合外呼HTTP请求节点，将内容发送给第三方.',
+                img: 'collectNode.png',
+                link: '/doc/node/collectNode'
+            },
+            {
+                name: '外部HTTP请求节点',
+                desc: '使用该节点,  \n可以让流程请求外部的HTTP接口,  \n并发布数据给第三方.  \n如果你需要获取第三方HTTP返回的数据,  \n请使用变量。新建一个变量，并在数据来源一栏里，选择HTTP接口.',
+                img: 'externalApiNode.png',
+                link: '/doc/node/externalHttpNode'
+            },
+            {
+                name: '邮件发送节点',
+                desc: '这个节点可以给一个或多个人发送邮件.  \n你可以选择是同步发送邮件还是异步发送邮件，异步发送邮件不会影响流程的后续执行时间.',
+                img: 'sendEmailNode.png',
+                link: '/doc/node/sendEmailNode'
+            },
+            {
+                name: '结束节点',
+                desc: '该节点表示一个对话流程结束了.',
+                img: 'endNode.png',
+                link: '/doc/node/theEndNode'
+            },
+        ]
+    },
+    howToUse: [{
+        timestamp: '#1 准备开始',
+        title: '如何快速启动应用, 非常得简单.',
+        desc: '[查看教程](/#/doc/tutorial/get-started?lang=zh)',
+    }, {
+        timestamp: '#2 创建第一个对话流程.',
+        title: '挑战在1分钟内配置一个最简单的通知类机器人.',
+        desc: '[查看教程](/#/doc/tutorial/simplest-notification-robot?lang=zh)',
+    }],
+    doc: {
+        menu: {
+            home: '首页',
+            intro: '介绍',
+            tutorials: {
+                title: '教程',
+                getStarted: '准备开始',
+                simplestNotificationRobot: '创建简单的通知机器人',
+                simplestUserInfoCollectRobot: 'Creating a simplest bot: User information collection bot',
+                simplestUserInputCollectRobot: 'Creating a simplest bot: User input collection bot',
+            },
+            integration: {
+                title: '接口集成',
+                overview: '整体介绍',
+            },
+            nodes: {
+                title: '功能节点',
+                dialogNode: '话术节点',
+                llmChatNOde: '大模型聊天节点',
+                kbAnswerNode: '知识库问答节点',
+                conditionNode: '条件节点',
+                collectNode: '采集节点',
+                gotoNode: '跳转节点',
+                externalHttpNode: '外部HTTP节点',
+                sendEmailNode: '发送邮件节点',
+                theEndNode: '结束节点',
+            },
+
+        }
+    },
     tutorial: {
         GetStarted: {
             title: '开始使用.',
             desc: '下载后即可使用, 不需要安装任何依赖, 不需要GPU, 也不需要注册任何账号。',
             steps: [{
-                texts: ['#1. 我们从 [Github上的发布页](https://github.com/dialogflowai/dialogflow/releases) 下载.'],
+                texts: ['**使用编译好的文件**', '#1. 我们从 [Github上的发布页](https://github.com/dialogflowai/dialogflow/releases) 下载.'],
             }, {
                 texts: ['#2. 根据不同的系统选择不同的文件来下载'],
                 img: 'GetStarted2.png'
@@ -216,6 +328,16 @@ export default {
                 texts: [
                     '你可以使用 `-ip` 和 `-port` 来修改默认监听的 IP 和端口',
                     '例如: ./dialogflowai -ip 0.0.0.0 -port 8888',
+                ],
+            }, {
+                texts: [
+                    '**我们也提供了`Docker` 镜像**, 你可以直接使用 Docker 来启动',
+                    '镜像地址：[https://hub.docker.com/r/dialogflowai/dialogflow](https://hub.docker.com/r/dialogflowai/dialogflow)',
+                ],
+            }, {
+                texts: [
+                    '你也可以下载源码，自己编译.',
+                    '[前端代码](https://github.com/dialogflowai/dialogflow/tree/main/frontend), [后端代码](https://github.com/dialogflowai/dialogflow)',
                 ],
             }],
         },
