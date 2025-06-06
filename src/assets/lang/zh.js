@@ -144,6 +144,9 @@ export default {
         },
     },
     home: {
+        headerTitle1: '超级快速创建适合不同业务场景的对话机器人.',
+        headerTitle2: '免费、轻量级、易于使用、快递、安全.',
+        slogan: '使用可视化的流程编辑器，最快可以在1分钟内完成一个对话流程',
         title: 'Dialog Flow 对话流程可视化编辑器',
         subTitle: '低代码流程应答系统',
         btn1: '立即使用',
@@ -193,6 +196,11 @@ export default {
         title5: '操作手册和对接文档',
         nav5: '查看文档',
         desc5: '了解如何通过画布，快速的构建出流程。了解如何通过代码，对接应答接口',
+    },
+    giveTry: {
+        title: '尝试一下.',
+        desc: '该软件无需安装任何依赖，即可使用  \n有两种使用访问: Docker 和 预编译文件',
+        btnText: '查看教程',
     },
     why: {
         title: '为什么选择Dialog Flow AI?',
@@ -265,17 +273,21 @@ export default {
                 img: 'endNode.png',
                 link: '/doc/node/theEndNode'
             },
-        ]
+        ],
+        yourOwnNode: '创建属于你自己的功能节点  \n比如做一个 Slack/Discord 机器人节点,  \n或者对接 通义、DeepSeek.  \n  \n如果您有任何建议或意见，欢迎提交到 Github 上的 [Discussions](https://github.com/dialogflowai/dialogflow/discussions)'
     },
-    howToUse: [{
-        timestamp: '#1 准备开始',
-        title: '如何快速启动应用, 非常得简单.',
-        desc: '[查看教程](/#/doc/tutorial/get-started?lang=zh)',
-    }, {
-        timestamp: '#2 创建第一个对话流程.',
-        title: '挑战在1分钟内配置一个最简单的通知类机器人.',
-        desc: '[查看教程](/#/doc/tutorial/simplest-notification-robot?lang=zh)',
-    }],
+    howToUse: {
+        tutorials: [{
+            timestamp: '#1 准备开始',
+            title: '如何快速启动应用, 非常得简单.',
+            desc: '[查看教程](/#/doc/tutorial/get-started?lang=zh)',
+        }, {
+            timestamp: '#2 创建第一个对话流程.',
+            title: '挑战在1分钟内配置一个最简单的通知类机器人.',
+            desc: '[查看教程](/#/doc/tutorial/simplest-notification-robot?lang=zh)',
+        }],
+        api: { title: '集成到你的程序里', linkText: '查看 API 文档' },
+    },
     doc: {
         menu: {
             home: '首页',
@@ -311,7 +323,20 @@ export default {
             title: '开始使用.',
             desc: '下载后即可使用, 不需要安装任何依赖, 不需要GPU, 也不需要注册任何账号。',
             steps: [{
-                texts: ['**使用编译好的文件**', '#1. 我们从 [Github上的发布页](https://github.com/dialogflowai/dialogflow/releases) 下载.'],
+                texts: [
+                    '我们介绍两种方式来使用该软件: **Docker方式** 和 **使用预编译方式**', '## Docker方式',
+                    '镜像地址：[https://hub.docker.com/r/dialogflowai/dialogflow](https://hub.docker.com/r/dialogflowai/dialogflow)',
+                    '如果您使用的是 Windows, 请安装: [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows)',
+                    '使用 Docker 来启动, 只需要执行以下命令:',
+                    '```\ndocker pull dialogflowai/dialogflow\ndocker run -dp 127.0.0.1:12715:12715 --name dialogflow dialogflowai/dialogflow\n```',
+                    '如果想监听：0.0.0.0，则执行：',
+                    '```\ndocker run -dp 0.0.0.0:12715:12715 --name dialogflow dialogflowai/dialogflow\n```',
+                    '挂载本地数据目录：',
+                    '```\ndocker run -v <您的数据目录路径>:/data -dp 0.0.0.0:12715:12715 --name dialogflow dialogflowai/dialogflow\n```',
+                    '打开浏览器，访问：http://127.0.0.1:12715/，或者：http://<你的IP地址>:12715/'
+                ],
+            }, {
+                texts: ['## 预编译方式', '#1. 我们从 [Github上的发布页](https://github.com/dialogflowai/dialogflow/releases) 下载.'],
             }, {
                 texts: ['#2. 根据不同的系统选择不同的文件来下载'],
                 img: 'GetStarted2.png'
@@ -331,13 +356,9 @@ export default {
                 ],
             }, {
                 texts: [
-                    '**我们也提供了`Docker` 镜像**, 你可以直接使用 Docker 来启动',
-                    '镜像地址：[https://hub.docker.com/r/dialogflowai/dialogflow](https://hub.docker.com/r/dialogflowai/dialogflow)',
-                ],
-            }, {
-                texts: [
-                    '你也可以下载源码，自己编译.',
-                    '[前端代码](https://github.com/dialogflowai/dialogflow/tree/main/frontend), [后端代码](https://github.com/dialogflowai/dialogflow)',
+                    '最后，你也可以下载源码，自己编译.',
+                    '[前端代码](https://github.com/dialogflowai/dialogflow/tree/main/frontend)',
+                    '[后端代码](https://github.com/dialogflowai/dialogflow)',
                 ],
             }],
         },

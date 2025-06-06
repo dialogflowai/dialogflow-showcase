@@ -1,5 +1,6 @@
 <template>
     <div class="lang-switch">
+        Language:
         <button v-for="lang in ['zh', 'en']" :key="lang" :class="{ active: lang === $i18n.locale }"
             @click="switchLang(lang)">
             {{ lang === 'zh' ? '中' : 'En' }}
@@ -30,12 +31,16 @@ function switchLang(lang: string) {
 </script>
 
 <style scoped>
+.lang-switch {
+    text-align: right;
+}
+
 .lang-switch button {
     margin-right: 10px;
     padding: 6px 12px;
 }
 
-.active {
+.lang-switch .active {
     font-weight: bold;
     text-decoration: underline;
 }

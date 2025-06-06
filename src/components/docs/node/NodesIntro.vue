@@ -144,12 +144,7 @@ const nodesIntro = computed(() => tm(`nodesIntro.nodes`) || [])
 
       <FunctionNodeCard img="" title="Create your own node"
         link="https://github.com/dialogflowai/dialogflow/discussions">
-        Use your imagination and create your own node<br />
-        For example, a Slack/Discord bot node,<br />
-        or a node that uses ChatGPT, exits when the user enters specific characters.<br />
-        <br />
-        If you have any good ideas or needs, you can also submit them to <a
-          href="https://github.com/dialogflowai/dialogflow/discussions">Discussions</a> on Github
+        <div v-html="md.render(t('nodesIntro.yourOwnNode'))" />
       </FunctionNodeCard>
 
     </el-col>

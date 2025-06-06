@@ -8,7 +8,7 @@ import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
 const { t, tm } = useI18n()
 const md = new MarkdownIt()
 
-const howToUse = computed(() => tm(`howToUse`) || [])
+const howToUse = computed(() => tm(`howToUse.tutorials`) || [])
 </script>
 
 <style scoped>
@@ -54,12 +54,12 @@ const howToUse = computed(() => tm(`howToUse`) || [])
 
     <el-timeline-item timestamp="#3 Integrating" placement="top">
       <el-card>
-        <div class="title">Integrate to your application</div>
+        <div class="title">{{ t('howToUse.api.title') }}</div>
         <p>
           <el-icon>
             <SolarDocumentTextLinear />
           </el-icon>
-          Checkout <router-link to="/doc/api/integration/overview">request API doc</router-link>
+          <router-link to="/doc/api/integration/overview">{{ t('howToUse.api.linkText') }}</router-link>
         </p>
         <div class="description"></div>
       </el-card>

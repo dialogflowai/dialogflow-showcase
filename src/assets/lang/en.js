@@ -145,6 +145,9 @@ export default {
         },
     },
     home: {
+        headerTitle1: 'Create your own conversational agent in under 1 minute.',
+        headerTitle2: 'It\'s Free. Light. AI powered. Easy to use. Fast and Safe.',
+        slogan: 'Build powerful chatbots in minutes with our intuitive node-based editor',
         title: 'Dialog Flow Visual Editor and Responsing System',
         subTitle: 'Low code dialog flow responsing system',
         btn1: 'Getting Started',
@@ -194,6 +197,11 @@ export default {
         title5: 'Operation manual and integration documentation',
         nav5: 'View document',
         desc5: 'Understand how to quickly build a dialog flow through the canvas. Learn how to connect to the answering interface through code',
+    },
+    giveTry: {
+        title: 'Give it a go.',
+        desc: 'This tool is completely installation-free  \nThere are two ways: Docker and binary',
+        btnText: 'View Tutorial'
     },
     why: {
         title: 'Why?',
@@ -266,17 +274,21 @@ export default {
                 img: 'endNode.png',
                 link: '/doc/node/theEndNode'
             },
-        ]
+        ],
+        yourOwnNode: 'Use your imagination and create your own node  \nFor example, a Slack/Discord bot node,  \nor a node that uses ChatGPT, exits when the user enters specific characters.  \n  \nIf you have any good ideas or needs, you can also submit them to [Discussions](https://github.com/dialogflowai/dialogflow/discussions) on Github'
     },
-    howToUse: [{
-        timestamp: '#1 Get started',
-        title: 'Let\'s start with how to launch the application, it\'s very easy.',
-        desc: '[View Tutorial](/#/doc/tutorial/get-started?lang=en)',
-    }, {
-        timestamp: '#2 Make the first dialog flow.',
-        title: 'Creating a simplest notification bot in ONE minute.',
-        desc: '[View Tutorial](/#/doc/tutorial/simplest-notification-robot?lang=en)',
-    }],
+    howToUse: {
+        tutorials: [{
+            timestamp: '#1 Get started',
+            title: 'Let\'s start with how to launch the application, it\'s very easy.',
+            desc: '[View Tutorial](/#/doc/tutorial/get-started?lang=en)',
+        }, {
+            timestamp: '#2 Make the first dialog flow.',
+            title: 'Creating a simplest notification bot in ONE minute.',
+            desc: '[View Tutorial](/#/doc/tutorial/simplest-notification-robot?lang=en)',
+        }],
+        api: { title: 'Integrate to your application', linkText: 'Checkout request API doc' },
+    },
     doc: {
         menu: {
             home: 'Home',
@@ -311,6 +323,19 @@ export default {
             title: 'Get started.',
             desc: 'You can use it right after downloading. You don’t need to install any dependencies, don’t need a GPU, and don’t need to register any account.',
             steps: [{
+                texts: [
+                    'We introduce two ways to use this software: **Docker** and **Compiled binary**', '## Docker',
+                    'Image address: [https://hub.docker.com/r/dialogflowai/dialogflow](https://hub.docker.com/r/dialogflowai/dialogflow)',
+                    'If you are using Windows, please install: [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows)',
+                    'To start, sust execute the following commands:',
+                    '```\ndocker pull dialogflowai/dialogflow\ndocker run -dp 127.0.0.1:12715:12715 --name dialogflow dialogflowai/dialogflow\n```',
+                    'If want to listen 0.0.0.0 then execute:',
+                    '```\ndocker run -dp 0.0.0.0:12715:12715 --name dialogflow dialogflowai/dialogflow\n```',
+                    'Mounting local data directory:',
+                    '```\ndocker run -v <Your local data dir>:/data -dp 0.0.0.0:12715:12715 --name dialogflow dialogflowai/dialogflow\n```',
+                    'Open your browser and visit: http://127.0.0.1:12715/, or http://<Your IP>:12715/'
+                ],
+            }, {
                 texts: ['**Use the compiled file**', '#1. Let\'s download from [release page on Github](https://github.com/dialogflowai/dialogflow/releases).'],
             }, {
                 texts: ['#2. Download the corresponding package according to different operating systems and architectures'],
@@ -331,13 +356,9 @@ export default {
                 ],
             }, {
                 texts: [
-                    '**We also provide a `Docker` image**, You can directly use Docker to start.',
-                    'Image address: [https://hub.docker.com/r/dialogflowai/dialogflow](https://hub.docker.com/r/dialogflowai/dialogflow)',
-                ],
-            }, {
-                texts: [
                     'Alternatively, you can download source code and build by yourself.',
-                    '[Frontend source code](https://github.com/dialogflowai/dialogflow/tree/main/frontend), [Backend source code](https://github.com/dialogflowai/dialogflow)',
+                    '[Frontend source code](https://github.com/dialogflowai/dialogflow/tree/main/frontend)',
+                    '[Backend source code](https://github.com/dialogflowai/dialogflow)',
                 ],
             }],
         },

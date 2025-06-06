@@ -1,6 +1,10 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n'
+import MarkdownIt from 'markdown-it'
+
+import LanguageSwitcher from './LanguageSwitcher.vue';
 import TryWithDocker from './docs/TryWithDocker.vue'
 import Why from './docs/Why.vue'
 import WhatCanBeDoneWithIt from './docs/WhatCanBeDoneWithIt.vue'
@@ -19,6 +23,8 @@ import BiFiletypeDoc from '~icons/bi/filetype-doc'
 // } from '@element-plus/icons-vue'
 
 const router = useRouter();
+const { t, tm } = useI18n()
+const md = new MarkdownIt()
 // const checkUpdateResult = ref(0)
 const currentVersion = ref('')
 // const newVersion = ref('')
@@ -27,13 +33,13 @@ const currentVersion = ref('')
 // navigator.language; //"en-US"
 // navigator.languages; //["en-US", "zh-CN", "ja-JP"]
 function download() {
-    window.location.href = 'https://github.com/dialogflowai/dialogflow/releases';
+  window.location.href = 'https://github.com/dialogflowai/dialogflow/releases';
 }
 function repository() {
-    window.location.href = 'https://github.com/dialogflowai/dialogflow';
+  window.location.href = 'https://github.com/dialogflowai/dialogflow';
 }
 function docs() {
-    router.push('/doc');
+  router.push('/doc');
 }
 // function introduction() {
 //     router.push('/introduction');
@@ -45,9 +51,9 @@ function docs() {
 //     VueScrollTo.scrollTo(document.getElementById('demosList'))
 // }
 onMounted(async () => {
-    const t = await httpReq('GET', 'version.json', null, null, null);
-    currentVersion.value = t
-    // console.log(currentVersion.value)
+  const t = await httpReq('GET', 'version.json', null, null, null);
+  currentVersion.value = t
+  // console.log(currentVersion.value)
 })
 /*
 const checkUpdate = async () => {
@@ -198,65 +204,66 @@ const checkUpdate = async () => {
 
 
 <template>
-    <div id="header">
-        <span class="name">Dialog flow chat bot</span>
-        <p>Create your own conversational agent in under 1 minute.</p>
-        <p>
-            It's Free. Light. AI powered. Easy to use. Fast and Safe.<br />
-            <!-- It's AI powered. Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.<br />
+  <LanguageSwitcher />
+  <div id="header">
+    <span class="name">Dialog flow AI chat bot</span>
+    <p>{{ t('home.headerTitle1') }}</p>
+    <p>
+      {{ t('home.headerTitle2') }}<br />
+      <!-- It's AI powered. Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.<br />
             It's easy to use. Use the mouse to drag and drop with our intuitive node-based editor.<br />
             It's fast. Built on Rust and Vue3.<br />
             It's safe. Open source and all data is saved locally. -->
-            <!-- Create your own conversational bot in under 1 minute. -->
-        </p>
-        <!-- <p>
+      <!-- Create your own conversational bot in under 1 minute. -->
+    </p>
+    <!-- <p>
             <button class="download" @click="guide">Get started</button>
             <button class="tutorial" @click="introduction">Introduction</button>
             <span class="v">Current verion is: v1.8.0</span><br/>
             <button class="cu" @click="introduction">Check update</button>
         </p> -->
-        <div class="btns">
-            <button @click="download">
-                <el-icon :size="27">
-                    <BiDownload />
-                </el-icon> Download
-            </button>
-            <button @click="repository">
-                <el-icon :size="27">
-                    <BiGithub />
-                </el-icon> Github
-            </button>
-            <button @click="docs()">
-                <el-icon :size="27">
-                    <BiFiletypeDoc />
-                </el-icon> Docs
-            </button>
-        </div>
-        <div style="font-size: 16px;">The latest version: {{ currentVersion }}</div>
+    <div class="btns">
+      <button @click="download">
+        <el-icon :size="27">
+          <BiDownload />
+        </el-icon> Download
+      </button>
+      <button @click="repository">
+        <el-icon :size="27">
+          <BiGithub />
+        </el-icon> Github
+      </button>
+      <button @click="docs()">
+        <el-icon :size="27">
+          <BiFiletypeDoc />
+        </el-icon> Docs
+      </button>
     </div>
-    <p class="title">
-        Build powerful chatbots in minutes with our intuitive node-based editor
-    </p>
-    <div class="bg1"></div>
-    <!-- <div><img src="../assets/demo1.gif" /></div> -->
-    <TryWithDocker />
-    <Why />
-    <!-- <WhatCanBeDoneWithIt /> -->
-    <NodesIntro />
-    <HowToUse />
-    <Intro />
-    <Enterprise />
-    <hr />
-    <div class="text-center">
-        Version: {{ currentVersion }}<br />
-        If you have any questions or suggestions, please email to:
-        dialogflow@yeah.net
-        or create a <a href="https://github.com/dialogflowai/dialogflow/discussions">Discussions</a>
-    </div>
-    <div class="text-center">
-        Images were from
-        <a href="https://unsplash.com">Unsplash</a> &amp; <a href="https://picsum.photos">Picsum</a>
-        , Icons created by
-        <a href="https://www.flaticon.com/">Flaticon</a>
-    </div>
+    <div style="font-size: 16px;">The latest version: {{ currentVersion }}</div>
+  </div>
+  <p class="title">
+    {{ t('home.slogan') }}
+  </p>
+  <div class="bg1"></div>
+  <!-- <div><img src="../assets/demo1.gif" /></div> -->
+  <TryWithDocker />
+  <Why />
+  <!-- <WhatCanBeDoneWithIt /> -->
+  <NodesIntro />
+  <HowToUse />
+  <Intro />
+  <Enterprise />
+  <hr />
+  <div class="text-center">
+    Version: {{ currentVersion }}<br />
+    If you have any questions or suggestions, please email to:
+    dialogflow@yeah.net
+    or create a <a href="https://github.com/dialogflowai/dialogflow/discussions">Discussions</a>
+  </div>
+  <div class="text-center">
+    Images were from
+    <a href="https://unsplash.com">Unsplash</a> &amp; <a href="https://picsum.photos">Picsum</a>
+    , Icons created by
+    <a href="https://www.flaticon.com/">Flaticon</a>
+  </div>
 </template>
