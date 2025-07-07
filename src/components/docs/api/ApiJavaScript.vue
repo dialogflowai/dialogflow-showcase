@@ -45,8 +45,12 @@ const js = ref(`fetch('http://localhost:5173/flow/answer', {
 </script>
 
 <template>
+  <!--
   <h1>Generate request body</h1>
   <code-mirror basic :lang="langJs" v-model="requestBody" />
   <h1>JavaScript request code</h1>
   <code-mirror basic :lang="langJs" v-model="js" />
+-->
+  [<a href="https://github.com/dialogflowai/dialogflow/tree/main/sdk/javascript">English document</a>]<br />
+  [<a href="https://github.com/dialogflowai/dialogflow/blob/main/sdk/javascript/README_zh-CN.md">中文文档</a>]
 </template>

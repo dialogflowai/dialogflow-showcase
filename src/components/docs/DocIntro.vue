@@ -1,5 +1,6 @@
 <script setup>
 import NodesIntro from './node/NodesIntro.vue';
+import LanguageSwitcher from '../LanguageSwitcher.vue';
 </script>
 <style scoped>
 .header {
@@ -49,15 +50,16 @@ import NodesIntro from './node/NodesIntro.vue';
 }
 </style>
 <template>
+    <LanguageSwitcher />
     <div class="header">
         <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Logo" class="logo">
         <h1>Thank you for using DialogFlowAI!</h1>
     </div>
-    <h1>How to integrate this tool?</h1>
+    <h1>{{ $t('doc.menu.integration.title') }}</h1>
     <div class="flex flex-wrap gap-4">
         <el-card style="width: 270px" shadow="always">
             <a href="/#/doc/api/integration/overview">
-                Overview
+                {{ $t('doc.menu.integration.overview') }}
             </a>
         </el-card>
         <el-card style="width: 270px" shadow="always">
@@ -76,16 +78,16 @@ import NodesIntro from './node/NodesIntro.vue';
             </a>
         </el-card>
     </div>
-    <h1>Tutorials</h1>
+    <h1>{{ $t('doc.menu.tutorials.title') }}</h1>
     <div class="nav">
         <div class="nav-item">
             <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 1">
-            <h3><a href="/#/doc/tutorial/get-started">Get Started.</a></h3>
+            <h3><a href="/#/doc/tutorial/get-started">{{ $t('doc.menu.tutorials.getStarted') }}</a></h3>
             <p></p>
         </div>
         <div class="nav-item">
             <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 1">
-            <h3><a href="/#/doc/tutorial/simplest-notification-robot">Just 5 steps to create a notification bot.</a>
+            <h3><a href="/#/doc/tutorial/simplest-notification-robot">{{ $t('doc.menu.tutorials.simplestNotificationRobot') }}</a>
             </h3>
             <p></p>
         </div>

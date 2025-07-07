@@ -206,10 +206,10 @@ const checkUpdate = async () => {
 <template>
   <LanguageSwitcher />
   <div id="header">
-    <span class="name">Dialog flow AI chat bot</span>
-    <p>{{ t('home.headerTitle1') }}</p>
+    <span class="name">{{ t('home.headerTitle1') }}</span>
+    <p>{{ t('home.headerTitle2') }}</p>
     <p>
-      {{ t('home.headerTitle2') }}<br />
+      {{ t('home.headerTitle3') }}<br />
       <!-- It's AI powered. Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.<br />
             It's easy to use. Use the mouse to drag and drop with our intuitive node-based editor.<br />
             It's fast. Built on Rust and Vue3.<br />
@@ -226,7 +226,7 @@ const checkUpdate = async () => {
       <button @click="download">
         <el-icon :size="27">
           <BiDownload />
-        </el-icon> Download
+        </el-icon> {{ t('home.headerDownloadBtnText') }}
       </button>
       <button @click="repository">
         <el-icon :size="27">
@@ -236,10 +236,10 @@ const checkUpdate = async () => {
       <button @click="docs()">
         <el-icon :size="27">
           <BiFiletypeDoc />
-        </el-icon> Docs
+        </el-icon> {{ t('home.headerDocBtnText') }}
       </button>
     </div>
-    <div style="font-size: 16px;">The latest version: {{ currentVersion }}</div>
+    <div style="font-size: 16px;">{{ t('home.headerTheLatestVersion') }}: {{ currentVersion }}</div>
   </div>
   <p class="title">
     {{ t('home.slogan') }}
