@@ -29,6 +29,7 @@ import CollectNode from './components/docs/node/CollectNode.vue'
 import ExternalHttpNode from './components/docs/node/ExternalHttpNode.vue'
 import SendEmailNode from './components/docs/node/SendEmailNode.vue'
 import TheEndNode from './components/docs/node/TheEndNode.vue'
+import NotFound from './components/404.vue'
 
 // import 'element-plus/dist/index.css'
 // import 'element-tiptap-vue3-fixed/lib/style.css';
@@ -69,6 +70,7 @@ export const routes = [
   { path: '/doc/:docCatelog/:docDetail', name: 'docDetail', component: Doc },
   // { path: '/tutorial', component: Tutorial },
   // { path: '/node/llmChatNode', component: LlmChatNode },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];
 
 const router = createRouter({
