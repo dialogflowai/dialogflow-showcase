@@ -1,0 +1,53 @@
+// ---------------------------------------------------------------------------
+// Element Plus theme configuration — the single place EP's own theme is defined.
+//
+// This file is injected into every SCSS entry by `additionalData` in
+// vite.config.js, so it must ONLY configure variables. Do NOT add
+// `@use 'element-plus/theme-chalk/src/index.scss'` here — that would pull in
+// every component's styles and defeat the per-component CSS splitting that
+// ElementPlusResolver({ importStyle: 'sass' }) gives us.
+//
+// `@forward ... with` deep-merges into EP's own maps, which are all declared
+// as `$x: () !default` followed by `map.deep-merge`/`map.merge`, so we only
+// list the keys we actually change. Everything else — including the whole
+// `--el-color-primary-light-3/5/7/8/9` and `-dark-2` scale — is derived by EP
+// from `$colors` in `theme-chalk/src/var.scss`.
+// ---------------------------------------------------------------------------
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  // Brand: indigo. EP derives every light-N / dark-2 variant from this.
+  $colors: (
+    'primary': (
+      'base': #6366f1,
+    ),
+  ),
+
+  // Slightly softer corners than EP's 4px/2px defaults.
+  $border-radius: (
+    'base': 6px,
+    'small': 4px,
+  ),
+
+  // `--el-card-border-radius` is a standalone literal in el-card.css, NOT
+  // derived from `--el-border-radius-base`, so it has to be set here.
+  $card: (
+    'border-radius': 10px,
+    'padding': 24px,
+  ),
+
+  // Defaults to `getCssVar('border-color-light')` (a neutral grey), so the
+  // timeline does NOT follow the primary colour on its own.
+  $timeline: (
+    'node-color': #6366f1,
+  ),
+
+  // Latin faces first, CJK faces after. Font fallback is per-glyph, so Latin
+  // text is drawn by the Latin faces and Han characters fall through to the
+  // CJK ones. Putting a CJK face first would render Latin text from the CJK
+  // font, which looks wrong on a marketing page.
+  //
+  // Note the key is the empty string — `$font-family` is a map, not a string.
+  $font-family: (
+    '': "system-ui, -apple-system, 'Segoe UI Variable Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans SC', 'Source Han Sans SC', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'",
+  ),
+);

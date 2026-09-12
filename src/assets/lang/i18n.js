@@ -1,3 +1,4 @@
+import { watch } from "vue";
 import { createI18n } from "vue-i18n";
 // import messages from './lang.js'
 import zh from './zh.js'
@@ -29,4 +30,18 @@ const i18n = createI18n({
     }
 })
 
+// `index.html` hardcodes `<html lang="en">` and nothing ever updated it, so
+// `:lang(zh)` could never match (see the CJK line-height rule in `base.css`)
+// and screen readers pronounced Chinese content with an English voice.
+// `legacy: false` means `locale` is a ref, so watch it directly; keeping this
+// in the i18n module rather than a component means it holds for whatever route
+// mounts first.
+const syncDocumentLang = (locale) => {
+    document.documentElement.lang = locale === 'zh' ? 'zh-Hans' : 'en'
+}
+
+syncDocumentLang(i18n.global.locale.value)
+watch(i18n.global.locale, syncDocumentLang)
+
+export { syncDocumentLang }
 export default i18n;

@@ -81,9 +81,19 @@ const router = createRouter({
   }
 })
 
+// Import order is load-bearing, not cosmetic. Every route is a static import,
+// so all of these land in one module graph and evaluate in source order —
+// which means on a specificity tie, whichever sheet comes last wins. Several
+// scoped rules in the docs components compile to the same specificity as the
+// rules in `doc-prose.css` (e.g. `img[data-v-x]` and `.doc-content img` are
+// both (0,1,1)), and `theme.css` is expected to win ties against EP's own
+// `:root` block. Reordering these three lines silently changes the rendered
+// result, so don't "tidy" them.
 import './assets/main.css'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import 'virtual:uno.css'
+import './assets/theme.css'
+import './assets/doc-prose.css'
 
 // createApp(App).mount('#app')
 const app = createApp(App)

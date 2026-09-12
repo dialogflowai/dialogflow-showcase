@@ -144,6 +144,24 @@ export default {
             choose2: 'Please choose a source',
         },
     },
+    nav: {
+        features: 'Features',
+        nodes: 'Nodes',
+        howToUse: 'How to use',
+        download: 'Download',
+        docs: 'Docs',
+        github: 'GitHub',
+        openMenu: 'Open menu',
+        closeMenu: 'Close menu',
+    },
+    footer: {
+        version: 'Version',
+        questions: 'If you have any questions or suggestions, please email to',
+        orCreate: 'or create a',
+        discussion: 'Discussions',
+        credits: 'Images were from',
+        iconsBy: 'Icons created by',
+    },
     home: {
         headerTitle1: 'Dialog flow AI chat bot',
         headerTitle2: 'Create your own conversational agent in under 1 minute.',
@@ -151,6 +169,10 @@ export default {
         headerDownloadBtnText: 'Download',
         headerDocBtnText: 'Docs',
         headerTheLatestVersion: 'The latest version',
+        heroEyebrow: 'Open source · Rust + Vue 3 · Runs fully offline',
+        heroShotAlt: 'The dialog flow editor with a conversation flow being assembled on a canvas',
+        enterpriseTitle: 'We also provide an enterprise edition',
+        adv2Stat: 'Front-end and back-end, in a single executable',
         slogan: 'Build powerful chatbots in minutes with our intuitive node-based editor',
         title: 'Dialog Flow Visual Editor and Responsing System',
         subTitle: 'Low code dialog flow responsing system',
@@ -207,6 +229,13 @@ export default {
         desc: 'This tool is completely installation-free  \nThere are two ways: Docker and binary',
         btnText: 'View Tutorial'
     },
+    enterprise: {
+        feature: 'Feature',
+        community: 'Community',
+        enterprise: 'Enterprise',
+        included: 'Included',
+        notIncluded: 'Not included',
+    },
     why: {
         title: 'Why?',
         desc: 'This intelligent tool offers several key advantages',
@@ -223,6 +252,7 @@ export default {
     },
     nodesIntro: {
         title: 'Function nodes introduction',
+        yourOwnNodeTitle: 'Create your own node',
         nodes: [
             {
                 name: 'Dialog node',
@@ -282,6 +312,7 @@ export default {
         yourOwnNode: 'Use your imagination and create your own node  \nFor example, a Slack/Discord bot node,  \nor a node that uses ChatGPT, exits when the user enters specific characters.  \n  \nIf you have any good ideas or needs, you can also submit them to [Discussions](https://github.com/dialogflowai/dialogflow/discussions) on Github'
     },
     howToUse: {
+        title: 'How to use',
         tutorials: [{
             timestamp: '#1 Get started',
             title: 'Let\'s start with how to launch the application, it\'s very easy.',
@@ -291,9 +322,11 @@ export default {
             title: 'Creating a simplest notification bot in ONE minute.',
             desc: '[View Tutorial](/#/doc/tutorial/simplest-notification-robot?lang=en)',
         }],
-        api: { title: 'Integrate to your application', linkText: 'Checkout request API doc' },
+        api: { timestamp: '#3 Integrating', title: 'Integrate to your application', linkText: 'Checkout request API doc' },
     },
     doc: {
+        introTitle: 'Documentation',
+        introSubtitle: 'Tutorials, node reference and the HTTP integration API for DialogFlowAI.',
         menu: {
             home: 'Home',
             intro: 'Introductions',

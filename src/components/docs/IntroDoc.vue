@@ -1,311 +1,276 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-// import VueScrollTo from 'vue-scrollto';
-import { winScrollTo } from '../../assets/tools.js'
+import { scrollToId } from '../../assets/tools.js'
 import Demos from '../Demos.vue'
-useI18n();
-// navigator.language; //"en-US"
-// navigator.languages; //["en-US", "zh-CN", "ja-JP"]
-const isEnLanguage = navigator.language ? navigator.language.split('-')[0] == 'en' : false
-const title3Span = isEnLanguage ? 8 : 7;
-const title3Offset = isEnLanguage ? 2 : 3;
-const fromPage = 'home';
+import SectionHeader from '../SectionHeader.vue'
+import PhChatCircleDotsBold from '~icons/ph/chat-circle-dots-bold'
+import PhPenNibBold from '~icons/ph/pen-nib-bold'
+import PhShareNetworkBold from '~icons/ph/share-network-bold'
+import PhPackageBold from '~icons/ph/package-bold'
+import PhSquaresFourBold from '~icons/ph/squares-four-bold'
+import PhDatabaseBold from '~icons/ph/database-bold'
+import PhCursorClickBold from '~icons/ph/cursor-click-bold'
+import PhRocketLaunchBold from '~icons/ph/rocket-launch-bold'
+import PhUsersThreeBold from '~icons/ph/users-three-bold'
+import PhBrowsersBold from '~icons/ph/browsers-bold'
+import PhPlugsConnectedBold from '~icons/ph/plugs-connected-bold'
+import BiGithub from '~icons/bi/github'
+
+const { t } = useI18n()
+
+// The old markup decided column spans by sniffing `navigator.language` to
+// guess whether the translated string would fit a 7- or 8-column span. A
+// responsive grid removes the need to guess: the browser measures the actual
+// text, in whatever language, at whatever width.
+const introPoints = [
+    { icon: PhChatCircleDotsBold, key: 'intro1' },
+    { icon: PhPenNibBold, key: 'intro2' },
+    { icon: PhShareNetworkBold, key: 'intro3', demoLink: true },
+    { icon: PhPackageBold, key: 'intro4' },
+    { icon: PhSquaresFourBold, key: 'intro5' },
+    { icon: PhDatabaseBold, key: 'intro6' },
+]
+
+// Five advantages, each a text/image pair that alternates sides.
+const advantages = [
+    { icon: PhCursorClickBold, title: 'adv1Title' },
+    { icon: PhRocketLaunchBold, title: 'adv2Title' },
+    { icon: PhUsersThreeBold, title: 'adv3Title' },
+    { icon: PhBrowsersBold, title: 'adv4Title' },
+    { icon: PhPlugsConnectedBold, title: 'adv5Title' },
+]
+
 function demo() {
-    // VueScrollTo.scrollTo(document.getElementById('demosList'))
-    winScrollTo(document.getElementById('demosList'))
+    scrollToId('demosList')
 }
 </script>
+
 <style scoped>
-.title1 {
-    background-image: url("../../assets/easy.png");
+.intro-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.title2 {
-    background-image: url("../../assets/rocket.png");
+.intro-point {
+    display: flex;
+    gap: 0.9rem;
+    padding: 1.1rem 1.25rem;
+    background-color: var(--surface-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--r-md);
+    line-height: 1.7;
+    color: var(--ink-700);
 }
 
-.title3 {
-    background-image: url("../../assets/diversity.png");
+.intro-point__icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--r-sm);
+    background-color: var(--brand-50);
+    color: var(--brand-600);
 }
 
-.title4 {
-    background-image: url("../../assets/compatible.png");
-    padding-left: 70px;
+.intro-point__icon svg {
+    width: 19px;
+    height: 19px;
 }
 
-.title5 {
-    background-image: url("../../assets/link.png");
+.intro-point__body {
+    min-width: 0;
 }
 
-.title1, .title2, .title3, .title4, .title5 {
-  background-repeat: no-repeat;
-  height: 100px;
-  padding-left: 60px;
-  background-size: 40px;
-  background-position: left center;
+.intro-point__cta {
+    margin-top: 0.7rem;
 }
 
-.title4 {
-  padding-left: 70px;
+/* --- Advantage rows ---------------------------------------------------- */
+
+.advantage {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.25rem, 1rem + 2vw, 3rem);
+    align-items: center;
+    padding-block: clamp(1.5rem, 1rem + 2vw, 2.75rem);
 }
 
-.progress-bg {
-  width: 100%;
-  max-width: 500px;
-  height: 30px;
-  border-radius: 20px;
-  background-color: rgb(235, 238, 245);
-  margin-bottom: 10px;
+@media (min-width: 900px) {
+    .advantage {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Alternate which side the illustration sits on. `order` rather than
+       `row-reverse` so the reading order in the DOM stays text-then-image,
+       which is what a screen reader should get. */
+    .advantage--reverse .advantage__text {
+        order: 2;
+    }
 }
 
-.progress1 {
-  width: 150px;
-  height: 100%;
-  border-radius: 20px;
-  background-color: rgb(103, 194, 58);
+.advantage__heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
-.progress2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: rgb(64, 158, 255);
+.advantage__heading h3 {
+    margin: 0;
+    font-size: var(--fs-h2);
+    letter-spacing: -0.01em;
 }
 
-.progress3 {
-  width: 90%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: rgb(230, 162, 60);
+.advantage__badge {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--r-md);
+    background: var(--grad-brand);
+    color: #fff;
+    box-shadow: var(--shadow-brand);
 }
 
-.progress4 {
-  width: 60%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: rgb(245, 108, 108);
+.advantage__badge svg {
+    width: 22px;
+    height: 22px;
 }
 
-.intro .el-row, .features .el-row {
-  margin-bottom: 30px;
-  flex-wrap: wrap;
+.advantage__text {
+    color: var(--ink-600);
+    line-height: 1.75;
+    font-size: var(--fs-body);
 }
 
-.intro div, .features div {
-  font-size: large;
+.advantage__media {
+    display: grid;
+    place-items: center;
+    padding: clamp(1rem, 0.6rem + 1.5vw, 2rem);
+    background-color: var(--surface-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--r-lg);
 }
 
-.mid {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.black-line {
-  height: 6px;
-  background-color: black;
-  margin: 0 auto;
-}
-
-/* 响应式部分 */
-@media screen and (max-width: 768px) {
-  .title1, .title2, .title3, .title4, .title5 {
-    padding-left: 40px;
-    background-size: 30px;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .progress-bg {
+.advantage__media img {
     width: 100%;
-  }
-
-  .intro .el-col, .features .el-col {
-    width: 100% !important;
-    max-width: 100%;
-    flex: none !important;
-  }
-
-  .black-line {
-    display: none;
-  }
+    max-width: 460px;
+    height: auto;
+    border: 0;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
+.advantage__actions {
+    margin-top: 1rem;
+}
+
+/* The "tiny and fast" row's illustration slot. It used to hold the four
+   unlabelled progress bars, and with those gone the slot needs something
+   that actually states a fact. `< 6M` is the figure given in `home.intro4`. */
+.advantage__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: clamp(1.25rem, 1rem + 1.5vw, 2.25rem) clamp(1.5rem, 1rem + 2vw, 3rem);
+    background-color: var(--surface-0);
+    border: 1px solid var(--border-1);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.advantage__stat-value {
+    font-size: clamp(2.75rem, 2rem + 3vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    background: var(--grad-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.advantage__stat-label {
+    color: var(--ink-500);
+    font-size: var(--fs-sm);
+    max-width: 24ch;
+}
 </style>
+
 <template>
-    <el-row class="mid">
-        <el-col :span="8">
-            <div class="black-line"></div>
-        </el-col>
-        <el-col :span="4">
-            <h1 style="text-align: center;">{{ $t('home.introTitle') }}</h1>
-        </el-col>
-        <el-col :span="8">
-            <div class="black-line"></div>
-        </el-col>
-    </el-row>
-    <div class="intro">
-        <el-row class="mid">
-            <el-col :span="2">
-                <div><img src="../../assets/talk.png" /></div>
-            </el-col>
-            <el-col :span="10">
-                <div>{{ $t('home.intro1') }}</div>
-            </el-col>
-        </el-row>
-        <el-row class="mid">
-            <el-col :span="2">
-                <div><img src="../../assets/canvas.png" /></div>
-            </el-col>
-            <el-col :span="10">
-                <div>{{ $t('home.intro2') }}</div>
-            </el-col>
-        </el-row>
-        <el-row class="mid">
-            <el-col :span="2">
-                <div><img src="../../assets/nodes.png" /></div>
-            </el-col>
-            <el-col :span="10">
-                <div>{{ $t('home.intro3') }}, <el-button color="#b3e19d" @click="demo">See demos</el-button>.</div>
-            </el-col>
-        </el-row>
-        <el-row class="mid">
-            <el-col :span="2">
-                <div><img src="../../assets/exe.png" /></div>
-            </el-col>
-            <el-col :span="10">
-                <div>{{ $t('home.intro4') }}</div>
-            </el-col>
-        </el-row>
-        <el-row class="mid">
-            <el-col :span="2">
-                <div><img src="../../assets/scenarios.png" /></div>
-            </el-col>
-            <el-col :span="10">
-                <div>{{ $t('home.intro5') }}</div>
-            </el-col>
-        </el-row>
-        <el-row class="mid">
-            <el-col :span="2">
-                <div><img src="../../assets/storage.png" /></div>
-            </el-col>
-            <el-col :span="10">
-                <div>{{ $t('home.intro6') }}</div>
-            </el-col>
-        </el-row>
-        <el-row class="mid">
-            <el-col :span="8">
-                <div class="black-line"></div>
-            </el-col>
-            <el-col :span="4">
-                <h1 style="text-align: center;">{{ $t('home.midTitle') }}</h1>
-            </el-col>
-            <el-col :span="8">
-                <div class="black-line"></div>
-            </el-col>
-        </el-row>
-    </div>
-    <div class="features" id="introDocAdvantage">
-        <el-row>
-            <el-col :span="5" :offset="3">
-                <div class="grid-content">
-                    <h1 class="title1">{{ $t('home.adv1Title') }}</h1>
-                    <div v-html="$t('home.adv1')"></div>
-                    <p id="demosList">
-                        <Demos :parentPage="home" />
-                        <!-- <Demos :parentPage="fromPage" /> -->
-                        <!-- {{ $t('home.demo') }}:
-                    <ol>
-                        <li>
-                            <el-link type="success" @click="gotoDemo('demo-repay', 'UmVwYXkgRGVtbw==')">{{
-                                $t('home.demo1') }}</el-link>
-                        </li>
-                        <li>
-                            <el-link type="success"
-                                @click="gotoDemo('demo-collect', 'SW5mb3JtYXRpb24gQ29sbGVjdGlvbiBEZW1v')">{{
-                                    $t('home.demo2') }}</el-link>
-                        </li>
-                        <li>
-                            <el-link type="success"
-                                @click="gotoDemo('demo-notify', 'T25lIFNlbnRlbmNlIE5vdGlmaWNhdGlvbiBEZW1v')">{{
-                                    $t('home.demo3') }}</el-link>
-                        </li>
-                    </ol> -->
-                    </p>
+    <section class="section container">
+        <SectionHeader :title="t('home.introTitle')" level="h2" />
+
+        <div class="intro-points">
+            <div class="intro-point" v-for="point in introPoints" :key="point.key">
+                <span class="intro-point__icon"><component :is="point.icon" /></span>
+                <div class="intro-point__body">
+                    <span>{{ t(`home.${point.key}`) }}</span>
+                    <div v-if="point.demoLink" class="intro-point__cta">
+                        <button type="button" class="btn btn-outline btn-sm" @click="demo">
+                            {{ t('home.demo') }}
+                        </button>
+                    </div>
                 </div>
-            </el-col>
-            <el-col :span="15">
-                <div class="grid-content">
-                    <img src="../../assets/easy-b.png" />
+            </div>
+        </div>
+
+        <!-- <el-button color="#b3e19d" @click="demo"> used to live here. The
+             inline `color` prop compiles to an inline CSS custom property, which
+             no stylesheet can override, so it had to go rather than be themed. -->
+        <p id="demosList" class="advantage__actions">
+            <!-- No `parentPage` prop: it defaults to 'home', which is what the
+                 old `:parentPage="home"` actually passed anyway — `home` was an
+                 undefined identifier, so the prop fell back to its default. -->
+            <Demos />
+        </p>
+    </section>
+
+    <section class="section container" id="introDocAdvantage">
+        <SectionHeader :title="t('home.midTitle')" level="h2" />
+
+        <!-- The four unlabelled progress bars (150px / 100% / 90% / 60%, in
+             green/blue/orange/red) that used to sit in the second row have been
+             removed. Four bars with no labels and no shared scale read as a
+             chart but encode nothing, which is worse than no chart at all. -->
+        <article class="advantage" v-for="(adv, i) in advantages" :key="adv.title"
+            :class="{ 'advantage--reverse': i % 2 === 1 }">
+            <div class="advantage__text">
+                <div class="advantage__heading">
+                    <span class="advantage__badge"><component :is="adv.icon" /></span>
+                    <h3>{{ t(`home.${adv.title}`) }}</h3>
                 </div>
-            </el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="9" :offset="3">
-                <div class="progress-bg">
-                    <div class="progress1"></div>
+                <div v-html="t(`home.adv${i + 1}`)"></div>
+                <p v-if="i === 4" class="advantage__actions">
+                    <router-link class="btn btn-primary" to="/doc">{{ t('home.adv5Doc') }}</router-link>
+                </p>
+            </div>
+            <div class="advantage__media">
+                <img v-if="i === 0" src="../../assets/easy-b.png" alt="" loading="lazy" />
+                <img v-else-if="i === 2" src="../../assets/diversity-b.png" alt="" loading="lazy" />
+                <img v-else-if="i === 4" src="../../assets/link-b.png" alt="" loading="lazy" />
+                <template v-else-if="i === 3">
+                    <div>
+                        <p><img src="../../assets/browsers.png" alt="" loading="lazy" /></p>
+                        <p><img src="../../assets/os.png" alt="" loading="lazy" /></p>
+                    </div>
+                </template>
+                <div v-else-if="i === 1" class="advantage__stat">
+                    <span class="advantage__stat-value">&lt; 6M</span>
+                    <span class="advantage__stat-label">{{ t('home.adv2Stat') }}</span>
                 </div>
-                <div class="progress-bg">
-                    <div class="progress2"></div>
-                </div>
-                <div class="progress-bg">
-                    <div class="progress3"></div>
-                </div>
-                <div class="progress-bg">
-                    <div class="progress4"></div>
-                </div>
-            </el-col>
-            <el-col :span="10" :offset="2">
-                <div class="grid-content">
-                    <h1 class="title2">{{ $t('home.adv2Title') }}</h1>
-                    <div v-html="$t('home.adv2')"></div>
-                </div>
-            </el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="title3Span" :offset="title3Offset">
-                <div class="grid-content">
-                    <h1 class="title3">{{ $t('home.adv3Title') }}</h1>
-                    <div v-html="$t('home.adv3')"></div>
-                </div>
-            </el-col>
-            <el-col :span="14">
-                <div class="grid-content">
-                    <img src="../../assets/diversity-b.png" />
-                </div>
-            </el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="9" :offset="3">
-                <div class="grid-content">
-                    <p><img src="../../assets/browsers.png" /></p>
-                    <p><img src="../../assets/os.png" /></p>
-                </div>
-            </el-col>
-            <el-col :span="11" :offset="1">
-                <div class="grid-content">
-                    <h1 class="title4">{{ $t('home.adv4Title') }}</h1>
-                    <div v-html="$t('home.adv4')"></div>
-                </div>
-            </el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="6" :offset="3">
-                <div class="grid-content">
-                    <h1 class="title5">{{ $t('home.adv5Title') }}</h1>
-                    <div v-html="$t('home.adv5')"></div>
-                    <br />
-                    <router-link to="/doc">{{ $t('home.adv5Doc') }}</router-link>
-                </div>
-            </el-col>
-            <el-col :span="15">
-                <div class="grid-content">
-                    <img src="../../assets/link-b.png" />
-                </div>
-            </el-col>
-        </el-row>
-    </div>
+                <a v-else class="btn btn-ghost" href="https://github.com/dialogflowai/dialogflow"
+                    target="_blank" rel="noopener">
+                    <BiGithub /> GitHub
+                </a>
+            </div>
+        </article>
+    </section>
 </template>

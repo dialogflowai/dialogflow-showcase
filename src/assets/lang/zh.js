@@ -143,8 +143,30 @@ export default {
             choose2: '请选择变量取值来源',
         },
     },
+    nav: {
+        features: '特性',
+        nodes: '功能节点',
+        howToUse: '如何使用',
+        download: '下载',
+        docs: '文档',
+        github: 'GitHub',
+        openMenu: '展开菜单',
+        closeMenu: '收起菜单',
+    },
+    footer: {
+        version: '版本',
+        questions: '如有任何问题或建议，请发送邮件至',
+        orCreate: '或创建',
+        discussion: '讨论',
+        credits: '图片来源',
+        iconsBy: '图标来源',
+    },
     home: {
         headerTitle1: 'DialogFlowAI 智能对话机器人',
+        heroEyebrow: '开源 · Rust + Vue 3 · 完全离线运行',
+        heroShotAlt: '对话流程编辑器界面，画布上正在编排一条对话流程',
+        enterpriseTitle: '我们还提供企业版',
+        adv2Stat: '前后端打包在一个可执行文件里',
         headerTitle2: '超级快速创建适合不同业务场景的对话机器人.',
         headerTitle3: '免费、轻量级、易于使用、快递、安全.',
         headerDownloadBtnText: '下载',
@@ -206,6 +228,13 @@ export default {
         desc: '该软件无需安装任何依赖，即可使用  \n有两种使用访问: Docker 和 预编译文件',
         btnText: '查看教程',
     },
+    enterprise: {
+        feature: '功能',
+        community: '社区版',
+        enterprise: '企业版',
+        included: '支持',
+        notIncluded: '不支持',
+    },
     why: {
         title: '为什么选择Dialog Flow AI?',
         desc: 'Dialog Flow AI 是一个低代码的对话应答系统，它可以帮助你快速构建一个对话流程，并且可以通过代码，对接应答接口。',
@@ -222,6 +251,7 @@ export default {
     },
     nodesIntro: {
         title: '功能节点介绍',
+        yourOwnNodeTitle: '创建你自己的节点',
         nodes: [
             {
                 name: '文本对话节点',
@@ -281,6 +311,7 @@ export default {
         yourOwnNode: '创建属于你自己的功能节点  \n比如做一个 Slack/Discord 机器人节点,  \n或者对接 通义、DeepSeek.  \n  \n如果您有任何建议或意见，欢迎提交到 Github 上的 [Discussions](https://github.com/dialogflowai/dialogflow/discussions)'
     },
     howToUse: {
+        title: '如何使用',
         tutorials: [{
             timestamp: '#1 准备开始',
             title: '如何快速启动应用, 非常得简单.',
@@ -290,9 +321,11 @@ export default {
             title: '挑战在1分钟内配置一个最简单的通知类机器人.',
             desc: '[查看教程](/#/doc/tutorial/simplest-notification-robot?lang=zh)',
         }],
-        api: { title: '集成到你的程序里', linkText: '查看 API 文档' },
+        api: { timestamp: '#3 集成', title: '集成到你的程序里', linkText: '查看 API 文档' },
     },
     doc: {
+        introTitle: '文档',
+        introSubtitle: 'DialogFlowAI 的教程、节点说明与 HTTP 集成接口。',
         menu: {
             home: '首页',
             intro: '介绍',

@@ -37,27 +37,27 @@ function gotoDemo(id, name) {
         <template v-if="props.parentPage == 'home'">
             <ol>
                 <li>
-                    <el-link type="success" @click="gotoDemo('demo-repay', 'UmVwYXkgRGVtbw==')">{{
+                    <el-link type="primary" @click="gotoDemo('demo-repay', 'UmVwYXkgRGVtbw==')">{{
                         $t('home.demo1') }}</el-link>
                 </li>
                 <li>
-                    <el-link type="success" @click="gotoDemo('demo-collect', 'SW5mb3JtYXRpb24gQ29sbGVjdGlvbiBEZW1v')">{{
+                    <el-link type="primary" @click="gotoDemo('demo-collect', 'SW5mb3JtYXRpb24gQ29sbGVjdGlvbiBEZW1v')">{{
                         $t('home.demo2') }}</el-link>
                 </li>
                 <li>
-                    <el-link type="success" @click="gotoDemo('demo-notify', 'T25lIFNlbnRlbmNlIE5vdGlmaWNhdGlvbiBEZW1v')">{{
+                    <el-link type="primary" @click="gotoDemo('demo-notify', 'T25lIFNlbnRlbmNlIE5vdGlmaWNhdGlvbiBEZW1v')">{{
                         $t('home.demo3') }}</el-link>
                 </li>
             </ol>
         </template>
         <template v-else>
-            <el-link type="success" @click="gotoDemo('demo-repay', 'UmVwYXkgRGVtbw==')">{{
+            <el-link type="primary" @click="gotoDemo('demo-repay', 'UmVwYXkgRGVtbw==')">{{
                 $t('home.demo1') }}</el-link>
             |
-            <el-link type="success" @click="gotoDemo('demo-collect', 'SW5mb3JtYXRpb24gQ29sbGVjdGlvbiBEZW1v')">{{
+            <el-link type="primary" @click="gotoDemo('demo-collect', 'SW5mb3JtYXRpb24gQ29sbGVjdGlvbiBEZW1v')">{{
                 $t('home.demo2') }}</el-link>
             |
-            <el-link type="success" @click="gotoDemo('demo-notify', 'T25lIFNlbnRlbmNlIE5vdGlmaWNhdGlvbiBEZW1v')">{{
+            <el-link type="primary" @click="gotoDemo('demo-notify', 'T25lIFNlbnRlbmNlIE5vdGlmaWNhdGlvbiBEZW1v')">{{
                 $t('home.demo3') }}</el-link>
         </template>
     </div>

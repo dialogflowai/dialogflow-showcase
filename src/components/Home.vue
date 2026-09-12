@@ -1,269 +1,244 @@
 <script setup>
-import { computed, ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n'
-import MarkdownIt from 'markdown-it'
 
-import LanguageSwitcher from './LanguageSwitcher.vue';
+import SiteNav from './SiteNav.vue';
 import TryWithDocker from './docs/TryWithDocker.vue'
 import Why from './docs/Why.vue'
-import WhatCanBeDoneWithIt from './docs/WhatCanBeDoneWithIt.vue'
 import NodesIntro from './docs/node/NodesIntro.vue'
 import HowToUse from './docs/HowToUse.vue'
 import Intro from './Intro.vue'
 import Enterprise from './docs/Enterprise.vue';
-import { httpReq } from '../assets/tools.js'
+import pkg from '../../package.json'
 import BiDownload from '~icons/bi/download'
 import BiGithub from '~icons/bi/github'
 import BiFiletypeDoc from '~icons/bi/filetype-doc'
 
-// import {
-//     Printer,
-//     Star,
-// } from '@element-plus/icons-vue'
+const { t } = useI18n()
 
-const router = useRouter();
-const { t, tm } = useI18n()
-const md = new MarkdownIt()
-// const checkUpdateResult = ref(0)
-const currentVersion = ref('')
-// const newVersion = ref('')
-// const changelog = reactive([])
-// const updateLoading = ref(false)
-// navigator.language; //"en-US"
-// navigator.languages; //["en-US", "zh-CN", "ja-JP"]
-function download() {
-  window.location.href = 'https://github.com/dialogflowai/dialogflow/releases';
-}
-function repository() {
-  window.location.href = 'https://github.com/dialogflowai/dialogflow';
-}
-function docs() {
-  router.push('/doc');
-}
-// function introduction() {
-//     router.push('/introduction');
-// }
-// function howToUse() {
-//     VueScrollTo.scrollTo(document.getElementById('howToUse'))
-// }
-// function demo() {
-//     VueScrollTo.scrollTo(document.getElementById('demosList'))
-// }
-onMounted(async () => {
-  const t = await httpReq('GET', 'version.json', null, null, null);
-  currentVersion.value = t
-  // console.log(currentVersion.value)
-})
-/*
-const checkUpdate = async () => {
-    updateLoading.value = true
-    const t = await httpReq('GET', 'check-new-version.json', null, null, null);
-    // console.log(t)
-    if (t.status == 200) {
-        if (t.data != null) {
-            newVersion.value = t.data.version;
-            changelog.splice(0, changelog.length)
-            copyProperties(t.data.changelog, changelog)
-            // changelog.push(t.data.changelog)
-            checkUpdateResult.value = 1
-        } else {
-            checkUpdateResult.value = 2
-        }
-    } else {
-        checkUpdateResult.value = 3
-    }
-    updateLoading.value = false
-}
-*/
+// Read straight from package.json rather than fetching `version.json`:
+// there is no `public/version.json`, so that request fell through to the SPA
+// HTML fallback, `response.json()` threw, and the raw SyntaxError text ended
+// up on the page. This also keeps the shown version in sync forever.
+const currentVersion = ref(pkg.version)
+
+const REPO = 'https://github.com/dialogflowai/dialogflow'
 </script>
 
 <style scoped>
-#header {
-  background-image: url(../assets/flow.png), url(../assets/header_bg.jpg);
-  background-position: right center, left top;
-  background-repeat: no-repeat, repeat;
-  background-size: contain, cover;
-  height: 450px;
-  color: white;
-  padding-top: 50px;
-  padding-left: 70px;
-  font-size: 2vw;
+/* --- Hero ------------------------------------------------------------- */
+/* The old hero was a blue-bubbles JPG with a fixed-colour flow diagram PNG
+   layered on top, set in 2vw/5vw type. The raster had to go: it hardcoded a
+   palette that no longer matches, and the flow PNG is a fixed-colour graphic
+   (charcoal + teal + coral) that clashes with indigo. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--grad-brand);
+  color: #fff;
+  padding-block: clamp(3rem, 2rem + 6vw, 6rem) clamp(3.5rem, 2rem + 7vw, 7rem);
 }
 
-#header .name {
-  font-weight: bold;
-  font-size: 5vw;
-  display: block;
-  margin-bottom: 10px;
+/* Soft light blooms instead of a flat fill — gives the gradient some depth
+   without shipping an image. */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-#header .download {
-  background-color: gold;
-  border-radius: 10px;
-  border: 3px #000 solid;
-  font-size: 20px;
-  padding: 12px;
-  margin-right: 10px;
+.hero::before {
+  width: 620px;
+  height: 620px;
+  top: -280px;
+  right: -180px;
+  background: radial-gradient(circle, rgb(255 255 255 / 0.22) 0%, transparent 70%);
 }
 
-#header .tutorial {
-  background-color: aliceblue;
-  border-radius: 10px;
-  border: 3px #000 solid;
-  font-size: 20px;
-  padding: 12px;
+.hero::after {
+  width: 520px;
+  height: 520px;
+  bottom: -300px;
+  left: -160px;
+  background: radial-gradient(circle, rgb(255 255 255 / 0.14) 0%, transparent 70%);
 }
 
-#header .v {
-  font-size: 14px;
-  margin-left: 12px;
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
 }
 
-.btns {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.hero__title {
+  font-size: var(--fs-display);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 1.1rem 0 1rem;
+  text-wrap: balance;
+}
+
+.hero__lead {
+  font-size: clamp(1.125rem, 1rem + 0.7vw, 1.5rem);
+  line-height: 1.5;
+  color: rgb(255 255 255 / 0.94);
+  margin: 0 0 0.75rem;
+}
+
+.hero__sub {
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: rgb(255 255 255 / 0.8);
+  margin: 0 0 2rem;
+}
+
+.hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.75rem;
+  align-items: center;
 }
 
-.btns button {
-  background-color: white;
-  border-radius: 30px;
-  border: 3px #000 solid;
-  font-size: 30px;
-  padding: 12px 16px;
-  flex: 1 1 auto;
-  max-width: 220px;
-  cursor: pointer;
+.hero__version {
+  margin: 1.5rem 0 0;
+  font-size: var(--fs-xs);
+  color: rgb(255 255 255 / 0.8);
 }
 
-.title {
+/* --- Demo recording --------------------------------------------------- */
+/* Was a `background-size: cover` background-image on a 400px box, which crops
+   an arbitrary slice out of a screen recording — you could not tell what the
+   recording showed. As a real image it keeps its own aspect ratio. */
+.demo {
+  padding-block: var(--section-y) 0;
+}
+
+.demo .title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--ink-900);
   text-align: center;
-  font-size: 180%;
-  font-weight: bold;
-  margin: 30px 10px 10px;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-wrap: balance;
 }
 
-.sub-title {
-  font-weight: bold;
-  font-size: 18px;
-  color: gray;
-  margin: 20px 0;
+.demo__frame {
+  max-width: 960px;
+  margin-inline: auto;
+  padding: clamp(0.5rem, 0.3rem + 0.8vw, 0.9rem);
+  background-color: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
 }
 
-.bg1 {
-  background-image: url("../assets/demo1.gif");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  background-size: cover;
-  height: 400px;
-  margin-top: 20px;
+.demo__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-md);
 }
 
-.text-center {
-  text-align: center;
-  padding: 10px;
-  font-size: 14px;
+/* --- Footer ----------------------------------------------------------- */
+.site-footer {
+  margin-top: var(--section-y);
+  padding-block: clamp(2rem, 1.5rem + 2vw, 3rem);
+  background-color: var(--surface-1);
+  border-top: 1px solid var(--border-1);
+  color: var(--ink-500);
+  font-size: var(--fs-sm);
 }
 
-@media screen and (max-width: 768px) {
-  #header {
-    padding-left: 20px;
-    padding-top: 30px;
-    height: auto;
-    font-size: 4vw;
-  }
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
-  #header .name {
-    font-size: 7vw;
-  }
+.site-footer p {
+  margin: 0 0 0.5rem;
+  max-width: 46ch;
+  line-height: 1.7;
+}
 
-  .btns {
-    flex-direction: column;
-    align-items: stretch;
-  }
+.site-footer__brand {
+  font-weight: 700;
+  color: var(--ink-800);
+}
 
-  .btns button {
-    font-size: 18px;
-    width: 100%;
-    margin: 5px 0;
-  }
-
-  .title {
-    font-size: 150%;
-  }
-
-  .bg1 {
-    height: 250px;
-  }
+.site-footer__version {
+  font-variant-numeric: tabular-nums;
 }
 </style>
 
-
 <template>
-  <LanguageSwitcher />
-  <div id="header">
-    <span class="name">{{ t('home.headerTitle1') }}</span>
-    <p>{{ t('home.headerTitle2') }}</p>
-    <p>
-      {{ t('home.headerTitle3') }}<br />
-      <!-- It's AI powered. Integrated OpenAI, Ollama and HuggingFace local LLMs, empowered your business.<br />
-            It's easy to use. Use the mouse to drag and drop with our intuitive node-based editor.<br />
-            It's fast. Built on Rust and Vue3.<br />
-            It's safe. Open source and all data is saved locally. -->
-      <!-- Create your own conversational bot in under 1 minute. -->
-    </p>
-    <!-- <p>
-            <button class="download" @click="guide">Get started</button>
-            <button class="tutorial" @click="introduction">Introduction</button>
-            <span class="v">Current verion is: v1.8.0</span><br/>
-            <button class="cu" @click="introduction">Check update</button>
-        </p> -->
-    <div class="btns">
-      <button @click="download">
-        <el-icon :size="27">
-          <BiDownload />
-        </el-icon> {{ t('home.headerDownloadBtnText') }}
-      </button>
-      <button @click="repository">
-        <el-icon :size="27">
-          <BiGithub />
-        </el-icon> Github
-      </button>
-      <button @click="docs()">
-        <el-icon :size="27">
-          <BiFiletypeDoc />
-        </el-icon> {{ t('home.headerDocBtnText') }}
-      </button>
+  <SiteNav />
+
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="chip">{{ t('home.heroEyebrow') }}</span>
+      <h1 class="hero__title">{{ t('home.headerTitle1') }}</h1>
+      <p class="hero__lead">{{ t('home.headerTitle2') }}</p>
+      <p class="hero__sub">{{ t('home.headerTitle3') }}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn-onbrand" :href="`${REPO}/releases`" target="_blank" rel="noopener">
+          <BiDownload />{{ t('home.headerDownloadBtnText') }}
+        </a>
+        <a class="btn btn-onbrand-ghost" :href="REPO" target="_blank" rel="noopener">
+          <BiGithub />Github
+        </a>
+        <router-link class="btn btn-onbrand-ghost" to="/doc">
+          <BiFiletypeDoc />{{ t('home.headerDocBtnText') }}
+        </router-link>
+      </div>
+
+      <p class="hero__version">
+        {{ t('home.headerTheLatestVersion') }}: v{{ currentVersion }}
+      </p>
     </div>
-    <div style="font-size: 16px;">{{ t('home.headerTheLatestVersion') }}: {{ currentVersion }}</div>
-  </div>
-  <p class="title">
-    {{ t('home.slogan') }}
-  </p>
-  <div class="bg1"></div>
-  <!-- <div><img src="../assets/demo1.gif" /></div> -->
+  </section>
+
+  <section class="demo container">
+    <p class="title">{{ t('home.slogan') }}</p>
+    <div class="demo__frame">
+      <img src="../assets/demo1.gif" :alt="t('home.heroShotAlt')" loading="lazy" width="960" height="600" />
+    </div>
+  </section>
+
   <TryWithDocker />
   <Why />
-  <!-- <WhatCanBeDoneWithIt /> -->
   <NodesIntro />
   <HowToUse />
   <Intro />
   <Enterprise />
-  <hr />
-  <div class="text-center">
-    Version: {{ currentVersion }}<br />
-    If you have any questions or suggestions, please email to:
-    dialogflow@yeah.net
-    or create a <a href="https://github.com/dialogflowai/dialogflow/discussions">Discussions</a>
-  </div>
-  <div class="text-center">
-    Images were from
-    <a href="https://unsplash.com">Unsplash</a> &amp; <a href="https://picsum.photos">Picsum</a>
-    , Icons created by
-    <a href="https://www.flaticon.com/">Flaticon</a>
-  </div>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <p class="site-footer__brand">DialogFlowAI</p>
+        <p class="site-footer__version">{{ t('footer.version') }}: {{ currentVersion }}</p>
+      </div>
+      <div>
+        <p>
+          {{ t('footer.questions') }}
+          <a href="mailto:dialogflow@yeah.net">dialogflow@yeah.net</a>
+          {{ t('footer.orCreate') }}
+          <a :href="`${REPO}/discussions`" target="_blank" rel="noopener">{{ t('footer.discussion') }}</a>.
+        </p>
+        <p class="muted">
+          {{ t('footer.credits') }}
+          <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> &amp;
+          <a href="https://picsum.photos" target="_blank" rel="noopener">Picsum</a>,
+          {{ t('footer.iconsBy') }}
+          <a href="https://www.flaticon.com/" target="_blank" rel="noopener">Flaticon</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
 </template>

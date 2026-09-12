@@ -2,77 +2,70 @@
 import { useI18n } from 'vue-i18n'
 import MarkdownIt from 'markdown-it'
 
+// `itfn()`/`htu()` used to live here. Neither was bound to any event, and
+// `itfn` scrolled to `#functionNodes` — an id that only exists inside a
+// commented-out block elsewhere on the page, so it would have thrown on click.
 const { t, tm } = useI18n()
 const md = new MarkdownIt()
-
-import { winScrollTo } from '../../assets/tools.js'
-
-const itfn = () => {
-  winScrollTo(document.getElementById('functionNodes'))
-}
-
-const htu = () => {
-  winScrollTo(document.getElementById('howToUse'))
-}
 </script>
 
-<template>
-  <div class="dcontainer">
-    <section class="docker">
-      <h1>{{ t('giveTry.title') }}</h1>
-      <p v-html="md.render(t('giveTry.desc'))" />
-      <div class="button-group">
-        <router-link to="/doc/tutorial/get-started">
-          <button type="button">{{ t('giveTry.btnText') }}</button>
-        </router-link>
-      </div>
-    </section>
-  </div>
-</template>
-
 <style scoped>
-.dcontainer {
-  background-color: aliceblue;
+.try {
+  padding-block: clamp(2rem, 1.4rem + 3vw, 3.5rem);
 }
 
-.docker {
-  margin: 5% auto;
-  padding: 20px 30px;
-  max-width: 720px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.note {
-  color: gray;
-  font-size: 14px;
-}
-
-.docker code {
-  background: #f2f2f2;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: monospace;
-}
-
-.button-group {
-  margin-top: 30px;
+.try__card {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 1.1rem + 2vw, 3rem);
   text-align: center;
+  background: var(--grad-soft);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-md);
 }
 
-.button-group button {
-  background-color: white;
-  border-radius: 30px;
-  border: 2px solid #000;
-  font-size: 16px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: 0.3s ease;
+.try__card h2 {
+  font-size: var(--fs-h1);
+  margin-bottom: 0.75rem;
 }
 
-.button-group button:hover {
-  background-color: #000;
-  color: white;
+.try__card :deep(p) {
+  color: var(--ink-600);
+  line-height: 1.7;
+}
+
+.try__card :deep(code) {
+  background: var(--surface-2);
+  border: 1px solid var(--border-1);
+  padding: 0.1em 0.4em;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: var(--brand-700);
+}
+
+.try__actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 </style>
+
+<template>
+  <section class="container try">
+    <div class="try__card">
+      <h2>{{ t('giveTry.title') }}</h2>
+      <p v-html="md.render(t('giveTry.desc'))" />
+      <!-- This used to be a `<router-link>` wrapping a `<button>`. Nested
+           interactive elements are invalid HTML and the inner button's UA
+           styles competed with the link's, so the two were fighting over the
+           same box. `.btn` on the link itself renders identically and is
+           correct. -->
+      <div class="try__actions">
+        <router-link class="btn btn-primary" to="/doc/tutorial/get-started">
+          {{ t('giveTry.btnText') }}
+        </router-link>
+      </div>
+    </div>
+  </section>
+</template>

@@ -1,34 +1,36 @@
 <template>
-    <div class="language-switcher">
-        <button @click="toggleDropdown" class="lang-button">
-            <span class="flag-icon">
-                <img :src="currentFlag" alt="language flag" />
-            </span>
+    <div class="language-switcher" ref="rootEl">
+        <button @click="toggleDropdown" class="lang-button" type="button" aria-haspopup="listbox"
+            :aria-expanded="isOpen" :aria-label="currentLangLabel">
+            <img class="lang-flag" :src="currentFlag" alt="" />
             <span class="lang-label">{{ currentLangLabel }}</span>
-            <span class="arrow">▼</span>
+            <svg class="lang-chevron" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
         </button>
 
         <transition name="dropdown">
-            <div v-show="isOpen" class="dropdown-menu">
-                <div v-for="lang in languages" :key="lang.code" class="dropdown-item"
-                    @click="switchLanguage(lang.code)">
-                    <img :src="lang.flag" alt="" />
-                    {{ lang.label }}
-                </div>
+            <div v-show="isOpen" class="dropdown-menu" role="listbox">
+                <button v-for="lang in languages" :key="lang.code" type="button" class="dropdown-item"
+                    role="option" :aria-selected="lang.code === selectedLang" @click="switchLanguage(lang.code)">
+                    <img class="lang-flag" :src="lang.flag" alt="" />
+                    <span>{{ lang.label }}</span>
+                    <span v-if="lang.code === selectedLang" class="dropdown-check">✓</span>
+                </button>
             </div>
         </transition>
     </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 // https://www.jsdelivr.com/package/npm/flag-icons-svg
 import zhFlag from '../assets/flags/cn.svg'
 import ukFlag from '../assets/flags/gb.svg'
 const { locale } = useI18n()
 
-// 模拟 i18n 切换逻辑
 const supportedLanguages = {
     en: {
         code: 'en',
@@ -48,6 +50,8 @@ const selectedLang = ref(locale.value)
 
 const isOpen = ref(false)
 
+const rootEl = ref(null)
+
 const currentLangLabel = computed(() => {
     return supportedLanguages[selectedLang.value]?.label || 'Language'
 })
@@ -60,93 +64,131 @@ function toggleDropdown() {
     isOpen.value = !isOpen.value
 }
 
+function onDocumentClick(e) {
+    if (rootEl.value && !rootEl.value.contains(e.target)) isOpen.value = false
+}
+
+function onKeydown(e) {
+    if (e.key === 'Escape') isOpen.value = false
+}
+
+onMounted(() => {
+    document.addEventListener('click', onDocumentClick)
+    document.addEventListener('keydown', onKeydown)
+})
+
+onUnmounted(() => {
+    document.removeEventListener('click', onDocumentClick)
+    document.removeEventListener('keydown', onKeydown)
+})
+
 function switchLanguage(lang) {
-    if (lang === locale.value) return
+    if (lang === locale.value) {
+        isOpen.value = false
+        return
+    }
+    // `<html lang>` is kept in sync by a watcher in `assets/lang/i18n.js`, so
+    // there is nothing to update here beyond the locale itself.
     locale.value = lang
     localStorage.setItem('lang', lang)
     selectedLang.value = lang
     isOpen.value = false
-    // 在实际项目中可以调用 i18n 的方法来切换语言
-    console.log('切换语言至:', lang)
 }
 </script>
 
 <style scoped>
 .language-switcher {
     position: relative;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-sans);
 }
 
 .lang-button {
     display: flex;
     align-items: center;
-    padding: 8px 12px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    gap: 0.4rem;
+    padding: 0.4rem 0.6rem;
+    background-color: transparent;
+    color: var(--ink-600);
+    border: 1px solid var(--border-1);
+    border-radius: var(--r-pill);
+    font: inherit;
+    font-size: var(--fs-xs);
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease;
 }
 
 .lang-button:hover {
-    background-color: #f5f5f5;
+    background-color: var(--surface-1);
+    border-color: var(--brand-200);
+    color: var(--brand-600);
 }
 
-.flag-icon img {
-    width: 20px;
-    height: auto;
-    margin-right: 8px;
+.lang-flag {
+    width: 18px;
+    height: 13px;
+    border-radius: 2px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
-.lang-label {
-    margin-right: 6px;
-}
-
-.arrow {
-    font-size: 10px;
-    color: #666;
+.lang-chevron {
+    width: 14px;
+    height: 14px;
+    color: var(--ink-400);
+    flex-shrink: 0;
 }
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    min-width: 140px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    top: calc(100% + 6px);
+    right: 0;
+    z-index: 1200;
+    background-color: var(--surface-0);
+    border: 1px solid var(--border-1);
+    border-radius: var(--r-md);
+    min-width: 160px;
+    padding: 4px;
+    box-shadow: var(--shadow-lg);
     overflow: hidden;
-    margin-top: 6px;
 }
 
 .dropdown-item {
     display: flex;
     align-items: center;
-    padding: 10px 12px;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    background: transparent;
+    border: 0;
+    border-radius: var(--r-sm);
+    color: var(--ink-700);
+    font: inherit;
+    font-size: var(--fs-sm);
+    text-align: left;
     cursor: pointer;
-    transition: background 0.2s ease-in-out;
-}
-
-.dropdown-item img {
-    width: 18px;
-    height: auto;
-    margin-right: 10px;
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .dropdown-item:hover {
-    background-color: #f0f0f0;
+    background-color: var(--brand-50);
+    color: var(--brand-600);
 }
 
-/* 下拉动画 */
+.dropdown-check {
+    margin-left: auto;
+    color: var(--brand-500);
+    font-size: 0.75rem;
+}
+
 .dropdown-enter-active,
 .dropdown-leave-active {
-    transition: opacity 0.2s ease;
+    transition: opacity 0.16s ease, transform 0.16s ease;
 }
 
 .dropdown-enter-from,
 .dropdown-leave-to {
     opacity: 0;
+    transform: translateY(-4px);
 }
 </style>
