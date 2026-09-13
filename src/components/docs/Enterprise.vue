@@ -1,34 +1,9 @@
-<template>
-  <el-row class="mid" id="howToUse">
-    <el-col :span="6">
-      <div class="black-line"></div>
-    </el-col>
-    <el-col :span="9">
-      <h1 style="text-align: center;">We also provide enterprise edition</h1>
-    </el-col>
-    <el-col :span="6">
-      <div class="black-line"></div>
-    </el-col>
-  </el-row>
-  <div style="width: 50%; margin: auto;">
-    <el-table :data="tableData" border style="width: 100%">
-      <el-table-column prop="feature" label="Feature"></el-table-column>
-      <el-table-column label="Community" width="150">
-        <template #default="scope">
-          {{ getCellValue(scope.row.community) }}
-        </template>
-      </el-table-column>
-      <el-table-column label="Enterprise" width="150">
-        <template #default="scope">
-          {{ getCellValue(scope.row.enterprise) }}
-        </template>
-      </el-table-column>
-    </el-table>
-  </div>
-</template>
-
 <script setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n'
+import SectionHeader from '../SectionHeader.vue'
+
+const { t } = useI18n()
 
 const tableData = ref([
   { feature: 'Intuitive nodes editor', community: 'Yes', enterprise: 'Yes' },
@@ -54,35 +29,91 @@ const tableData = ref([
   { feature: 'Technical Support', community: 'Github issues', enterprise: 'Email' }
 ]);
 
-function getCellValue(value) {
-  if (value === 'Yes') {
-    return '✔️';
-  } else if (value === 'No') {
-    return '';
-  } else {
-    return value;
-  }
+// `✔️` and `''` are replaced with a labelled badge and a muted dash. An empty
+// table cell reads as missing data; a dash reads as "deliberately not
+// included", which is what is meant here.
+function cellKind(value) {
+  if (value === 'Yes') return 'yes';
+  if (value === 'No') return 'no';
+  return 'text';
+}
+
+function cellLabel(value) {
+  if (value === 'Yes') return t('enterprise.included');
+  if (value === 'No') return t('enterprise.notIncluded');
+  return value;
 }
 </script>
 
 <style scoped>
-.el-table .cell {
+.enterprise__table {
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+/* `:deep()` is required: the cells are rendered by el-table's own template,
+   which does not carry this component's `data-v-*` attribute, so a plain
+   descendant selector compiles to `.cell[data-v-x]` and matches nothing —
+   which is how the centring rule that used to live here silently did nothing. */
+:deep(.el-table .cell) {
   text-align: center;
 }
 
-.mid {
-  justify-content: center;
+/* The feature column reads as prose, so it stays left-aligned while the two
+   answer columns are centred as a matrix. `class-name` puts a class on the
+   `<td>` itself, which is the only hook el-table offers into its own markup. */
+:deep(.el-table .col-feature .cell) {
+  text-align: left;
+  font-weight: 500;
+  color: var(--ink-800);
+}
+
+.enterprise__badge {
+  display: inline-flex;
   align-items: center;
-  vertical-align: middle;
+  justify-content: center;
+  min-width: 3.25rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
 }
 
-.black-line {
-  height: 6px;
-  background-color: black;
+.enterprise__badge--yes {
+  background-color: var(--brand-50);
+  color: var(--brand-700);
 }
 
-.title {
-  font-weight: bold;
-  font-size: 18px;
+.enterprise__badge--no {
+  background-color: var(--surface-2);
+  color: var(--ink-400);
 }
 </style>
+
+<template>
+  <section class="section" id="enterprise">
+    <div class="container">
+      <SectionHeader :title="t('home.enterpriseTitle')" level="h2" />
+
+      <div class="enterprise__table">
+        <el-table :data="tableData" style="width: 100%">
+          <el-table-column prop="feature" :label="t('enterprise.feature')" class-name="col-feature" />
+          <el-table-column :label="t('enterprise.community')" width="150">
+            <template #default="scope">
+              <span class="enterprise__badge" :class="`enterprise__badge--${cellKind(scope.row.community)}`">
+                {{ cellLabel(scope.row.community) }}
+              </span>
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('enterprise.enterprise')" width="150">
+            <template #default="scope">
+              <span class="enterprise__badge" :class="`enterprise__badge--${cellKind(scope.row.enterprise)}`">
+                {{ cellLabel(scope.row.enterprise) }}
+              </span>
+            </template>
+          </el-table-column>
+        </el-table>
+      </div>
+    </div>
+  </section>
+</template>

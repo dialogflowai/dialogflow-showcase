@@ -1,126 +1,106 @@
 <script setup>
 import NodesIntro from './node/NodesIntro.vue';
-import LanguageSwitcher from '../LanguageSwitcher.vue';
+import SolarDocumentTextLinear from '~icons/solar/document-text-linear'
+import PhPlugsConnectedBold from '~icons/ph/plugs-connected-bold'
+
+// The Alibaba CDN logo that used to sit at the top of this page is gone — a
+// documentation landing page should not depend on a third-party CDN for its
+// own branding, and that image was a generic placeholder rather than anything
+// belonging to this project.
+
+const apiLinks = [
+    { to: '/doc/api/integration/overview', label: 'doc.menu.integration.overview' },
+    { to: '/doc/api/integration/javascript', label: null, text: 'JavaScript' },
+    { to: '/doc/api/integration/python', label: null, text: 'Python' },
+    { to: '/doc/api/integration/java', label: null, text: 'Java' },
+]
+
+const tutorialLinks = [
+    { to: '/doc/tutorial/get-started', label: 'doc.menu.tutorials.getStarted' },
+    { to: '/doc/tutorial/simplest-notification-robot', label: 'doc.menu.tutorials.simplestNotificationRobot' },
+]
 </script>
+
 <style scoped>
-.header {
-    text-align: center;
-    padding: 20px;
+.doc-intro__grid {
+    margin-bottom: 2.5rem;
 }
 
-.logo {
-    width: 100px;
-}
-
-.nav {
+.doc-intro__card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    background-color: #f5f7fa;
-    padding: 10px;
+    gap: 0.75rem;
+    color: var(--ink-800);
+    font-weight: 600;
+    text-decoration: none;
 }
 
-.nav-item {
+.doc-intro__card:hover {
+    color: var(--brand-600);
+    text-decoration: none;
+}
+
+.doc-intro__card svg {
+    width: 22px;
+    height: 22px;
+    color: var(--brand-500);
+}
+
+.doc-intro__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.doc-intro__list-item {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    width: 100%;
+    gap: 0.85rem;
+    padding: 0.9rem 1.1rem;
+    background-color: var(--surface-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--r-md);
+    color: var(--ink-800);
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-.nav-item img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+.doc-intro__list-item:hover {
+    color: var(--brand-600);
+    border-color: var(--brand-200);
+    background-color: var(--brand-50);
+    text-decoration: none;
 }
 
-.nav-item h3 {
-    margin: 0;
-    flex-grow: 1;
-}
-
-.content {
-    padding: 20px;
-}
-
-.footer {
-    background-color: #409EFF;
-    color: white;
-    text-align: center;
-    padding: 1px;
+.doc-intro__list-item svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--brand-500);
 }
 </style>
-<template>
-    <LanguageSwitcher />
-    <div class="header">
-        <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Logo" class="logo">
-        <h1>Thank you for using DialogFlowAI!</h1>
-    </div>
-    <h1>{{ $t('doc.menu.integration.title') }}</h1>
-    <div class="flex flex-wrap gap-4">
-        <el-card style="width: 270px" shadow="always">
-            <a href="/#/doc/api/integration/overview">
-                {{ $t('doc.menu.integration.overview') }}
-            </a>
-        </el-card>
-        <el-card style="width: 270px" shadow="always">
-            <a href="/#/doc/api/integration/javascript">
-                JavaScript
-            </a>
-        </el-card>
-        <el-card style="width: 270px" shadow="always">
-            <a href="/#/doc/api/integration/python">
-                Python
-            </a>
-        </el-card>
-        <el-card style="width: 270px" shadow="always">
-            <a href="/#/doc/api/integration/java">
-                Java
-            </a>
-        </el-card>
-    </div>
-    <h1>{{ $t('doc.menu.tutorials.title') }}</h1>
-    <div class="nav">
-        <div class="nav-item">
-            <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 1">
-            <h3><a href="/#/doc/tutorial/get-started">{{ $t('doc.menu.tutorials.getStarted') }}</a></h3>
-            <p></p>
-        </div>
-        <div class="nav-item">
-            <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 1">
-            <h3><a href="/#/doc/tutorial/simplest-notification-robot">{{ $t('doc.menu.tutorials.simplestNotificationRobot') }}</a>
-            </h3>
-            <p></p>
-        </div>
-        <!-- <div class="nav-item">
-            <h3>How to setup condition branches?</h3>
-            <p>WIP</p>
-        </div>
-        <div class="nav-item">
-            <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 3">
-            <h3>How to configure intent recognition parameters?</h3>
-            <p>WIP</p>
-        </div>
-        <div class="nav-item">
-            <img src="https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg" alt="Article 3">
-            <h3>How to use LLM answer node?</h3>
-            <p>WIP</p>
-        </div> -->
-        <!-- 下载了模型以后，就解锁了 xxx 功能 -->
-    </div>
-    <!-- <h1>Nodes</h1> -->
-    <NodesIntro />
-    <!-- <div class="content">
-        <h2>How to integrate DialogFlowAI into your project?</h2>
-        <p>首先，您需要安装所需的依赖包。</p>
-        <pre><code>npm install some-tool</code></pre>
-        <p>然后，在您的代码中引入并使用这个工具：</p>
-        <pre><code>import SomeTool from 'some-tool';
 
-SomeTool.init({
-  // 配置选项
-});</code></pre>
-    </div> -->
-    <!-- <div class="footer">
-        <p>&copy; 2025.</p>
-    </div> -->
+<template>
+    <h1>{{ $t('doc.introTitle') }}</h1>
+    <p class="lead">{{ $t('doc.introSubtitle') }}</p>
+
+    <h2>{{ $t('doc.menu.integration.title') }}</h2>
+    <div class="grid grid-4 doc-intro__grid">
+        <router-link v-for="link in apiLinks" :key="link.to" :to="link.to" class="card card-hover doc-intro__card">
+            <PhPlugsConnectedBold />
+            <span>{{ link.label ? $t(link.label) : link.text }}</span>
+        </router-link>
+    </div>
+
+    <h2>{{ $t('doc.menu.tutorials.title') }}</h2>
+    <div class="doc-intro__list">
+        <router-link v-for="link in tutorialLinks" :key="link.to" :to="link.to" class="doc-intro__list-item">
+            <SolarDocumentTextLinear />
+            <span>{{ $t(link.label) }}</span>
+        </router-link>
+    </div>
+
+    <NodesIntro />
 </template>

@@ -13,16 +13,31 @@ export function httpReq(method, uri, query, form, body) {
     }
     if (form) {
         var data = new FormData();
-        for (let k of Objects.keys(form)) {
+        for (let k of Object.keys(form)) {
             data.append(k, form[k]);
         }
         options.body = data;
     }
     else if (body) {
         options.body = JSON.stringify(body);
-        console.log(options.body);
     }
-    return fetch(url, options).then(response => response.json()).catch(error => error);
+    return fetch(url, options).then(response => response.json());
+}
+
+/**
+ * Smooth-scroll an element into view.
+ *
+ * Prefer this over `winScrollTo` below. That one sums `offsetTop` up the
+ * `offsetParent` chain and calls `window.scrollTo`, which means it cannot see
+ * `scroll-margin-top` — so with a sticky nav every jump lands with the target
+ * heading hidden behind the bar. `scrollIntoView` honours `scroll-margin-top`
+ * natively, and `[id] { scroll-margin-top: calc(var(--nav-h) + 16px) }` in
+ * `theme.css` is what gives it the right offset.
+ */
+export function scrollToId(id) {
+    const el = typeof id === 'string' ? document.getElementById(id) : id;
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 export function winScrollTo(t) {

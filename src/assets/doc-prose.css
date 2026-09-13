@@ -1,0 +1,249 @@
+/* ============================================================================
+ * doc-prose.css — the typographic layer for documentation *content*.
+ *
+ * The 16 doc content components under `src/components/docs/` are written with
+ * bare semantic tags — `<h1>`, `<p>`, `<pre>`, `<img>`, `<el-table>` — with no
+ * wrapper classes anywhere. Rather than edit all 16, `DocFrame.vue` puts a
+ * single `.doc-content` class on the docs `<main>`, and this sheet styles
+ * everything beneath it. Twelve of those components then need no changes at
+ * all to pick up the new look.
+ *
+ * This is a global, unscoped sheet on purpose. `:deep()` from inside
+ * `DocFrame.vue` would not reach `v-html` output, because injected markup
+ * carries no `data-v-*` scope attribute and a scoped descendant selector
+ * silently matches nothing. That affects `TutorialSection.vue` (markdown) and
+ * `IntroDoc.vue` (`v-html="$t('home.advN')"`).
+ *
+ * It relies on being imported last in `main.js` to win specificity ties —
+ * see the note there before reordering anything.
+ * ========================================================================== */
+
+.doc-content {
+  max-width: 1000px;
+  padding: clamp(1.5rem, 1rem + 2vw, 3rem) clamp(1rem, 0.5rem + 2vw, 3.25rem) 5rem;
+  color: var(--ink-700);
+  font-size: var(--fs-body);
+  /* Inherited by everything inside. The docs are full of long unbreakable
+     tokens — `docker run -v <Your local data dir>:/data …` inline code, and
+     bare URLs like the Docker Hub image address. At 390px those pushed the
+     whole page to 473px wide, because a single unbreakable run cannot fit in
+     a line and `overflow: visible` lets it escape. `break-word` (not
+     `anywhere`) only splits a run when it genuinely cannot fit on a line of
+     its own, so ordinary prose is unaffected. */
+  overflow-wrap: break-word;
+}
+
+/* --- Headings --------------------------------------------------------- */
+
+.doc-content h1,
+.doc-content h2,
+.doc-content h3,
+.doc-content h4 {
+  color: var(--ink-900);
+  font-weight: 700;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.doc-content h1 {
+  font-size: var(--fs-h1);
+  letter-spacing: -0.01em;
+  margin: 2.25em 0 0.7em;
+}
+
+/* The first heading on a page should not push the page down from the top. */
+.doc-content > h1:first-child,
+.doc-content > h2:first-child,
+.doc-content > :first-child > h1:first-child {
+  margin-top: 0;
+}
+
+.doc-content h2 {
+  font-size: var(--fs-h2);
+  margin: 2em 0 0.6em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--border-1);
+}
+
+.doc-content h3 {
+  font-size: var(--fs-h3);
+  margin: 1.75em 0 0.5em;
+}
+
+.doc-content h4 {
+  font-size: var(--fs-body);
+  margin: 1.5em 0 0.4em;
+}
+
+/* --- Body text -------------------------------------------------------- */
+
+.doc-content p,
+.doc-content li {
+  line-height: 1.75;
+}
+
+.doc-content p {
+  margin: 0 0 1.15em;
+}
+
+.doc-content ul,
+.doc-content ol {
+  margin: 0 0 1.15em;
+  padding-left: 1.5em;
+}
+
+.doc-content li {
+  margin-bottom: 0.4em;
+}
+
+.doc-content li::marker {
+  color: var(--brand-400);
+}
+
+.doc-content strong {
+  color: var(--ink-900);
+  font-weight: 600;
+}
+
+.doc-content a {
+  color: var(--brand-600);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-200);
+  text-underline-offset: 0.18em;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.doc-content a:hover {
+  color: var(--brand-500);
+  text-decoration-color: var(--brand-500);
+}
+
+.doc-content hr {
+  border: 0;
+  border-top: 1px solid var(--border-1);
+  margin: 2.5rem 0;
+}
+
+.doc-content blockquote {
+  margin: 1.5em 0;
+  padding: 0.25em 1.25em;
+  border-left: 3px solid var(--brand-300);
+  background-color: var(--brand-50);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  color: var(--ink-600);
+}
+
+/* --- Inline code ------------------------------------------------------ */
+
+.doc-content :not(pre) > code {
+  background-color: var(--surface-2);
+  color: var(--brand-700);
+  padding: 0.15em 0.42em;
+  border-radius: 5px;
+  font-size: 0.875em;
+  border: 1px solid var(--border-1);
+}
+
+/* --- Code blocks ------------------------------------------------------ */
+/* Dark slab so a code block is instantly distinguishable from the body copy.
+   Both the markdown-rendered blocks in the tutorial pages and the `<pre>`
+   blocks in the API pages land here, which is what keeps those two paths
+   looking identical. */
+
+.doc-content pre {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--r-md);
+  border: 1px solid #1e293b;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 1.5em 0;
+  tab-size: 2;
+}
+
+.doc-content pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* --- Images ----------------------------------------------------------- */
+/* Screenshots are wide; without `max-width` they overflow the content column
+   and produce horizontal page scroll. */
+.doc-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--surface-0);
+}
+
+/* --- Tables ----------------------------------------------------------- */
+/* Element Plus reads these from custom properties it declares on `.el-table`
+   itself, so they have to be re-declared on a selector at least as specific
+   as that — setting them on an ancestor would be overridden. */
+.doc-content .el-table {
+  --el-table-border-color: var(--border-1);
+  --el-table-header-bg-color: var(--surface-2);
+  --el-table-header-text-color: var(--ink-700);
+  --el-table-text-color: var(--ink-700);
+  --el-table-row-hover-bg-color: var(--brand-50);
+  --el-table-current-row-bg-color: var(--brand-50);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  font-size: var(--fs-sm);
+  margin: 1.5rem 0;
+}
+
+.doc-content .el-table th.el-table__cell {
+  font-weight: 600;
+}
+
+/* EP ships `word-break: break-all` on table cells, which slices English words
+   in half mid-table. Prefer breaking at spaces, only breaking inside a word
+   when there is genuinely no other option (e.g. a long URL). */
+.doc-content .el-table .cell {
+  word-break: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+/* --- CodeMirror ------------------------------------------------------- */
+/* CodeMirror 6 injects its theme as a JS extension, so CSS custom properties
+   cannot reach the token colours inside the editor — a real dark theme needs a
+   JS theme extension, which is out of scope here. What we *can* own is the
+   frame around it, which is enough to make it stop looking like a raw widget. */
+.doc-content .cm-editor {
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  font-size: 0.875rem;
+  margin: 1.5rem 0;
+}
+
+.doc-content .cm-editor.cm-focused {
+  outline: none;
+  border-color: var(--brand-400);
+  box-shadow: 0 0 0 3px var(--brand-ring);
+}
+
+.doc-content .cm-gutters {
+  background-color: var(--surface-1);
+  border-right: 1px solid var(--border-1);
+  color: var(--ink-400);
+}
+
+/* --- Element Plus leftovers ------------------------------------------- */
+/* `el-link type="success"` renders EP's green, which is a fourth accent on a
+   two-accent site. Nudge it to the brand colour where it appears in docs. */
+.doc-content .el-link.el-link--success {
+  --el-link-text-color: var(--brand-600);
+  --el-link-hover-text-color: var(--brand-500);
+}

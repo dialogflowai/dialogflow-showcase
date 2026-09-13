@@ -2,8 +2,6 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import MarkdownIt from 'markdown-it'
-import LanguageSwitcher from '../../LanguageSwitcher.vue';
-import ClarityLanguageLine from '~icons/clarity/language-line'
 
 const { t, tm, rt } = useI18n();
 const md = new MarkdownIt()
@@ -48,32 +46,14 @@ img {
   gap: 10px;
 }
 
-.markdown :deep(p) {
-    /* margin: 0.5em 0; */
-    line-height: 1.6;
-}
-
-.markdown :deep(ol) {
-    margin: 0;
-    padding: 0;
-}
-
-.markdown :deep(code) {
-    background: #f2f2f2;
-    padding: 2px 6px;
-    border-radius: 8px;
-    font-family: monospace;
-}
-
-.markdown :deep(pre) {
-    background: #f8f8f8;
-    padding: 10px;
-    overflow-x: auto;
-    border-radius: 6px;
-}
+/* The `.markdown :deep(...)` block that used to live here has been removed.
+   It compiled to (0,2,1) — `:deep()` contributes the parent's scope attribute
+   *plus* the descendant — which outranked the (0,1,1) rules in the global
+   `doc-prose.css` sheet. Leaving it in would have kept tutorial code blocks
+   light grey while the API pages' `<pre>` turned dark, producing a new
+   inconsistency between two doc sections. */
 </style>
 <template>
-    <LanguageSwitcher />
     <div class="how-to-use">
         <h1>{{ title || '教程指南' }}</h1>
         <p>{{ desc || '教程指南' }}</p>

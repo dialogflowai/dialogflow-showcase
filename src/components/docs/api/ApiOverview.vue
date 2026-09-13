@@ -82,9 +82,11 @@ const res = ref(`{
     <h1>Program interface integration guide</h1>
     <p>This tool provides an API based on the HTTP protocol</p>
     <h3>Request url</h3>
-    <pre class="bg-#eee">
-            POST http://&lt;IP&gt;:&lt;port&gt;/flow/answer
-        </pre>
+    <!-- The `bg-#eee` utility is gone: `pre` styling is owned by
+         `doc-prose.css` now. The opening tag sits flush against the content
+         because whitespace inside `<pre>` is significant — the old indentation
+         rendered as a block of leading spaces. -->
+    <pre>POST http://&lt;IP&gt;:&lt;port&gt;/flow/answer</pre>
     <h3>Request body</h3>
     <code-mirror basic :lang="langJson" :linter="linter" v-model="requestBody" />
     <h3>Field detail</h3>

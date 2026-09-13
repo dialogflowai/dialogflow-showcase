@@ -1,14 +1,59 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* Global element defaults. Design tokens live in `theme.css`, which is
+   imported after this file — see the note on import order in `main.js`. */
+
+*,
+*::before,
+*::after {
+  /* Without this, `width: 100%` plus padding overflows its parent, which is
+     the root cause of several of the old layout's inconsistencies. */
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  /* min-height: 100vh; */
-  transition: color 0.5s, background-color 0.5s;
+  margin: 0;
+  padding: 0;
+  background-color: var(--surface-0);
+  color: var(--ink-700);
   line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  /* font-size: 12px; */
+  font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin:0;
-  padding: 0;
+}
+
+/* Chinese text needs a looser line box than Latin to stay comfortable: the
+   glyphs fill their em box much more completely, so the same line-height reads
+   noticeably tighter. This only ever matched when `<html lang>` was accurate,
+   which is why `i18n.js` now keeps it in sync. */
+:lang(zh) body {
+  line-height: 1.8;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink-900);
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 0 0 0.6em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+img {
+  max-width: 100%;
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
 }

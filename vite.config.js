@@ -17,15 +17,6 @@ import viteImagemin from 'vite-plugin-imagemin'
 
 const pathSrc = path.resolve(__dirname, 'src')
 
-function manualChunks(id) {
-  console.log(id);
-  if (id.includes('antv')) {
-    return 'antv';
-  } else {
-    return 'index';
-  }
-}
-
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
   const env = loadEnv(mode, __dirname)
@@ -46,7 +37,11 @@ export default ({ command, mode }) => {
       visualizer(),
       AutoImport({
         resolvers: [
-          ElementPlusResolver(),
+          // `importStyle: 'sass'` is required here too, not just in Components()
+          // below. AutoImport handles functional components (ElMessageBox,
+          // ElMessage, ...); leaving it on the default 'css' would give those
+          // the precompiled blue theme while the rest of the site is indigo.
+          ElementPlusResolver({ importStyle: 'sass' }),
           IconsResolver({
             prefix: 'Icon',
           }),
@@ -55,7 +50,7 @@ export default ({ command, mode }) => {
       }),
       Components({
         resolvers: [
-          ElementPlusResolver(),
+          ElementPlusResolver({ importStyle: 'sass' }),
           IconsResolver({
             enabledCollections: ['ep'],
           }),
@@ -101,6 +96,17 @@ export default ({ command, mode }) => {
     define: {
       // 'process.env': env,
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // Injected into every SCSS entry so Element Plus picks up our theme.
+          // `src/styles/element/index.scss` only does `@forward ... with`, and
+          // is itself reached through Sass's own @use resolution (not as a Vite
+          // entry), so this cannot recurse into itself.
+          additionalData: `@use "@/styles/element/index.scss" as *;`,
+        },
+      },
+    },
     build: {
       rollupOptions: {
         output: {
@@ -128,6 +134,15 @@ export default ({ command, mode }) => {
               return 'index';
             }
             */
+            // Split vendor code per package. pnpm stores real packages under
+            // `node_modules/.pnpm/<name>@<version>/node_modules/<name>/...`, so
+            // the naive "first segment after node_modules" would lump every
+            // dependency into one giant `.pnpm` chunk. Match the innermost
+            // package directory instead, which handles both layouts.
+            const pnpm = id.match(/node_modules\/\.pnpm\/[^/]+\/node_modules\/((?:@[^/]+\/)?[^/]+)/);
+            if (pnpm) {
+              return pnpm[1];
+            }
             if (id.includes('node_modules')) {
               return id.toString().split('node_modules/')[1].split('/')[0].toString();
             }
