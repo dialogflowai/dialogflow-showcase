@@ -430,5 +430,14 @@ export default {
                 img: 'SimpleNotifyRobot8.png'
             }],
         },
-    }
+    },
+  notFound: {
+    badge: "Oops",
+    title: "This page has gone missing",
+    desc: "The page you are looking for does not exist, or has been moved or removed.",
+    pathLabel: "Requested",
+    backHome: "Go to Home",
+    goBack: "Go back",
+    hint: "If you believe the link is correct, please contact your administrator.",
+  },
 }

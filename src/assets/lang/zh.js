@@ -430,5 +430,14 @@ export default {
                 img: 'SimpleNotifyRobot8.png'
             }],
         }
-    }
+    },
+  notFound: {
+    badge: "出错了",
+    title: "页面走丢了",
+    desc: "您访问的页面不存在，或者已经被移动、删除了。",
+    pathLabel: "访问地址",
+    backHome: "返回首页",
+    goBack: "返回上一页",
+    hint: "如果确认链接无误，请联系管理员处理。",
+  },
 }
