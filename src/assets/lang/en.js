@@ -233,6 +233,7 @@ export default {
         feature: 'Feature',
         community: 'Community',
         enterprise: 'Enterprise',
+        gov: 'Gov & Enterprise',
         included: 'Included',
         notIncluded: 'Not included',
     },
